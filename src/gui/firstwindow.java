@@ -29,7 +29,7 @@ public class firstwindow extends Application {
         Parent root;
         try {
             root = FXMLLoader.load(getClass().getResource("AjouterC.FXML"));
-            Scene scene = new Scene(root, 300, 250);
+            Scene scene = new Scene(root);
         
         primaryStage.setTitle("gestion centre!");
         primaryStage.setScene(scene);
