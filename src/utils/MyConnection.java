@@ -19,7 +19,7 @@ public class MyConnection {
     public Connection getConn() {
         return conn;
     }
-    String url="jdbc:mysql://localhost:3306/help";
+    String url="jdbc:mysql://localhost:3306/apexhelpex";
     String user="root";
     String pwd="";
     private MyConnection(){

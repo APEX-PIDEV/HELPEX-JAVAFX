@@ -105,7 +105,7 @@ table();    }
           ObservableList<Centre> centres = FXCollections.observableArrayList();
        try
        {
-           pst = conn.prepareStatement("select id,nomCentre,adresseCentre,emailCentre,telephoneCentre,siteWebCentre FROM `centre`");  
+           pst = conn.prepareStatement("select id,nom_centre,adresse_centre,email_centre,telephone_centre,site_web_centre FROM `centre`");  
            ResultSet rs = pst.executeQuery();
       {
         while (rs.next())
@@ -113,11 +113,11 @@ table();    }
             Centre st = new Centre();
             st.setId(rs.getInt("id"));
           
-            st.setNomCentre(rs.getString("nomCentre"));
-            st.setAdresseCentre(rs.getString("adresseCentre"));
-            st.setEmailCentre(rs.getString("emailCentre"));
-                        st.setTelephoneCentre(rs.getInt("telephoneCentre"));
-                        st.setSiteWebCentre(rs.getString("siteWebCentre"));
+            st.setNomCentre(rs.getString("nom_centre"));
+            st.setAdresseCentre(rs.getString("adresse_centre"));
+            st.setEmailCentre(rs.getString("email_centre"));
+                        st.setTelephoneCentre(rs.getInt("telephone_centre"));
+                        st.setSiteWebCentre(rs.getString("site_web_centre"));
 
             centres.add(st);
        }

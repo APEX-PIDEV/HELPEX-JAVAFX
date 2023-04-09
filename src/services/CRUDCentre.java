@@ -31,7 +31,7 @@ public class CRUDCentre implements InterfaceCentre{
     @Override
     public void ajouterCentre(Centre c) {
         try {
-                    String req="INSERT INTO `centre`(`nomCentre`, `adresseCentre`, `emailCentre`, `telephoneCentre`, `siteWebCentre`) VALUES ('"+c.getNomCentre()+"','"+c.getAdresseCentre()+"','"+c.getEmailCentre()+"','"+c.getTelephoneCentre()+"','"+c.getSiteWebCentre()+"')";
+                    String req="INSERT INTO `centre`(`nom_centre`, `adresse_centre`, `email_centre`, `telephone_centre`, `site_web_centre`) VALUES ('"+c.getNomCentre()+"','"+c.getAdresseCentre()+"','"+c.getEmailCentre()+"','"+c.getTelephoneCentre()+"','"+c.getSiteWebCentre()+"')";
 
             ste=conn.createStatement();
                 ste.executeUpdate(req);
@@ -49,7 +49,7 @@ public class CRUDCentre implements InterfaceCentre{
     @Override
     public void modifierCentre(Centre c,String nomCentre,String adresseCentre,String emailCentre,int telephoneCentre,String siteWebCentre) {
         try {
-   String requete4 = " UPDATE centre SET " + "  nomCentre= ?, adresseCentre = ?, emailCentre  = ?, telephoneCentre = ?, siteWebCentre = ? WHERE id= " + c.getId();
+   String requete4 = " UPDATE centre SET " + "  nom_centre= ?, adresse_centre = ?, email_centre  = ?, telephone_centre = ?, site_web_centre = ? WHERE id= " + c.getId();
             PreparedStatement pst = MyConnection.getInstance().getConn().prepareStatement(requete4);
             pst.setString(1, nomCentre);
             pst.setString(2, adresseCentre);
