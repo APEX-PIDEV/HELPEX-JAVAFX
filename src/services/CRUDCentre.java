@@ -8,6 +8,7 @@ package services;
 import entities.Centre;
 import interfaces.InterfaceCentre;
 import java.sql.Connection;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
@@ -15,6 +16,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javafx.scene.control.Alert;
 import utils.MyConnection;
 
 /**
@@ -45,8 +47,21 @@ public class CRUDCentre implements InterfaceCentre{
     }
 
     @Override
-    public void modifierCentre(Centre c) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public void modifierCentre(Centre c,String nomCentre,String adresseCentre,String emailCentre,int telephoneCentre,String siteWebCentre) {
+        try {
+   String requete4 = " UPDATE centre SET " + "  nomCentre= ?, adresseCentre = ?, emailCentre  = ?, telephoneCentre = ?, siteWebCentre = ? WHERE id= " + c.getId();
+            PreparedStatement pst = MyConnection.getInstance().getConn().prepareStatement(requete4);
+            pst.setString(1, nomCentre);
+            pst.setString(2, adresseCentre);
+            pst.setString(3, emailCentre);
+            pst.setInt(4, telephoneCentre);
+            pst.setString(5, siteWebCentre);
+            pst.executeUpdate();
+            System.out.println("centre modifié !");
+
+        } catch (SQLException ex) {
+            System.err.println(ex.getMessage());
+        }
     }
 
     @Override

@@ -170,11 +170,32 @@ NOMColumn.setCellValueFactory(f -> new SimpleStringProperty(f.getValue().getNomC
 
     @FXML
     private void Delete(ActionEvent event) {
-        
+CRUDCentre  rcd = new  CRUDCentre ();
+           Centre c= new Centre();
+              c= table.getSelectionModel().getSelectedItem();
+              rcd.supprimerCentre(c);
+              table();
     }
 
     @FXML
     private void Update(ActionEvent event) {
+       CRUDCentre rc = new CRUDCentre();
+        String var1=txtNom.getText();
+        String var2=txtEmail.getText();
+        String var3=txtSiteweb.getText();
+        String var4=txtTelephone.getText();
+        int var5=Integer.parseInt(var4);
+        String var6=txtAdresse.getText();
+       Centre r =new Centre();
+        r.setNomCentre(var1);
+      r.setEmailCentre(var2);
+      r.setSiteWebCentre(var3);
+      r.setTelephoneCentre(var5);
+      r.setAdresseCentre(var6);
+        r=table.getSelectionModel().getSelectedItem();
+        rc.modifierCentre(r,var1,var6,var2,var5,var3);
+       table();
+        
     }
     
 }

@@ -15,7 +15,7 @@ import java.util.List;
 public interface InterfaceCentre {
     public void ajouterCentre(Centre c);
         public void ajouterCentre2(Centre c);
-        public void modifierCentre(Centre c);
+        public void modifierCentre(Centre c,String nomCentre,String adresseCentre,String emailCentre,int telephoneCentre,String siteWebCentre);
         public void supprimerCentre(Centre c);
         public List<Centre> affichercentre();
 
