@@ -75,7 +75,13 @@ String req1 = "Select * from `user` WHERE roles='[\"ROLE_USER\"]'" ;        stm 
 
     @Override
     public void delete(User u) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        try{
+String req = "DELETE FROM `user` WHERE `email` = \"" + u.getEmail() + "\"; ";
+        stm = con.createStatement();
+        stm.executeUpdate(req);   }
+    catch(SQLException ex){
+        System.err.println(ex.getMessage());
+        }
     }
 
     @Override

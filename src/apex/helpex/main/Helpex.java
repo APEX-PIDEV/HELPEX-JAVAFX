@@ -26,7 +26,8 @@ public class Helpex {
 
         User client = new User("client@example.com", "","5555", "mim", "Mo", "Femme", "Gob", "55655853", "fjfj", "fhhf", date2 , 1);
         //System.out.println(U.afficherClients());
-        U.registerClient(client);
+        U.delete(client);
+      //  U.registerClient(client);
         
     }
 }
