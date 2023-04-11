@@ -18,6 +18,8 @@ public class Formation {
     private String duree;
     private Centre idCentre;
 
+    public Formation(){
+    }
     public Formation(String nomFormation, String descriptionFormation, float coutFormation, int NombreDePlace, String duree) {
         this.nomFormation = nomFormation;
         this.descriptionFormation = descriptionFormation;

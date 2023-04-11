@@ -5,10 +5,14 @@
         <group>
             <file>file:/C:/Users/ASUS/OneDrive/Documents/GitHub/HELPEX-JAVAFX/src/interfaces/InterfaceFormation.java</file>
             <file>file:/C:/Users/ASUS/OneDrive/Documents/GitHub/HELPEX-JAVAFX/src/services/CRUDCentre.java</file>
+            <file>file:/C:/Users/ASUS/OneDrive/Documents/GitHub/HELPEX-JAVAFX/src/gui/AjouterFormationController.java</file>
             <file>file:/C:/Users/ASUS/OneDrive/Documents/GitHub/HELPEX-JAVAFX/src/entities/Formation.java</file>
             <file>file:/C:/Users/ASUS/OneDrive/Documents/GitHub/HELPEX-JAVAFX/src/help/Help.java</file>
+            <file>file:/C:/Users/ASUS/OneDrive/Documents/GitHub/HELPEX-JAVAFX/src/gui/AjouterFormation.fxml</file>
             <file>file:/C:/Users/ASUS/OneDrive/Documents/GitHub/HELPEX-JAVAFX/src/services/CRUDFormation.java</file>
-            <file>file:/C:/Users/ASUS/OneDrive/Documents/GitHub/HELPEX-JAVAFX/src/interfaces/InterfaceCentre.java</file>
+            <file>file:/C:/Users/ASUS/OneDrive/Documents/GitHub/HELPEX-JAVAFX/src/gui/firstwindow.java</file>
+            <file>file:/C:/Users/ASUS/OneDrive/Documents/GitHub/HELPEX-JAVAFX/src/entities/Centre.java</file>
+            <file>file:/C:/Users/ASUS/OneDrive/Documents/GitHub/HELPEX-JAVAFX/src/gui/AjouterCController.java</file>
         </group>
     </open-files>
 </project-private>

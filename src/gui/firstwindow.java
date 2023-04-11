@@ -28,7 +28,7 @@ public class firstwindow extends Application {
     public void start(Stage primaryStage) {
         Parent root;
         try {
-            root = FXMLLoader.load(getClass().getResource("AjouterC.FXML"));
+            root = FXMLLoader.load(getClass().getResource("AjouterFormation.FXML"));
             Scene scene = new Scene(root);
         
         primaryStage.setTitle("gestion centre!");

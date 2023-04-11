@@ -27,8 +27,8 @@ public class Help {
         
         Formation f = new Formation("test","test", 11, 44, "test", c);
         CRUDFormation formation1=new CRUDFormation();
-        formation1.ajouterFormation(f);
-        formation1.modifierFormation(f,"test","xx", 11, 44, "test");
+        //formation1.ajouterFormation(f);
+       // formation1.modifierFormation(f,"test","xx", 11, 44, "test");
         CRUDCentre centre1=new  CRUDCentre() ;
         
       //  centre1.ajouterCentre(c);
