@@ -86,8 +86,33 @@ String req = "DELETE FROM `user` WHERE `email` = \"" + u.getEmail() + "\"; ";
 
     @Override
     public void updateProfile(User u) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
+        try{
+ String req = "UPDATE `user` SET "
+                + " `nom` = '" + u.getNom() + "', "
+                + " `prenom` = '" + u.getPrenom() + "', "
+                + " `adresse` = '" + u.getAdresse() + "', "
+                + " `num_tel` = '" + u.getNum_tel() + "', "
+                + " `pdp` = '" + u.getPdp() + "', "
+                + " `bio` = '" + u.getBio() + "' "
+              
+         
+                + "WHERE `email` = '" + u.getEmail() + "'";
+        if ("[\"ROLE_PRO\"]".equals(u.getRoles())) {
+            req = "UPDATE `user` SET "
+                    + " `nom` = '" + u.getNom() + "', "
+                + " `prenom` = '" + u.getPrenom() + "', "
+                + " `adresse` = '" + u.getAdresse() + "', "
+                + " `num_tel` = '" + u.getNum_tel() + "', "
+                + " `pdp` = '" + u.getPdp() + "', "
+                + " `bio` = '" + u.getBio() + "', "
+                + " `tarif` = '" + u.getTarif() + "'"
+                     + "WHERE `email` = '" + u.getEmail() + "'";
+        }
+        stm = con.createStatement();
+        stm.executeUpdate(req); }
+    catch(SQLException ex){
+        System.err.println(ex.getMessage());
+        }}
 
     @Override
     public void registerPro(User u) {

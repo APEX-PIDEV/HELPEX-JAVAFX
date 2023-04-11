@@ -22,12 +22,15 @@ public class Helpex {
         //DB db= new DB();
         UserService U= new UserService();
         Date date2 = Date.valueOf("2000-10-11");
-        //User pro = new User("pro@example.com", "[\"ROLE_PRO\"]","5555", "mim", "Mo", "Femme", "Gob", "55655853", "fjfj", "fhhf", date2 , "hhhhhhh", 55, 1);
+        User pro = new User("pro@example.com", "[\"ROLE_PRO\"]","17777", "MARRRRRR", "Mo", "Femme", "Gob", "55655853", "fjfj", "fhhf", date2 , "hhhhhhh", 88888, 1);
 
-        User client = new User("client@example.com", "","5555", "mim", "Mo", "Femme", "Gob", "55655853", "fjfj", "fhhf", date2 , 1);
+        //User client = new User("client@example.com", "","777777777", "mim", "Mo", "Femme", "Gob", "55655853", "fjfj", "fhhf", date2 , 1);
         //System.out.println(U.afficherClients());
-        U.delete(client);
+       // U.delete(client);
       //  U.registerClient(client);
+             U.updateProfile(pro);
+
+             
         
     }
 }
