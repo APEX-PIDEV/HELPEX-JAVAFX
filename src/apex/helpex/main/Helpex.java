@@ -8,7 +8,14 @@ package apex.helpex.main;
 import apex.helpex.services.UserService;
 import apex.helpex.utils.DB;
 import apex.helpex.entities.User;
+import java.io.IOException;
 import java.sql.Date;
+
+import javafx.application.Application;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.stage.Stage;
 
 
 
@@ -17,8 +24,8 @@ import java.sql.Date;
  *
  * @author Asus-PC
  */
-public class Helpex {
-     public static void main(String[] args) {
+public class Helpex extends Application {
+    // public static void main(String[] args) {
         //DB db= new DB();
        // UserService U= new UserService();
        // Date date2 = Date.valueOf("2000-10-11");
@@ -32,5 +39,27 @@ public class Helpex {
 
              
         
+   // }
+    
+    /**
+     * @param args the command line arguments
+     */
+    
+     @Override
+    public void start(Stage primaryStage)  {
+       try{
+        Parent root = FXMLLoader.load(getClass().getResource("/apex/helpex/GUI/SignUpPro.fxml"));
+        Scene scene = new Scene(root);
+        
+        primaryStage.setTitle("SignUp Pro");
+        primaryStage.setScene(scene);
+        primaryStage.show();
+       } catch(IOException ex) {
+              System.out.println(ex.getMessage());
+       }
+    }
+    
+     public static void main(String[] args) {
+        launch(args);
     }
 }

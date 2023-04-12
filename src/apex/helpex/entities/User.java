@@ -104,6 +104,10 @@ public class User {
         
         this.is_enabled = is_enabled ;
 }
+
+    public User() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
     
     public int getId() {
         return id;

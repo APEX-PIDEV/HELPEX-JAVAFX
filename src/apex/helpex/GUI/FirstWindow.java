@@ -23,7 +23,7 @@ import javafx.stage.Stage;
 public class FirstWindow extends Application {
     
     @Override
-    public void start(Stage primaryStage) throws IOException {
+    public void start(Stage primaryStage)  {
        try{
         Parent root = FXMLLoader.load(getClass().getResource("SignUpPro.fxml"));
         Scene scene = new Scene(root);

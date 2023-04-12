@@ -17,6 +17,8 @@ import java.util.List;
 import apex.helpex.main.Helpex;
 import apex.helpex.utils.DB;
 import apex.helpex.utils.BcryptHasher;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 
 
@@ -173,5 +175,16 @@ String req = "DELETE FROM `user` WHERE `email` = \"" + u.getEmail() + "\"; ";
         }
     }
     
-    
+    public boolean isEmailTaken(String email) {
+        try {
+            String req = "select count(*) from `user` WHERE `email` = \"" + email + "\"; ";
+            stm = con.createStatement();
+            ResultSet result = stm.executeQuery(req);
+            result.next();
+            return result.getInt(1) > 0;
+        } catch (SQLException ex) {
+            Logger.getLogger(UserService.class.getName()).log(Level.SEVERE, null, ex);
+            return false;
+        }
+    } 
 }
