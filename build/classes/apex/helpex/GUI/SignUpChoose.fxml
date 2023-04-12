@@ -15,7 +15,10 @@
       </ImageView>
       <Pane layoutX="317.0" layoutY="82.0" prefHeight="504.0" prefWidth="763.0" style="-fx-background-color: #def8f6;" AnchorPane.bottomAnchor="84.39999999999998" AnchorPane.leftAnchor="317.0" AnchorPane.rightAnchor="122.79999999999995" AnchorPane.topAnchor="82.0">
          <children>
-            <Pane layoutX="-4.0" prefHeight="504.0" prefWidth="392.0" style="-fx-background-color: white;" />
+            <Pane layoutX="-4.0" prefHeight="504.0" prefWidth="392.0" style="-fx-background-color: white;">
+               <children>
+                  <Button layoutX="-41.0" layoutY="24.0" mnemonicParsing="false" onAction="#back" prefHeight="30.0" prefWidth="83.0" style="-fx-background-color: #def8f6;" text="Back" />
+               </children></Pane>
             <ImageView fitHeight="231.0" fitWidth="339.0" layoutX="46.0" layoutY="91.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../images/helpex.png" />
@@ -26,8 +29,8 @@
                   <Image url="@../images/helpexpro.png" />
                </image>
             </ImageView>
-            <Button layoutX="87.0" layoutY="326.0" mnemonicParsing="false" prefHeight="56.0" prefWidth="257.0" style="-fx-background-color: #21cdc0;" text="Créer un compte Client Helpex" />
-            <Button layoutX="437.0" layoutY="326.0" mnemonicParsing="false" prefHeight="56.0" prefWidth="257.0" style="-fx-background-color: #21cdc0;" text="Créer un compte Partenaire Helpex" />
+            <Button layoutX="87.0" layoutY="326.0" mnemonicParsing="false" onAction="#client" prefHeight="56.0" prefWidth="257.0" style="-fx-background-color: #21cdc0;" text="Créer un compte Client Helpex" />
+            <Button layoutX="437.0" layoutY="326.0" mnemonicParsing="false" onAction="#pro" prefHeight="56.0" prefWidth="257.0" style="-fx-background-color: #21cdc0;" text="Créer un compte Partenaire Helpex" />
          </children></Pane>
    </children>
 </AnchorPane>

@@ -25,10 +25,10 @@ public class FirstWindow extends Application {
     @Override
     public void start(Stage primaryStage)  {
        try{
-        Parent root = FXMLLoader.load(getClass().getResource("SignUpCli.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("Login.fxml"));
         Scene scene = new Scene(root);
         
-        primaryStage.setTitle("SignUp");
+        primaryStage.setTitle("Login");
         primaryStage.setScene(scene);
         primaryStage.show();
        } catch(IOException ex) {

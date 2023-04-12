@@ -83,6 +83,7 @@
                </image>
             </ImageView>
             <Label fx:id="errormsg" layoutX="55.0" layoutY="495.0" prefHeight="26.0" prefWidth="675.0" style="-fx-background-color: #FFE4E1;" visible="false" />
+            <Button layoutX="-26.0" layoutY="46.0" mnemonicParsing="false" onAction="#back" prefHeight="35.0" prefWidth="97.0" text="Back" />
          </children></Pane>
    </children>
 </AnchorPane>
