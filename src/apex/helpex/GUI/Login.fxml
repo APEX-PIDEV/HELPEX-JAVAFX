@@ -12,7 +12,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane id="AnchorPane" prefHeight="670.0" prefWidth="1203.0" style="-fx-background-size: auto; -fx-background-position: center;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="apex.helpex.GUI.SignUpController">
+<AnchorPane id="AnchorPane" prefHeight="670.0" prefWidth="1203.0" style="-fx-background-size: auto; -fx-background-position: center;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="apex.helpex.GUI.LoginController">
    <children>
       <ImageView fitHeight="678.0" fitWidth="580.0" layoutX="664.0" opacity="0.9" pickOnBounds="true" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="664.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <image>
@@ -22,19 +22,19 @@
       <Pane prefHeight="670.0" prefWidth="661.0" style="-fx-background-color: #435ba1;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="542.0" AnchorPane.topAnchor="0.0" />
       <Pane layoutX="58.0" layoutY="61.0" opacity="0.96" prefHeight="556.0" prefWidth="764.0" style="-fx-background-color: white; -fx-background-radius: 10px;" AnchorPane.bottomAnchor="61.0" AnchorPane.leftAnchor="58.0" AnchorPane.rightAnchor="422.0" AnchorPane.topAnchor="61.0">
          <children>
-            <Label layoutX="76.0" layoutY="213.0" prefHeight="59.0" prefWidth="100.0" text="Email">
+            <Label layoutX="141.0" layoutY="198.0" prefHeight="59.0" prefWidth="100.0" text="Email">
                <font>
                   <Font name="SansSerif Regular" size="12.0" />
                </font>
             </Label>
-            <Label layoutX="120.0" layoutY="286.0" text="Mot de passe" />
-            <TextField layoutX="301.0" layoutY="271.0" prefHeight="46.0" prefWidth="360.0" />
-            <TextField layoutX="301.0" layoutY="204.0" prefHeight="46.0" prefWidth="360.0" />
-            <Button layoutX="393.0" layoutY="350.0" mnemonicParsing="false" prefHeight="39.0" prefWidth="152.0" style="-fx-background-color: #def8f6;" text="Log In" />
-            <Label layoutX="114.0" layoutY="149.0" prefHeight="29.0" prefWidth="546.0" style="-fx-background-color: #def8f6;" text="ERRORMSG" textAlignment="CENTER" />
-            <HBox layoutX="259.0" layoutY="453.0" prefHeight="29.0" prefWidth="332.0">
+            <Label layoutX="132.0" layoutY="280.0" prefHeight="29.0" prefWidth="100.0" text="Mot de passe" />
+            <TextField fx:id="mdp" layoutX="301.0" layoutY="271.0" prefHeight="46.0" prefWidth="360.0" />
+            <TextField fx:id="email" layoutX="301.0" layoutY="204.0" prefHeight="46.0" prefWidth="360.0" />
+            <Button fx:id="btnlogin" layoutX="393.0" layoutY="350.0" mnemonicParsing="false" onAction="#Login" prefHeight="39.0" prefWidth="152.0" style="-fx-background-color: #def8f6;" text="Log In" />
+            <Label layoutX="114.0" layoutY="149.0" prefHeight="29.0" prefWidth="546.0" style="-fx-background-color: #def8f6;" textAlignment="CENTER" visible="false" />
+            <HBox layoutX="259.0" layoutY="453.0" prefHeight="29.0" prefWidth="360.0">
                <children>
-                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Mot de passe oublié? " wrappingWidth="133.83905029296875" />
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Mot de passe oublié? " wrappingWidth="150.6390380859375" />
                   <Hyperlink text="Reintialiser votre mot de passe." />
                </children>
             </HBox>
@@ -43,10 +43,10 @@
                   <Image url="@../../../../../../../Desktop/3A35/Pi%20Dev/postintegCrud/HELPEX-main/HELPEX-main/public/images/helpex.png" />
                </image>
             </ImageView>
-            <HBox layoutX="274.0" layoutY="495.0" prefHeight="29.0" prefWidth="272.0">
+            <HBox layoutX="274.0" layoutY="495.0" prefHeight="29.0" prefWidth="316.0">
                <children>
                   <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Vous n'avez pas de compte?" wrappingWidth="165.03900146484364" />
-                  <Hyperlink text="Créer un compte." />
+                  <Hyperlink prefHeight="24.0" prefWidth="147.0" text="Créer un compte." />
                </children>
             </HBox>
          </children>
