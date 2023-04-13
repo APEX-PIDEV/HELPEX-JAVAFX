@@ -3,13 +3,15 @@ package Interfaces;
 
 import entites.Item;
 import entites.Tasks;
+
+import java.sql.SQLException;
 import java.util.ArrayList;
 
 public interface InterfaceTasks {
 
     public void AjouterTask(Tasks tasks) ;
-    public  void EditerTask( Tasks tasks) ;
-    public  void SupprimerTask(int id);
+    public  void EditerTask( Tasks tasks,int id) ;
+    public  void SupprimerTask(int id) throws SQLException;
   // for admin
     public ArrayList<Tasks> listerTasks ();
     // for user

@@ -40,12 +40,34 @@ public class TasksService implements InterfaceTasks {
     }
 
     @Override
-    public void EditerTask(Tasks tasks) {
+    public void EditerTask(Tasks tasks ,int id ) {
+        String req ="UPDATE `tasks` SET `titre`= ?,`start_date`= ?,`end_date`= ?,`is_valid`= ? WHERE id= ?" ;
+        try {
+            PreparedStatement pst = ConnexionJDBC.getInstance().getCnx()
+                    .prepareStatement(req);
+            pst.setString(1, tasks.getTitre());
+            pst.setDate(2,tasks.getStart_date());
+            pst.setDate(3, tasks.getEnd_date());
+            pst.setBoolean(4, tasks.isIs_valid());
+            pst.setInt(5, id);
+            pst.executeUpdate();
+            System.out.println("Done MODIFICATION TASK !");
+
+
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
 
     }
 
     @Override
-    public void SupprimerTask(int id) {
+    public void SupprimerTask(int id) throws SQLException {
+        String sql = "DELETE FROM Tasks WHERE id= '"+id+"'";
+
+            PreparedStatement pst = ConnexionJDBC.getInstance().getCnx().prepareStatement(sql);
+            Statement st = ConnexionJDBC.getInstance().getCnx().createStatement();
+            st.executeUpdate(sql);
+            System.out.println("le task :  " +"  "+id+" " +"est supprimer avec succés...");
 
     }
 

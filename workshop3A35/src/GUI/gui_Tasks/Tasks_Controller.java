@@ -14,6 +14,8 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Node;
+import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.CheckBoxTableCell;
@@ -65,8 +67,45 @@ public class Tasks_Controller implements Initializable {
     VBox vBox = new VBox();
     TasksService tasksService = new TasksService();
     ArrayList<Tasks> listTasks= tasksService.listerTasks();
+    @FXML
+    private  Label tasksSideNav ;
+    @FXML
+    private VBox vboxUltimit ;
 
 
+    private  Scene scene ;
+    private Stage stage;
+    @FXML
+    public void switching()  {
+
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("TasksGui_info.fxml"));
+            Parent root = loader.load();
+            Scene newScene = new Scene(root);
+            Stage currentStage = (Stage) tasksSideNav.getScene().getWindow();
+            currentStage.setScene(newScene);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+
+
+    }
+    @FXML
+    public void switching1(ActionEvent event)  {
+        Parent root = null;
+        try {
+            root = FXMLLoader.load(getClass().getResource("GUI_Tasks.fxml"));
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+        stage =(Stage)((Node)event.getSource()).getScene().getWindow();
+        scene = new Scene(root);
+        stage.setScene(scene);
+        stage.show();
+
+
+    }
     public void TEMPScONTROLLERmAKER (){
         ObservableList<Integer> items = FXCollections.observableArrayList (
                 0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24);
