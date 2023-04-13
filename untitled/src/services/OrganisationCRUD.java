@@ -26,9 +26,9 @@ public class OrganisationCRUD implements OrganisationInterface {
     }
 
     @Override
-    public void modifierOrg(Organisation organisation, String description, String email, String numero_tel, String document, String payment_info, String nom, String logo) {
+    public void modifierOrg(int organisationID, String description, String email, String numero_tel, String document, String payment_info, String nom, String logo) {
         try {
-            String requete = " UPDATE organisation SET " + "  description_organisation= ?, email_organisation = ?, num_tel_organisation  = ?, document_organisation = ?, payment_info = ?, nom_org = ?, logo_org = ? WHERE id= " + organisation.getId();
+            String requete = " UPDATE organisation SET " + "  description_organisation= ?, email_organisation = ?, num_tel_organisation  = ?, document_organisation = ?, payment_info = ?, nom_org = ?, logo_org = ? WHERE id= " + organisationID;
             PreparedStatement pst = MyConnection.getInstance().getConn().prepareStatement(requete);
             pst.setString(1, description);
             pst.setString(2, email);

@@ -23,6 +23,17 @@ public class Organisation {
         this.logo = logo;
     }
 
+    public Organisation(int id, String description, String email, String numero_tel, String document, String payment_info, String nom, String logo) {
+        this.id = id;
+        this.description = description;
+        this.email = email;
+        this.numero_tel = numero_tel;
+        this.document = document;
+        this.payment_info = payment_info;
+        this.nom = nom;
+        this.logo = logo;
+    }
+
     public int getId() {
         return id;
     }
