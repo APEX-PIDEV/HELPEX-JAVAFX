@@ -12,6 +12,7 @@ import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.image.Image;
 import javafx.stage.Stage;
 
 /**
@@ -29,9 +30,10 @@ public class FirstWindow extends Application {
         try {
 
             Parent  root = FXMLLoader.load(getClass().getResource("../GUI/gui_Tasks/GUI_Tasks.fxml"));
-            Scene scene = new Scene(root,800,500)
-                    ;
-            primaryStage.setTitle("titre");
+            Scene scene = new Scene(root,800,500);
+            Image icon = new Image("images/helpexpro.png");
+            primaryStage.getIcons().add(icon);
+            primaryStage.setTitle("Helpex");
             primaryStage.setScene(scene);
 
             primaryStage.setResizable(true);
