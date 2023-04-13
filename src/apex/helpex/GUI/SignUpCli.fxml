@@ -22,8 +22,8 @@
       </ImageView>
       <Pane layoutX="287.0" layoutY="44.0" prefHeight="600.0" prefWidth="814.0" style="-fx-background-color: #def8f6;" AnchorPane.bottomAnchor="26.0" AnchorPane.leftAnchor="287.0" AnchorPane.rightAnchor="102.0" AnchorPane.topAnchor="44.0">
          <children>
-            <Button fx:id="BtnSignupP" layoutX="210.0" layoutY="537.0" mnemonicParsing="false" onAction="#SignUpCli" prefHeight="42.0" prefWidth="395.0" style="-fx-background-color: #21cdc0;" text="Valider" />
-            <VBox layoutX="46.0" layoutY="266.0" prefHeight="229.0" prefWidth="329.0">
+            <Button fx:id="BtnSignupP" layoutX="211.0" layoutY="544.0" mnemonicParsing="false" onAction="#SignUpCli" prefHeight="42.0" prefWidth="395.0" style="-fx-background-color: #21cdc0;" text="Valider" />
+            <VBox layoutX="46.0" layoutY="249.0" prefHeight="229.0" prefWidth="329.0">
                <children>
                   <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Nom" />
                   <TextField fx:id="Unom" />
@@ -78,7 +78,7 @@
                   <Image url="@../images/helpexpro.png" />
                </image>
             </ImageView>
-            <Label fx:id="errormsg" layoutX="55.0" layoutY="495.0" prefHeight="26.0" prefWidth="675.0" style="-fx-background-color: #FFE4E1;" visible="false" />
+            <Label fx:id="errormsg" layoutX="55.0" layoutY="495.0" prefHeight="26.0" prefWidth="675.0" />
             <Button layoutX="-26.0" layoutY="45.0" mnemonicParsing="false" onAction="#back" prefHeight="33.0" prefWidth="87.0" text="Back" />
          </children></Pane>
    </children>

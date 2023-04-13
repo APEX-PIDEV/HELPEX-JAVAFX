@@ -187,4 +187,30 @@ String req = "DELETE FROM `user` WHERE `email` = \"" + u.getEmail() + "\"; ";
             return false;
         }
     } 
+    
+    
+    
+     public boolean login(String email, String password) {
+        try {
+            String req = "SELECT * FROM `user` WHERE `email` = \"" + email + "\"; ";
+            stm = con.createStatement();
+            ResultSet result = stm.executeQuery(req);
+            User user = new User();
+            while (result.next()) {
+                user = new User(result.getInt(1), result.getString("email"), result.getString("roles"), result.getString("password"),result.getInt("is_enabled"));
+            }
+            if (hasher.checkPassword(user.getPassword(), password)) {
+                Helpex.loggedUser = user;
+                return true;
+            } else {
+                return false;
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(UserService.class.getName()).log(Level.SEVERE, null, ex);
+            return false;
+        }
+    }
+    
+    
+    
 }

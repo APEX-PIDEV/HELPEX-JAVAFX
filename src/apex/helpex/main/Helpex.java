@@ -45,6 +45,9 @@ public class Helpex extends Application {
      * @param args the command line arguments
      */
     
+        public static User loggedUser = null;
+
+    
      @Override
     public void start(Stage primaryStage)  {
        try{

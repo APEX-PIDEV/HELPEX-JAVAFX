@@ -106,8 +106,14 @@ public class User {
 }
 
     public User() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
+
+    public User(int aInt, String string, String string0, String string1, int aInt0) {
+ this.id = aInt;
+        this.email = string;
+        this.roles = string0;
+        this.password = string1;
+        this.is_enabled = aInt0 ;    }
     
     public int getId() {
         return id;

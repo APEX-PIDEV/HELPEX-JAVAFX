@@ -5,15 +5,21 @@
  */
 package apex.helpex.GUI;
 
+import apex.helpex.entities.User;
+import apex.helpex.main.Helpex;
+import apex.helpex.services.UserService;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 
 /**
@@ -29,6 +35,8 @@ public class LoginController implements Initializable {
     private TextField email;
     @FXML
     private Button btnlogin;
+    @FXML
+    private Label errorMsg;
 
     /**
      * Initializes the controller class.
@@ -36,25 +44,58 @@ public class LoginController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
-    }    
+    }
 
     @FXML
     private void Login(ActionEvent event) {
+UserService us = new UserService();
+        if (email.getText().equals("") || mdp.getText().equals("")) {
+            errorMsg.setText("All fields are required!");
+        } else if (us.login(email.getText(), mdp.getText())) {
+            if (Helpex.loggedUser.getIs_enabled() == 0) {
+                errorMsg.setText("This account is banned!");
+                Helpex.loggedUser = new User();
+            } else {
+                errorMsg.setText("");
+                if (Helpex.loggedUser.getRoles().equals("[\"ROLE_ADMIN\"]")) {
+                    try {
+                        FXMLLoader loader = new FXMLLoader(getClass().getResource("Dashboard.fxml"));
+                        Parent root = loader.load();
+                        email.getScene().setRoot(root);
+                    } catch (IOException ex) {
+                        Logger.getLogger(LoginController.class.getName()).log(Level.SEVERE, null, ex);
+                    }
+                } else {
+                    try {
+                        FXMLLoader loader = new FXMLLoader(getClass().getResource("Front.fxml"));
+                        Parent root = loader.load();
+                        email.getScene().setRoot(root);
+                    } catch (IOException ex) {
+                        Logger.getLogger(LoginController.class.getName()).log(Level.SEVERE, null, ex);
+                    }
+                }
+            }
+        } else {
+            errorMsg.setText("Invalid credentials.");
+    }
     }
 
     void setemail(String email) {
-this.email.setText(email);    }
+        this.email.setText(email);
+    }
 
     @FXML
     private void signupchoose(ActionEvent event) {
-         FXMLLoader loader= new FXMLLoader(getClass().getResource("SignUpChoose.fxml")) ;
-              try {
-                  Parent root= loader.load();
-                  email.getScene().setRoot(root);
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("SignUpChoose.fxml"));
+        try {
+            Parent root = loader.load();
+            email.getScene().setRoot(root);
 
-              } catch (IOException ex) {
-        System.out.println("Error: "+ ex.getMessage());
-                }
+        } catch (IOException ex) {
+            System.out.println("Error: " + ex.getMessage());
+        }
     }
-    
+
 }
+
+

@@ -16,7 +16,7 @@
 <?import javafx.scene.text.Font?>
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="612.0" prefWidth="1177.0" style="-fx-background-color: #02030A;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="apex.helpex.GUI.DashboardController">
-   <children>
+ <children>
       <VBox alignment="TOP_CENTER" layoutX="-8.0" layoutY="-30.0" prefHeight="612.0" prefWidth="264.0" style="-fx-background-color: #05071F;" AnchorPane.bottomAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
             <ImageView fitHeight="73.0" fitWidth="67.0" pickOnBounds="true" preserveRatio="true">
@@ -177,30 +177,29 @@
                         </VBox>
                      </children>
                   </HBox>
-                  <HBox alignment="CENTER_LEFT" layoutX="33.0" layoutY="178.0" prefHeight="42.0" prefWidth="818.0" spacing="80.0" style="-fx-background-color: #02030A;">
+                  <HBox alignment="CENTER_LEFT" layoutX="33.0" layoutY="178.0" prefHeight="42.0" prefWidth="856.0" spacing="80.0" style="-fx-background-color: #02030A;">
                      <children>
-                        <Button contentDisplay="CENTER" defaultButton="true" mnemonicParsing="false" onAction="#AjouterInterface" prefHeight="26.0" prefWidth="25.0" text="+" wrapText="true" />
-                        <Label prefHeight="18.0" prefWidth="54.0" text="Nom" textFill="#e7e5e5">
+                        <Label prefHeight="18.0" prefWidth="82.0" text="Email" textFill="#e7e5e5">
                            <HBox.margin>
                               <Insets left="50.0" />
                            </HBox.margin>
                         </Label>
-                        <Label prefHeight="18.0" prefWidth="58.0" text="Email" textFill="#e7e5e5">
+                        <Label prefHeight="18.0" prefWidth="58.0" text="sexe" textFill="#e7e5e5">
                            <HBox.margin>
                               <Insets />
                            </HBox.margin>
                         </Label>
-                        <Label prefHeight="18.0" prefWidth="110.0" text="Numero Tel" textFill="#e7e5e5">
+                        <Label prefHeight="18.0" prefWidth="110.0" text="adresse" textFill="#e7e5e5">
                            <HBox.margin>
                               <Insets />
                            </HBox.margin>
                         </Label>
-                        <Label prefHeight="18.0" prefWidth="78.0" text="Document" textFill="#e7e5e5">
+                        <Label prefHeight="18.0" prefWidth="78.0" text="Num_tel" textFill="#e7e5e5">
                            <HBox.margin>
                               <Insets />
                            </HBox.margin>
                         </Label>
-                        <Label prefHeight="18.0" prefWidth="56.0" text="Logo" textFill="#e7e5e5">
+                        <Label prefHeight="18.0" prefWidth="90.0" text="enabled" textFill="#e7e5e5">
                            <HBox.margin>
                               <Insets />
                            </HBox.margin>
@@ -225,8 +224,11 @@
                </children>
             </Pane>
             <Pane fx:id="pnlCustomer" prefHeight="200.0" prefWidth="200.0" />
-            <Pane fx:id="pnlOrders" prefHeight="200.0" prefWidth="200.0" />
-            <Pane fx:id="pnlMenus" prefHeight="200.0" prefWidth="200.0" />
+            <Pane fx:id="pnlOrders" prefHeight="200.0" prefWidth="200.0">
+               <children>
+                  <Pane fx:id="pnlMenus" layoutX="8.0" layoutY="258.0" prefHeight="200.0" prefWidth="200.0" />
+               </children>
+            </Pane>
          </children>
       </StackPane>
    </children>
