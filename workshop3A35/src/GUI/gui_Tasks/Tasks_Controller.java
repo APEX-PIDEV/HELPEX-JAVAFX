@@ -410,6 +410,9 @@ public class Tasks_Controller implements Initializable {
                 newtasks.setEnd_date(Date.valueOf(AjoutTasksDialog.endtDateId.getValue()));
 
                 tasksService.AjouterTask(newtasks);
+
+                Alert a = new Alert(Alert.AlertType.CONFIRMATION, "Task "+ newtasks.getTitre()+" ajouter avec succée .", ButtonType.OK);
+                a.showAndWait();
                 // to refresh the tasks
                 addingTheitems();
 

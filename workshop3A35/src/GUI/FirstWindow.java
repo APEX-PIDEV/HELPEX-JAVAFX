@@ -30,7 +30,7 @@ public class FirstWindow extends Application {
         try {
 
             Parent  root = FXMLLoader.load(getClass().getResource("../GUI/gui_Tasks/GUI_Tasks.fxml"));
-            Scene scene = new Scene(root,800,500);
+            Scene scene = new Scene(root,1000,600);
             Image icon = new Image("images/helpexpro.png");
             primaryStage.getIcons().add(icon);
             primaryStage.setTitle("Helpex");

@@ -41,7 +41,8 @@ public class TasksGuiInfo  implements Initializable {
         try{
             FXMLLoader loader = new FXMLLoader(getClass().getResource("GUI_Tasks.fxml"));
             Parent root = loader.load();
-            Scene newScene = new Scene(root);
+            Scene newScene = new Scene(root,1000,600);
+
             Stage currentStage = (Stage) dash.getScene().getWindow();
             currentStage.setScene(newScene);
         } catch (
@@ -86,10 +87,20 @@ public class TasksGuiInfo  implements Initializable {
             MenuItem deleteItem = new MenuItem("supprimer");
 
             int finalI1 = i;
+
+
             Label finalTitle = title;
+
+            ///////////tootltip////////////
+            Tooltip tooltip = new Tooltip(tasks.get(i).getStart_date()+"/"+tasks.get(i).getEnd_date());
+            Tooltip.install(finalTitle, tooltip);
+
+            ////////////tooltip///////////
             editItem.setOnAction(event -> {
                 MakeDialog(tasks.get(finalI1), finalTitle)  ;          });
             int finalI = i;
+
+
             deleteItem.setOnAction(event -> {
                 System.out.println(tasks.get(finalI).getId());
                 try {
@@ -99,8 +110,17 @@ public class TasksGuiInfo  implements Initializable {
                     a.showAndWait();
                     throw new RuntimeException(e);
                 }
+
+
+                gridBox.getChildren().clear();
+                gridBox.layout();
                 gridBox.requestLayout();
+                listerTasks();
+
             });
+
+
+
             contextMenu.getItems().addAll(editItem,deleteItem);
 
 // Attach the context menu to the label
@@ -125,6 +145,9 @@ public class TasksGuiInfo  implements Initializable {
         dialog.initModality(Modality.APPLICATION_MODAL);
         // dialog.initOwner(primaryStage);
         dialog.setTitle("Editer task");
+        dialog.setHeight(300);
+        dialog.setWidth(300);
+
 
         // Create the form to display the selected row's data
         Label Titrelabel = new Label("Titre task : ");
