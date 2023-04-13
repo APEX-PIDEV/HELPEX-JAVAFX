@@ -71,9 +71,13 @@ public class DashboardController implements Initializable {
     private Pane pnlMenus;
     @FXML
     private Label title;
+    @FXML
+    private Label currentUser;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+                currentUser.setText(Helpex.loggedUser.getEmail());
+
         UserService us=new UserService();
         List<User> usersList;
         usersList=us.afficherProUsers();

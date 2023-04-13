@@ -85,6 +85,12 @@ String req = "DELETE FROM `user` WHERE `email` = \"" + u.getEmail() + "\"; ";
         System.err.println(ex.getMessage());
         }
     }
+    
+    public void deleteByEmail(String email) throws SQLException {
+        String req = "DELETE FROM `user` WHERE `email` = \"" + email + "\"; ";
+        stm = con.createStatement();
+        stm.executeUpdate(req);
+    }
 
     @Override
     public void updateProfile(User u) {

@@ -5,8 +5,11 @@
  */
 package apex.helpex.GUI;
 
+import apex.helpex.entities.User;
+import apex.helpex.services.UserService;
 import java.io.IOException;
 import java.net.URL;
+import java.sql.SQLException;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -54,20 +57,14 @@ public class ItemUserController implements Initializable {
 
     @FXML
     private void delete(ActionEvent event) {
-      /*  ProductsService cs = new ProductsService();
-        int id = Integer.parseInt(productId.getText());
+      User P=new User();
+        P.setEmail(email.getText());
+         UserService t= new UserService();
         try {
-            cs.delete(id);
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("home.fxml"));
-            Parent root = loader.load();
-            HomeController controller= loader.getController();
-            controller.changePage("Products");
-            
-            productId.getScene().setRoot(root);
-
-        } catch (Exception ex) {
-            Logger.getLogger(CategoryItemFormController.class.getName()).log(Level.SEVERE, null, ex);
-        }*/
+            t.deleteByEmail(P.getEmail());
+        } catch (SQLException ex) {
+            Logger.getLogger(ItemUserController.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 
    
