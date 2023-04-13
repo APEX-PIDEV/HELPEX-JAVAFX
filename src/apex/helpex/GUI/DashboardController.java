@@ -22,12 +22,16 @@ import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import apex.helpex.entities.User;
+import apex.helpex.main.Helpex;
 import apex.helpex.services.UserService;
 
 import java.io.IOException;
 import java.net.URL;
 import java.util.List;
 import java.util.ResourceBundle;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javafx.scene.Parent;
 
 public class DashboardController implements Initializable {
 
@@ -65,6 +69,8 @@ public class DashboardController implements Initializable {
 
     @FXML
     private Pane pnlMenus;
+    @FXML
+    private Label title;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -93,8 +99,14 @@ public class DashboardController implements Initializable {
         }
         if(actionEvent.getSource()==btnOrders)
         {
-            pnlOrders.setStyle("-fx-background-color : #464F67");
-            pnlOrders.toFront();
+           Helpex.loggedUser = new User();
+            try {
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("Login.fxml"));
+                Parent root = loader.load();
+                this.title.getScene().setRoot(root);
+            } catch (IOException ex) {
+                Logger.getLogger(LoginController.class.getName()).log(Level.SEVERE, null, ex);
+            }
         }
     }
     public void LoadItem(User user){
