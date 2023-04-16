@@ -190,21 +190,6 @@
                               <Insets />
                            </HBox.margin>
                         </Label>
-                        <Label prefHeight="18.0" prefWidth="110.0" text="Numero Tel" textFill="#e7e5e5">
-                           <HBox.margin>
-                              <Insets />
-                           </HBox.margin>
-                        </Label>
-                        <Label prefHeight="18.0" prefWidth="78.0" text="Document" textFill="#e7e5e5">
-                           <HBox.margin>
-                              <Insets />
-                           </HBox.margin>
-                        </Label>
-                        <Label prefHeight="18.0" prefWidth="56.0" text="Logo" textFill="#e7e5e5">
-                           <HBox.margin>
-                              <Insets />
-                           </HBox.margin>
-                        </Label>
                         <Label prefHeight="18.0" prefWidth="72.0" text="Actions" textFill="#e7e5e5" />
                      </children>
                   </HBox>

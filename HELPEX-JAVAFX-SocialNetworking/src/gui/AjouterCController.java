@@ -13,6 +13,8 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.Arrays;
+import java.util.List;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -25,8 +27,11 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.ListCell;
+import javafx.scene.control.ListView;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableRow;
 import javafx.scene.control.TableView;
@@ -34,6 +39,7 @@ import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.Pane;
 import services.CRUDCommentaire;
 import services.CRUDPoste;
 import utils.MyConnection;
@@ -49,7 +55,7 @@ public class AjouterCController implements Initializable {
     @FXML
     private TableView<Commentaire> table;
     @FXML
-    private TableColumn<Poste,String> IDColumn;
+    private TableColumn<Commentaire,String> IDColumn;
     @FXML
     private Button btnAdaa;
     @FXML
@@ -59,27 +65,30 @@ public class AjouterCController implements Initializable {
     @FXML
     private TextArea txtDescriptioncommentaire;
     @FXML
-    private Label label;
-    @FXML
     private TableColumn<Commentaire, String> DESCRIPTIONcolumn;
-    private Poste p;
+    private Commentaire C;
+    @FXML
+    private Pane pnlOverview;
+    @FXML
+    private Label NumPostes;
 
-    public Poste getP() {
-        return p;
+    public Commentaire getC() {
+        return C;
     }
 
-    public void setP(Poste p) {
-        this.p = p;
+    public void setC(Commentaire c) {
+        this.C = c;
     }
+
+    
     
     /**
      * Initializes the controller class.
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) { 
-        
-        try {
-         
+       // ListView();
+       try {         
            table();
         } catch (IOException ex) {
             Logger.getLogger(AjouterCController.class.getName()).log(Level.SEVERE, null, ex);
@@ -90,6 +99,9 @@ public class AjouterCController implements Initializable {
     PreparedStatement pst;
       Connection con;
       int id;
+      
+      
+      
        public void table() throws IOException
       {
      
@@ -97,9 +109,9 @@ public class AjouterCController implements Initializable {
           ObservableList<Commentaire> commentaires = FXCollections.observableArrayList();
        try
        {
+            
            pst = conn.prepareStatement("select id,description FROM `commentaire`");  
            ResultSet rs = pst.executeQuery();
-      {
         while (rs.next())
         {
             Commentaire st = new Commentaire();
@@ -108,7 +120,9 @@ public class AjouterCController implements Initializable {
            
             commentaires.add(st);
        }
-    }
+      
+    
+           
                 table.setItems(commentaires);
                 //IDColumn.setCellValueFactory(f -> f.getValue().idProperty());
               //  IDColumn.setCellValueFactory(f -> new ReadOnlyIntegerWrapper(f.getValue().getId()).asObject());
@@ -140,16 +154,81 @@ public class AjouterCController implements Initializable {
     
       }
 
-       
+   /*  public void ListView() {
+    Connection conn = MyConnection.getInstance().getConn();
+    ObservableList<Commentaire> commentaires = FXCollections.observableArrayList();
+    CRUDCommentaire cru=new CRUDCommentaire();
+    try {
+        PreparedStatement pst = conn.prepareStatement("select id,description FROM `commentaire`");
+        ResultSet rs = pst.executeQuery();
+        
+        while (rs.next()) {
+            Commentaire st = new Commentaire();
+            st.setId(rs.getInt("id"));
+            st.setDescription(rs.getString("description"));
+           
+            commentaires.add(st);
+        }
+    } catch (SQLException ex) {
+        Logger.getLogger(AjouterCController.class.getName()).log(Level.SEVERE, null, ex);
+    }
+    
+    listView.setItems(commentaires);
+    listView.setCellFactory(param -> new ListCell<Commentaire>() {
+        @Override
+        protected void updateItem(Commentaire item, boolean empty) {
+            super.updateItem(item, empty);
+            if (empty || item == null) {
+                setText(null);
+            } else {
+                setText(String.valueOf(item.getId()));
+                setText(item.getDescription());
+            }
+        }
+    });
+    
+    listView.setOnMouseClicked(event -> {
+        if (event.getClickCount() == 1 && listView.getSelectionModel().getSelectedItem() != null) {
+            Commentaire selectedCommentaire = listView.getSelectionModel().getSelectedItem();
+            id = selectedCommentaire.getId();
+            txtDescriptioncommentaire.setText(selectedCommentaire.getDescription());
+        }
+    });
+}  */
+       public String filterBadWords(String input) {
+    // Define a list of bad words
+    List<String> badWords = Arrays.asList("badword1", "badword2", "badword3");
+
+    // Loop through the list of bad words and replace them with an alternative
+    for (String badWord : badWords) {
+        input = input.replaceAll("(?i)" + badWord, "***"); // replace with asterisks
+        // or input = input.replaceAll("(?i)" + badWord, "goodword"); // replace with a good word
+    }
+
+    return input;
+}
 
     @FXML
     private void Add(ActionEvent event) throws IOException {
-        String titre,description;
+        
+        String description;
+        
+        List<String> badWords = Arrays.asList("badword1", "badword2", "badword3");
             description=txtDescriptioncommentaire.getText();
-            Commentaire c = new Commentaire(description);
+            AjouterCController AC = new AjouterCController();
+           String d = AC.filterBadWords(description);
+             if (d.isEmpty()) {
+        Alert alert = new Alert(Alert.AlertType.ERROR);
+        alert.setTitle("Erreur");
+        alert.setHeaderText("Champs manquants");
+        alert.setContentText("Veuillez remplir tous les champs");
+        alert.showAndWait();
+        } else {
+            Commentaire c = new Commentaire(d);
             CRUDCommentaire cu = new CRUDCommentaire();
-            cu.ajouterCommentaire(c,p);
+            cu.ajouterCommentaire(c,C.getP());
              table();
+             }
     }
     
      

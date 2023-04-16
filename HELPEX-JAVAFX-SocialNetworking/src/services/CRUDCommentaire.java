@@ -13,6 +13,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.List;
+import static javafx.scene.input.KeyCode.P;
 import utils.MyConnection;
 
 
@@ -60,6 +61,11 @@ public class CRUDCommentaire implements InterfaceCommentaire{
     } catch (SQLException ex) {
         System.out.println("erreur lors de la suppression du commentaire");
     }
+    }
+
+    @Override
+    public List<Commentaire> findbyposte(int id) {
+            return null;
     }
 
  

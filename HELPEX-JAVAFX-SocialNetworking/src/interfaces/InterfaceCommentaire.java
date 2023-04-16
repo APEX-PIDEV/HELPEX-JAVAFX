@@ -17,6 +17,7 @@ public interface InterfaceCommentaire {
         public void ajouterCommentaire(Commentaire c,Poste P);
         public void modifierCommentaire(Commentaire c,String description);
         public void supprimerCommentaire(Commentaire c);
+        public List<Commentaire> findbyposte(int id);
 
 
 

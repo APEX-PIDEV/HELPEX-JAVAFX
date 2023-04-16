@@ -5,6 +5,7 @@
  */
 package gui;
 
+import entities.Commentaire;
 import entities.Poste;
 import java.io.IOException;
 import static java.lang.Integer.parseInt;
@@ -99,7 +100,9 @@ public class ItemController implements Initializable {
             AjouterCController newInterfaceController = loader.getController();
             Poste P=new Poste();
             P.setId(Integer.parseInt(id_poste.getText()));
-            newInterfaceController.setP(P);
+            Commentaire c=new Commentaire();
+            c.setP(P);
+            newInterfaceController.setC(c);
              Stage stage = new Stage();
         stage.setScene(new Scene(newInterface));
         stage.setOnHidden((event1) -> refresh());
