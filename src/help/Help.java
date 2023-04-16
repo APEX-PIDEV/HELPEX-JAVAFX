@@ -24,15 +24,14 @@ public class Help {
                 MyConnection cc =  MyConnection.getInstance()  ;
 
         Centre c = new Centre("centre1", "mourouj", "centre1@gmail.com", 221133,"www.centre.com");
-        
-        Formation f = new Formation("test","test", 11, 44, "test", c);
-        CRUDFormation formation1=new CRUDFormation();
-        //formation1.ajouterFormation(f);
+         CRUDCentre centre1=new  CRUDCentre() ;
+        // centre1.affichercentre();
+        centre1.ajouterCentre(c);
+       // Formation f = new Formation("test","test", 11, 44, "test", c);
+        //CRUDFormation formation1=new CRUDFormation();
        // formation1.modifierFormation(f,"test","xx", 11, 44, "test");
-        CRUDCentre centre1=new  CRUDCentre() ;
-        
-      //  centre1.ajouterCentre(c);
-       // System.out.println(centre1.affichercentre());
+       
+        System.out.println(centre1.affichercentre());
     }
     
 }

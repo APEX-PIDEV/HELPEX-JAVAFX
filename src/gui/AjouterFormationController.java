@@ -5,6 +5,7 @@
  */
 package gui;
 
+import entities.Centre;
 import entities.Formation;
 import java.net.URL;
 import java.sql.Connection;
@@ -27,6 +28,7 @@ import javafx.scene.control.TableRow;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
+import services.CRUDCentre;
 import services.CRUDFormation;
 import utils.MyConnection;
 
@@ -57,6 +59,7 @@ public class AjouterFormationController implements Initializable {
     private Button btnUpdateF;
     @FXML
     private TableView<Formation> tableF;
+ 
     @FXML
     private TableColumn<Formation,String> IDColumn;
     @FXML
@@ -69,6 +72,8 @@ public class AjouterFormationController implements Initializable {
     private TableColumn<Formation,String> PLACEColumn;
     @FXML
     private TableColumn<Formation,String> DUREEColumn;
+    @FXML
+    private TextField txt_id_centre;
 
     /**
      * Initializes the controller class.
@@ -78,29 +83,56 @@ public class AjouterFormationController implements Initializable {
 table();    }    
 
     @FXML
+    
+    
     private void Add(ActionEvent event) {
-        String nomFormation; String descriptionFormation; float coutFormation; int NombreDePlace; String duree;
+        String nomFormation; String descriptionFormation; float coutFormation; int NombreDePlace; String duree;int id_centre;
             nomFormation = txtNomF.getText();
             descriptionFormation=txtdescriptionF.getText();
             duree=txtdureeF.getText();
                         NombreDePlace=Integer.parseInt(txtnombredeplaceF.getText()) ;
                                               //  coutFormation=Integer.parseInt(txtcouF.getText()) ;
+                                              id_centre=Integer.parseInt(txt_id_centre.getText());
+                                              Centre centre_jointure=new Centre();
+                                              CRUDCentre  crudcentre=new CRUDCentre();
+                                              System.out.println(id_centre);
+                                              centre_jointure= crudcentre.findbyid(id_centre);
+                                             System.out.println(centre_jointure); 
+                                              
 
 
            // siteWebCentre=txtSiteweb.getText();
             
-            Formation c = new Formation( nomFormation, descriptionFormation,5, NombreDePlace, duree);
+            Formation c = new Formation( nomFormation, descriptionFormation,5, NombreDePlace, duree,centre_jointure);
             CRUDFormation cu = new CRUDFormation();
             cu.ajouterFormation(c);
              table();
     }
 
-    @FXML
-    private void Delete(ActionEvent event) {
-    }
+  
 
     @FXML
+    //    public Formation(String nomFormation, String descriptionFormation, float coutFormation, int NombreDePlace, String duree) {
+//    public void modifierFormation(Formation f, String nomFormation, String descriptionFormation, float coutFormation, int NombreDePlace, String duree) {
+
     private void Update(ActionEvent event) {
+    CRUDFormation rc = new CRUDFormation();
+        String var1=txtNomF.getText();
+        String var2=txtdescriptionF.getText();
+        String var3=txtcouF.getText();
+//        float var3float=Integer.parseInt(var3);
+        String var4=txtnombredeplaceF.getText();
+//        int var5=Integer.parseInt(var4);
+        String var6=txtdureeF.getText();
+       Formation r =new Formation();
+        r.setNomFormation(var1);
+      r.setDescriptionFormation(var2);
+      //r.getCoutFormation(var3);
+    //  r.getNombreDePlace(var5);
+      r.setDuree(var6);
+        r=tableF.getSelectionModel().getSelectedItem();
+        rc.modifierFormation(r,var1,var2,5,2,var6);
+       table();
     }
     
     int myIndex;
@@ -179,5 +211,15 @@ NOMColumnF.setCellValueFactory(f -> new SimpleStringProperty(f.getValue().getNom
     
     
       }
+      
+        @FXML
+    private void Delete(ActionEvent event) {
+     CRUDFormation  rcd = new  CRUDFormation();
+           Formation c= new Formation();
+              c= tableF.getSelectionModel().getSelectedItem();
+              System.out.println(c);
+              rcd.supprimerFormation(c);
+              table();
+    }
     
 }

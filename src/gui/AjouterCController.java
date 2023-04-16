@@ -178,6 +178,7 @@ CRUDCentre  rcd = new  CRUDCentre ();
     }
 
     @FXML
+    
     private void Update(ActionEvent event) {
        CRUDCentre rc = new CRUDCentre();
         String var1=txtNom.getText();

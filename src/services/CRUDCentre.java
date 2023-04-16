@@ -45,6 +45,7 @@ public class CRUDCentre implements InterfaceCentre{
     public void ajouterCentre2(Centre c) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
+    
 
     @Override
     public void modifierCentre(Centre c,String nomCentre,String adresseCentre,String emailCentre,int telephoneCentre,String siteWebCentre) {
@@ -90,13 +91,13 @@ Statement ste;
                     while(RS.next()){
                     Centre c =new Centre();
                     c.setId(RS.getInt(1));
-                    c.setNomCentre(RS.getString("nomCentre"));
-                                        c.setAdresseCentre(RS.getString("adresseCentre"));
+                    c.setNomCentre(RS.getString("nom_centre"));
+                                        c.setAdresseCentre(RS.getString("adresse_centre"));
 
-                                                            c.setEmailCentre(RS.getString("emailCentre"));
+                                                            c.setEmailCentre(RS.getString("email_centre"));
 
-                                                          c.setTelephoneCentre(RS.getInt("telephoneCentre"));
-                                        c.setSiteWebCentre(RS.getString("siteWebCentre"));
+                                                          c.setTelephoneCentre(RS.getInt("telephone_centre"));
+                                        c.setSiteWebCentre(RS.getString("site_web_centre"));
 list.add(c);
 
                     }
@@ -105,6 +106,31 @@ list.add(c);
             System.out.println("erreur d afficahge");        }
 return list;
     }
+
+    @Override
+ 
+public Centre findbyid(int id) {
+    String req = "SELECT * FROM centre WHERE id=" + id; 
+    Statement ste;
+    Centre c = new Centre();
+
+    try {
+        ste = conn.createStatement();
+        ResultSet RS = ste.executeQuery(req);
+        while (RS.next()) {
+            c.setId(RS.getInt(1));
+            c.setNomCentre(RS.getString("nom_centre"));
+            c.setAdresseCentre(RS.getString("adresse_centre"));
+            c.setEmailCentre(RS.getString("email_centre"));
+            c.setTelephoneCentre(RS.getInt("telephone_centre"));
+            c.setSiteWebCentre(RS.getString("site_web_centre"));
+        }
+    } catch (SQLException ex) {
+        System.out.println("erreur get by id ");        
+    }
+    
+    return c;
+}
     
     
 }

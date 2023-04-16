@@ -27,7 +27,7 @@ public class CRUDFormation implements InterfaceFormation{
                            //String reqq="INSERT INTO `centre`(`nom_centre`, `adresse_centre`, `email_centre`, `telephone_centre`, `site_web_centre`) VALUES ('"+c.getNomCentre()+"','"+c.getAdresseCentre()+"','"+c.getEmailCentre()+"','"+c.getTelephoneCentre()+"','"+c.getSiteWebCentre()+"')";
 
        
-                    String req="INSERT INTO `formation`(`nom_formation`, `description_formation`, `cout_formation`, `nombre_de_place`, `duree`, `id_centre_id`) VALUES ('"+f.getNomFormation()+"','"+f.getDescriptionFormation()+"','"+f.getCoutFormation()+"','"+f.getNombreDePlace()+"','"+f.getDuree()+"','3')";
+                    String req="INSERT INTO `formation`(`nom_formation`, `description_formation`, `cout_formation`, `nombre_de_place`, `duree`, `id_centre_id`) VALUES ('"+f.getNomFormation()+"','"+f.getDescriptionFormation()+"','"+f.getCoutFormation()+"','"+f.getNombreDePlace()+"','"+f.getDuree()+"','"+f.getIdCentre().getId()+"')";
 
             ste=conn.createStatement();
                 ste.executeUpdate(req);
@@ -68,5 +68,7 @@ public class CRUDFormation implements InterfaceFormation{
     public List<Formation> afficherFormation() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
+
+   
     
 }

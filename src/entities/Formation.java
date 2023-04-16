@@ -102,6 +102,10 @@ public class Formation {
         this.duree = duree;
         this.idCentre = idCentre;
     }
+
+    public void getNombreDePlace(int var5) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
     
     
     

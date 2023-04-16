@@ -18,6 +18,7 @@ public interface InterfaceCentre {
         public void modifierCentre(Centre c,String nomCentre,String adresseCentre,String emailCentre,int telephoneCentre,String siteWebCentre);
         public void supprimerCentre(Centre c);
         public List<Centre> affichercentre();
+        public Centre findbyid(int id);
 
     
 }
