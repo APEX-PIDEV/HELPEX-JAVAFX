@@ -10,7 +10,6 @@ import entities.Formation;
 import services.CRUDCentre;
 import services.CRUDFormation;
 import utils.MyConnection;
-
 /**
  *
  * @author ASUS
