@@ -3,20 +3,7 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/ASUS/OneDrive/Documents/NetBeansProjects/Help2/src/interfaces/InterfaceCentre.java</file>
-            <file>file:/C:/Users/ASUS/OneDrive/Documents/NetBeansProjects/Help2/src/home/FormController.java</file>
-            <file>file:/C:/Users/ASUS/OneDrive/Documents/NetBeansProjects/Help2/src/home/Controller.java</file>
-            <file>file:/C:/Users/ASUS/OneDrive/Documents/NetBeansProjects/Help2/src/home/firstwindow.java</file>
-            <file>file:/C:/Users/ASUS/OneDrive/Documents/NetBeansProjects/Help2/src/home/ItemController.java</file>
-            <file>file:/C:/Users/ASUS/OneDrive/Documents/NetBeansProjects/Help2/src/services/CRUDCentre.java</file>
-            <file>file:/C:/Users/ASUS/OneDrive/Documents/NetBeansProjects/Help2/src/help/Help.java</file>
-            <file>file:/C:/Users/ASUS/OneDrive/Documents/NetBeansProjects/Help2/src/home/AjouterF.fxml</file>
-            <file>file:/C:/Users/ASUS/OneDrive/Documents/NetBeansProjects/Help2/src/utils/MyConnection.java</file>
-            <file>file:/C:/Users/ASUS/OneDrive/Documents/NetBeansProjects/Help2/src/home/AjouterFormationController.java</file>
-            <file>file:/C:/Users/ASUS/OneDrive/Documents/NetBeansProjects/Help2/src/services/CRUDFormation.java</file>
-            <file>file:/C:/Users/ASUS/OneDrive/Documents/NetBeansProjects/Help2/src/home/AjouterCController.java</file>
-            <file>file:/C:/Users/ASUS/OneDrive/Documents/NetBeansProjects/Help2/src/home/Main.java</file>
-            <file>file:/C:/Users/ASUS/OneDrive/Documents/NetBeansProjects/Help2/src/interfaces/InterfaceFormation.java</file>
+            <file>file:/C:/Users/ASUS/OneDrive/Documents/GitHub/HELPEX-JAVAFX/src/help/Help.java</file>
         </group>
     </open-files>
 </project-private>
