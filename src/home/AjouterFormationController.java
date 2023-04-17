@@ -31,6 +31,17 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import services.CRUDCentre;
 import services.CRUDFormation;
 import utils.MyConnection;
+import java.io.FileOutputStream;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
+
+import com.itextpdf.text.Document;
+import com.itextpdf.text.Element;
+import com.itextpdf.text.Font;
+import com.itextpdf.text.Paragraph;
+import com.itextpdf.text.pdf.PdfPCell;
+import com.itextpdf.text.pdf.PdfPTable;
+import com.itextpdf.text.pdf.PdfWriter;
 
 /**
  * FXML Controller class
@@ -144,12 +155,15 @@ table();    }
         r=tableF.getSelectionModel().getSelectedItem();
         rc.modifierFormation(r,var1,var2,5,2,var6);
        table();
+       rc.generatePDF(r);
+    
     }
     
     int myIndex;
     PreparedStatement pst;
       Connection con;
       int id;
+     
       public void table()
       {
           
@@ -217,6 +231,7 @@ NOMColumnF.setCellValueFactory(f -> new SimpleStringProperty(f.getValue().getNom
                           
         }
      });
+     
         return myRow;
                    });
     

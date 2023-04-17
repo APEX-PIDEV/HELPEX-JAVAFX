@@ -27,5 +27,6 @@ public interface InterfaceFormation {
     public void modifierFormation(Formation f,String nomFormation,String descriptionFormation,float coutFormation ,int NombreDePlace,String duree);
     public void supprimerFormation(Formation f);
      public List<Formation> afficherFormation();
+      public void generatePDF(Formation formation) ;
     
 }

@@ -9,6 +9,7 @@ package entities;
  *
  * @author ASUS
  */
+
 public class Centre {
     private int id;
     private String nomCentre;

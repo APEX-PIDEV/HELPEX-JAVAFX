@@ -5,13 +5,23 @@
  */
 package services;
 
+import com.itextpdf.text.Document;
+import com.itextpdf.text.Element;
+import com.itextpdf.text.Font;
+import com.itextpdf.text.Paragraph;
+import com.itextpdf.text.pdf.PdfPCell;
+import com.itextpdf.text.pdf.PdfPTable;
+import com.itextpdf.text.pdf.PdfWriter;
 import entities.Centre;
 import entities.Formation;
 import interfaces.InterfaceFormation;
+import java.io.FileOutputStream;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.List;
 import utils.MyConnection;
 
@@ -69,5 +79,73 @@ public class CRUDFormation implements InterfaceFormation{
     public List<Formation> afficherFormation() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
+    
+     public void generatePDF(Formation formation) {
+
+    Document document = new Document();
+    try {
+        PdfWriter.getInstance(document, new FileOutputStream("Formation-" + formation.getNomFormation() + ".pdf"));
+        document.open();
+
+        // Ajouter le titre
+        Font titleFont = new Font(Font.FontFamily.TIMES_ROMAN, 20, Font.BOLD);
+        Paragraph title = new Paragraph("Formation : " + formation.getNomFormation(), titleFont);
+        title.setAlignment(Element.ALIGN_CENTER);
+        document.add(title);
+
+        // Ajouter les détails de la formation dans une table
+        PdfPTable table = new PdfPTable(2);
+        table.setWidthPercentage(100);
+        table.setSpacingBefore(20f);
+        table.setSpacingAfter(20f);
+
+        PdfPCell cell;
+
+        // Ajouter les informations de la formation dans les cellules de la table
+        cell = new PdfPCell(new Paragraph("Description"));
+        cell.setPadding(10);
+        table.addCell(cell);
+
+        cell = new PdfPCell(new Paragraph(formation.getDescriptionFormation()));
+        cell.setPadding(10);
+        table.addCell(cell);
+
+        cell = new PdfPCell(new Paragraph("Coût"));
+        cell.setPadding(10);
+        table.addCell(cell);
+
+        cell = new PdfPCell(new Paragraph(String.valueOf(formation.getCoutFormation())));
+        cell.setPadding(10);
+        table.addCell(cell);
+
+        cell = new PdfPCell(new Paragraph("Nombre de place"));
+        cell.setPadding(10);
+        table.addCell(cell);
+
+        cell = new PdfPCell(new Paragraph(String.valueOf(formation.getNombreDePlace())));
+        cell.setPadding(10);
+        table.addCell(cell);
+
+        cell = new PdfPCell(new Paragraph("Durée"));
+        cell.setPadding(10);
+        table.addCell(cell);
+
+        cell = new PdfPCell(new Paragraph(formation.getDuree()));
+        cell.setPadding(10);
+        table.addCell(cell);
+
+        document.add(table);
+
+        // Ajouter la date et l'heure de génération du PDF
+       // DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm:ss");
+        //Paragraph date = new Paragraph("Date et heure de génération du PDF : " + LocalDate.now().format(formatter));
+        //date.setAlignment(Element.ALIGN_RIGHT);
+        //document.add(date);
+
+        document.close();
+    } catch (Exception e) {
+        e.printStackTrace();
+    }
+}
     
 }
