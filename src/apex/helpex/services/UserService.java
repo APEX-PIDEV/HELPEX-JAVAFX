@@ -217,6 +217,35 @@ String req = "DELETE FROM `user` WHERE `email` = \"" + u.getEmail() + "\"; ";
         }
     }
     
-    
+     
+      public void updatePassByEmail(String email, String password) throws SQLException {
+        String req = "UPDATE `user` SET "
+                + " `password` = '" + hasher.hash(password) + "' "
+                + "WHERE `email` = '" + email + "'";
+        stm = con.createStatement();
+        stm.executeUpdate(req);
+    }
+     
+     
+   public void setCode(String code, String email) {
+        try {
+            String req = "INSERT INTO `reset_password_request`(`user_id`, `selector`, `hashed_token`, `requested_at`, `expires_at`) VALUES ((SELECT id FROM `user` WHERE email = '" + email + "'),'" + code + "','" + code + "',now(),(DATE_ADD(now() , INTERVAL 1 HOUR)))";
+            stm = con.createStatement();
+            stm.executeUpdate(req);
+        } catch (SQLException ex) {
+
+        }
+    } 
+   
+    public String getCode(String email) throws SQLException {
+        String req = "SELECT selector FROM `reset_password_request` WHERE `expires_at` >= now() and user_id = (SELECT id FROM `user` WHERE email = '" + email + "')";
+        stm = con.createStatement();
+        ResultSet result = stm.executeQuery(req);
+        String code = "";
+        while (result.next()) {
+            code = result.getString("selector");
+        }
+        return code;
+    }
     
 }

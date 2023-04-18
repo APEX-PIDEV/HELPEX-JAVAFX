@@ -96,6 +96,18 @@ UserService us = new UserService();
         }
     }
 
+    @FXML
+    private void resetpass(ActionEvent event) {
+         FXMLLoader loader = new FXMLLoader(getClass().getResource("ResetPassword.fxml"));
+        try {
+            Parent root = loader.load();
+            email.getScene().setRoot(root);
+
+        } catch (IOException ex) {
+            System.out.println("Error: " + ex.getMessage());
+        }
+    }
+
 }
 
 

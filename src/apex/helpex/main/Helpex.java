@@ -7,6 +7,8 @@ package apex.helpex.main;
 
 import apex.helpex.services.UserService;
 import apex.helpex.utils.DB;
+import apex.helpex.utils.JavaMail;
+
 import apex.helpex.entities.User;
 import java.io.IOException;
 import java.sql.Date;
