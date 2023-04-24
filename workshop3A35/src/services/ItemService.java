@@ -6,12 +6,10 @@ import Interfaces.InterfaceItem;
 import entites.Item;
 import entites.Tasks;
 
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
+import java.sql.*;
 import java.util.ArrayList;
 
+import javafx.scene.chart.XYChart;
 import utils.ConnexionJDBC;
 import utils.MyConnection;
 
@@ -114,6 +112,8 @@ public class ItemService implements InterfaceItem {
     public int getExpired() {
         return expired;
     }
+
+
 
 
 }
