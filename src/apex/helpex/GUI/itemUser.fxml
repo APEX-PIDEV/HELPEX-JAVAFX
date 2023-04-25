@@ -19,9 +19,11 @@
    <Label fx:id="adresse" prefHeight="18.0" prefWidth="121.0" text="adresse" textFill="#faf0f0" />
    <Label fx:id="num_tel" prefHeight="18.0" prefWidth="96.0" text="num_tel" textFill="#faf7f7" />
    <Label fx:id="enabled" layoutX="618.0" layoutY="28.0" prefHeight="18.0" prefWidth="96.0" text="enabled" textFill="#faf7f7" />
-    <Button fx:id="delete" mnemonicParsing="false" onAction="#delete" prefHeight="27.0" prefWidth="95.0" style="-fx-border-color: #2A73FF; -fx-border-radius: 20; -fx-background-color: transparent;" stylesheets="@style.css" text="delete">
+    <Button fx:id="delete" mnemonicParsing="false" onAction="#delete" prefHeight="27.0" prefWidth="115.0" style="-fx-border-color: #2A73FF; -fx-border-radius: 20; -fx-background-color: transparent;" stylesheets="@style.css" text="delete">
         <HBox.margin>
             <Insets />
         </HBox.margin>
     </Button>
+   <Button fx:id="disable" mnemonicParsing="false" onAction="#disable" prefHeight="27.0" prefWidth="131.0" style="-fx-border-color: #2A73FF; -fx-border-radius: 20; -fx-background-color: transparent;" stylesheets="@style.css" text="disable" />
+   <Button fx:id="enable" mnemonicParsing="false" onAction="#enable" prefHeight="27.0" prefWidth="131.0" style="-fx-border-color: #2A73FF; -fx-border-radius: 20; -fx-background-color: transparent;" stylesheets="@style.css" text="enable" />
 </HBox>

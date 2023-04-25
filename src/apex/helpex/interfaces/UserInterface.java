@@ -5,6 +5,7 @@
  */
 package apex.helpex.interfaces;
 
+import apex.helpex.entities.User;
 import java.util.List;
 
 /**
@@ -18,6 +19,7 @@ public interface UserInterface<U> {
     void updateProfile(U u);
     void registerPro(U u);
         void registerClient(U u);
+        public void Enable(U u);
 
     
     

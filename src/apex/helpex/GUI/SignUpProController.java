@@ -122,6 +122,17 @@ String email= Uemail.getText() ;
             
            us.registerPro(u);
           
+           
+           
+            FXMLLoader loader= new FXMLLoader(getClass().getResource("Login.fxml")) ;
+              try {
+                  Parent root= loader.load();
+                  LoginController lc= loader.getController();
+                  lc.setemail(u.getEmail());
+                  Uemail.getScene().setRoot(root);
+              } catch (IOException ex) {
+        System.out.println("Error: "+ ex.getMessage());
+                }
         }
         
         

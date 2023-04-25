@@ -46,6 +46,10 @@ public class ItemUserController implements Initializable {
     private Label enabled;
     @FXML
     private Button delete;
+    @FXML
+    private Button disable;
+    @FXML
+    private Button enable;
 
     /**
      * Initializes the controller class.
@@ -65,6 +69,26 @@ public class ItemUserController implements Initializable {
         } catch (SQLException ex) {
             Logger.getLogger(ItemUserController.class.getName()).log(Level.SEVERE, null, ex);
         }
+    }
+
+    @FXML
+    private void disable(ActionEvent event) {
+            System.out.println("Disable button clicked!");
+
+         User P=new User();
+          P.setEmail(email.getText());
+    UserService t = new UserService();
+    t.DisableEnable(P);
+    }
+
+    @FXML
+    private void enable(ActionEvent event) {
+         System.out.println("enable button clicked!");
+
+         User P=new User();
+          P.setEmail(email.getText());
+    UserService t = new UserService();
+    t.Enable(P); 
     }
 
    

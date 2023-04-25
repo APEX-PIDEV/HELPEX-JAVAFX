@@ -91,6 +91,50 @@ String req = "DELETE FROM `user` WHERE `email` = \"" + u.getEmail() + "\"; ";
         stm = con.createStatement();
         stm.executeUpdate(req);
     }
+    
+    
+     public void DisableEnable(User u) {
+
+        
+            
+            
+             String req = "UPDATE `user` SET "
+                    + " `is_enabled` = 0 "
+                    + "WHERE `email` = \"" + u.getEmail() + "\"; ";
+
+        try {
+                stm = con.createStatement();
+
+            stm.executeUpdate(req);
+                        stm = con.createStatement();
+
+        } catch (SQLException ex) {
+            Logger.getLogger(UserService.class.getName()).log(Level.SEVERE, null, ex);
+        }
+            System.out.println("User with email " + u.getEmail() + " has been disabled");
+            
+            
+        
+    }
+     @Override
+    public void Enable(User u) {
+         String req = "UPDATE `user` SET "
+                    + " `is_enabled` = 1 "
+                    + "WHERE `email` =  \"" + u.getEmail() + "\"; ";
+ try {
+                stm = con.createStatement();
+
+            stm.executeUpdate(req);
+                        stm = con.createStatement();
+
+        } catch (SQLException ex) {
+            Logger.getLogger(UserService.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        System.out.println("User with email " + u.getEmail() + " has been enabled"); 
+    }
+    
+   
+    
 
     @Override
     public void updateProfile(User u) {
@@ -247,5 +291,9 @@ String req = "DELETE FROM `user` WHERE `email` = \"" + u.getEmail() + "\"; ";
         }
         return code;
     }
+
+    
+
+   
     
 }

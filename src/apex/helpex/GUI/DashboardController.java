@@ -101,7 +101,7 @@ public class DashboardController implements Initializable {
             pnlOverview.setStyle("-fx-background-color : #02030A");
             pnlOverview.toFront();
         }
-        if(actionEvent.getSource()==btnOrders)
+        if(actionEvent.getSource()==btnSignout)
         {
            Helpex.loggedUser = new User();
             try {
