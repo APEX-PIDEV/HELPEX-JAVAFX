@@ -12,6 +12,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import entites.Tasks;
+import entites.User;
 import utils.ConnexionJDBC;
 import utils.MyConnection;
 
@@ -80,15 +81,14 @@ public class AccompagnementService implements InterfaceAccompagnement {
 
     @Override
     public void accepterAccompagnement(Accompagnement accompagnement) {
-        String req = "UPDATE `accompagnement` SET `is_accepted`=1 WHERE " +
-                " `task_id`=? and `user_id`=? and `user_pro_id`=? ";
+        String req = "UPDATE `accompagnement` SET `is_accepted`=1 WHERE id = ? ";
         PreparedStatement pst = null;
         try {
             pst = ConnexionJDBC.getInstance().getCnx()
                     .prepareStatement(req);
-            pst.setInt(1,accompagnement.getId_task());
-            pst.setInt(2, accompagnement.getUser().getId());
-            pst.setInt(3,accompagnement.getUser_pro().getId());
+            pst.setInt(1,accompagnement.getId());
+            //pst.setInt(2, accompagnement.getUser().getId());
+          //  pst.setInt(3,accompagnement.getUser_pro().getId());
             pst.executeUpdate();
             System.out.println("accompagnement accepté!");
 
@@ -100,7 +100,7 @@ public class AccompagnementService implements InterfaceAccompagnement {
 
     @Override
     public void retirer_accompagnement(Accompagnement accompagnement) {
-        String sql = "DELETE FROM accompagnement WHERE  `task_id`= '"+ accompagnement.getId_task()+"' and `user_id`= '"+accompagnement.getUser().getId()+"' and `user_pro_id`='"+accompagnement.getUser_pro().getId()+"' ";
+        String sql = "DELETE FROM accompagnement WHERE  id = "+ accompagnement.getId();
         try {
 
             Statement st = ConnexionJDBC.getInstance().getCnx().createStatement();
@@ -158,7 +158,37 @@ public class AccompagnementService implements InterfaceAccompagnement {
      }
 
     public List<Accompagnement> lister_accompagnment_for_user(){return null;}
-    public List<Accompagnement> lister_accompagnment_for_pro(){return null ;
+    public List<Accompagnement> lister_accompagnment_for_pro(int id ){
+
+        //id user_pro
+        ArrayList<Accompagnement> accompagnements = new ArrayList<>();
+        try {
+            Statement stmt = ConnexionJDBC.getInstance().getCnx()
+                    .createStatement();
+            ResultSet rs = stmt.executeQuery("SELECT accompagnement.id, accompagnement.user_id, user.nom , USER.prenom,accompagnement.task_id,accompagnement.user_id, accompagnement.user_pro_id,accompagnement.is_accepted FROM `accompagnement` JOIN user on accompagnement.user_id=USER.id WHERE accompagnement.user_pro_id="+id+" and accompagnement.is_accepted=0;");
+            while(rs.next()) {
+                Accompagnement accompagnement = new Accompagnement();
+                accompagnement.setId(rs.getInt(1));
+                accompagnement.setId_task(rs.getInt(5));
+                User user = new User(rs.getInt(2));
+                user.setNom(rs.getString(3));
+                user.setPrenom(rs.getString(4));
+                accompagnement.setUser(user);
+                User userPro = new User(rs.getInt(6)) ;
+                accompagnement.setUser_pro_id(userPro);
+                accompagnement.setIs_accepted(rs.getBoolean(7));
+                accompagnements.add(accompagnement);
+
+
+            }
+
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+        return  accompagnements ;
+
+
+
 
 
     }

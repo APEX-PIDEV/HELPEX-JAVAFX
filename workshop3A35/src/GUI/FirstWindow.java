@@ -29,9 +29,10 @@ public class FirstWindow extends Application {
     public void start(Stage primaryStage) {
         try {
 
-           // Parent  root = FXMLLoader.load(getClass().getResource("../GUI/gui_Tasks/GUI_Tasks.fxml"));
-            Parent  root = FXMLLoader.load(getClass().getResource("../GUI/gui_Tasks/accompagnement_button.fxml"));
+          //  Parent  root = FXMLLoader.load(getClass().getResource("../GUI/gui_Tasks/GUI_Tasks.fxml"));
+           // Parent  root = FXMLLoader.load(getClass().getResource("../GUI/gui_Tasks/accompagnement_button.fxml"));
          //   Parent  root = FXMLLoader.load(getClass().getResource("../GUI/gui_Tasks/chart.fxml"));
+           Parent  root = FXMLLoader.load(getClass().getResource("../GUI/user_Pro/Accompagnement_UserPro.fxml"));
             Scene scene = new Scene(root,1000,600);
             Image icon = new Image("images/helpexpro.png");
             primaryStage.getIcons().add(icon);

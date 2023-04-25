@@ -133,7 +133,26 @@ public class TasksService implements InterfaceTasks {
 
     @Override
     public ArrayList<Tasks> listerTasksofUser(int id_user) {
-return null ;
+        ArrayList<Tasks> myList = new ArrayList<>();
+        try {
+            String requete = "SELECT * FROM `accompagnement` join tasks on accompagnement.task_id = tasks.id WHERE accompagnement.user_pro_id= "+ id_user;
+            Statement st = ConnexionJDBC.getInstance().getCnx()
+                    .createStatement();
+            ResultSet rs = st.executeQuery(requete);
+            while(rs.next()){
+                Tasks tasks = new Tasks();
+                tasks.setId(rs.getInt(1));
+                tasks.setTitre(rs.getString("titre"));
+                tasks.setStart_date(rs.getDate("start_date"));
+                tasks.setEnd_date(rs.getDate("end_date"));
+                tasks.setIs_valid(rs.getBoolean("is_valid"));
+                myList.add(tasks);
+
+            }
+        } catch (SQLException ex) {
+            System.out.println(ex.getMessage());
+        }
+        return myList;
     }
 
     @Override

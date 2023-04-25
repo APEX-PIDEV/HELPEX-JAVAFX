@@ -19,5 +19,5 @@ public interface InterfaceAccompagnement {
     public List<Accompagnement> lister_accompagnement_for_admin ();
 
     public List<Accompagnement> lister_accompagnment_for_user();
-    public List<Accompagnement> lister_accompagnment_for_pro();
+    public List<Accompagnement> lister_accompagnment_for_pro(int id);
 }
