@@ -67,7 +67,7 @@ UserService us = new UserService();
                     }
                 } else {
                     try {
-                        FXMLLoader loader = new FXMLLoader(getClass().getResource("Front.fxml"));
+                        FXMLLoader loader = new FXMLLoader(getClass().getResource("Profile.fxml"));
                         Parent root = loader.load();
                         email.getScene().setRoot(root);
                     } catch (IOException ex) {
