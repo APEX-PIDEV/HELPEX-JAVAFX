@@ -22,6 +22,8 @@ import javafx.application.Platform;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.collections.transformation.FilteredList;
+import javafx.collections.transformation.SortedList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -66,19 +68,21 @@ public class AjouterCController implements Initializable {
     private TextArea txtDescriptioncommentaire;
     @FXML
     private TableColumn<Commentaire, String> DESCRIPTIONcolumn;
-    private Commentaire C;
+    private Poste p;
     @FXML
     private Pane pnlOverview;
     @FXML
     private Label NumPostes;
 
-    public Commentaire getC() {
-        return C;
+    public Poste getP() {
+        return p;
     }
 
-    public void setC(Commentaire c) {
-        this.C = c;
+    public void setP(Poste p) {
+        this.p = p;
     }
+
+   
 
     
     
@@ -87,8 +91,8 @@ public class AjouterCController implements Initializable {
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) { 
-       // ListView();
-       try {         
+       try {   
+         
            table();
         } catch (IOException ex) {
             Logger.getLogger(AjouterCController.class.getName()).log(Level.SEVERE, null, ex);
@@ -104,7 +108,8 @@ public class AjouterCController implements Initializable {
       
        public void table() throws IOException
       {
-     
+          
+
             Connection conn= MyConnection.getInstance().getConn();
           ObservableList<Commentaire> commentaires = FXCollections.observableArrayList();
        try
@@ -226,7 +231,7 @@ public class AjouterCController implements Initializable {
         } else {
             Commentaire c = new Commentaire(d);
             CRUDCommentaire cu = new CRUDCommentaire();
-            cu.ajouterCommentaire(c,C.getP());
+            cu.ajouterCommentaire(c,p);
              table();
              }
     }
@@ -240,7 +245,8 @@ public class AjouterCController implements Initializable {
            Commentaire c= new Commentaire();   
               c= table.getSelectionModel().getSelectedItem();
               rcd.supprimerCommentaire(c);
-              table();
+                 table();
+      
     }
 
     @FXML

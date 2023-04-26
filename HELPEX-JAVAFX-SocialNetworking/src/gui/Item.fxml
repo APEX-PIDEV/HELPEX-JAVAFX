@@ -10,7 +10,7 @@
     <effect>
         <DropShadow blurType="GAUSSIAN" height="5.0" radius="2.0" width="5.0" />
     </effect>
-    <Label fx:id="id_poste" alignment="CENTER" contentDisplay="CENTER" prefHeight="18.0" prefWidth="81.0" text="ID" textFill="#b7c3d7" />
+    <Label fx:id="id_poste" alignment="CENTER" contentDisplay="CENTER" opacity="0.0" prefHeight="18.0" prefWidth="81.0" text="ID" textFill="#b7c3d7" />
     <Label fx:id="titre_poste" alignment="CENTER" contentDisplay="CENTER" prefHeight="18.0" prefWidth="110.0" text="Titre" textFill="#b7c3d7">
         <HBox.margin>
             <Insets />
@@ -24,4 +24,5 @@
     </Button>
    <Button fx:id="delete" mnemonicParsing="false" onAction="#Delete" prefHeight="27.0" prefWidth="79.0" style="-fx-border-color: #2A73FF; -fx-border-radius: 20; -fx-background-color: transparent;" stylesheets="@style.css" text="Delete" />
    <Button fx:id="detail" mnemonicParsing="false" onAction="#Detail" prefHeight="27.0" prefWidth="79.0" style="-fx-border-color: #2A73FF; -fx-border-radius: 20; -fx-background-color: transparent;" stylesheets="@style.css" text="Details" />
+   <Button fx:id="share" mnemonicParsing="false" onAction="#Share" prefHeight="27.0" prefWidth="79.0" style="-fx-border-color: #2A73FF; -fx-border-radius: 20; -fx-background-color: transparent;" stylesheets="@style.css" text="Share" />
 </HBox>

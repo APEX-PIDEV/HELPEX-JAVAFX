@@ -4,17 +4,20 @@
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
             <file>file:/C:/Users/USER/OneDrive/Documents/NetBeansProjects/HELPEX-JAVAFX-Formation/src/services/CRUDCommentaire.java</file>
+            <file>file:/C:/Users/USER/OneDrive/Documents/NetBeansProjects/HELPEX-JAVAFX-Formation/src/gui/ApiController.java</file>
             <file>file:/C:/Users/USER/OneDrive/Documents/NetBeansProjects/HELPEX-JAVAFX-Formation/src/utils/MyConnection.java</file>
             <file>file:/C:/Users/USER/OneDrive/Documents/NetBeansProjects/HELPEX-JAVAFX-Formation/src/services/CRUDPoste.java</file>
             <file>file:/C:/Users/USER/OneDrive/Documents/NetBeansProjects/HELPEX-JAVAFX-Formation/src/gui/FXML.fxml</file>
             <file>file:/C:/Users/USER/OneDrive/Documents/NetBeansProjects/HELPEX-JAVAFX-Formation/src/gui/Form.fxml</file>
             <file>file:/C:/Users/USER/OneDrive/Documents/NetBeansProjects/HELPEX-JAVAFX-Formation/src/gui/AjouterCController.java</file>
+            <file>file:/C:/Users/USER/OneDrive/Documents/NetBeansProjects/HELPEX-JAVAFX-Formation/src/gui/style.css</file>
             <file>file:/C:/Users/USER/OneDrive/Documents/NetBeansProjects/HELPEX-JAVAFX-Formation/src/gui/firstwindow.java</file>
             <file>file:/C:/Users/USER/OneDrive/Documents/NetBeansProjects/HELPEX-JAVAFX-Formation/src/interfaces/InterfacePoste.java</file>
             <file>file:/C:/Users/USER/OneDrive/Documents/NetBeansProjects/HELPEX-JAVAFX-Formation/src/home/FormController.java</file>
             <file>file:/C:/Users/USER/OneDrive/Documents/NetBeansProjects/HELPEX-JAVAFX-Formation/src/gui/FormController.java</file>
             <file>file:/C:/Users/USER/OneDrive/Documents/NetBeansProjects/HELPEX-JAVAFX-Formation/src/interfaces/InterfaceCommentaire.java</file>
             <file>file:/C:/Users/USER/OneDrive/Documents/NetBeansProjects/HELPEX-JAVAFX-Formation/src/gui/AjouterPoste.fxml</file>
+            <file>file:/C:/Users/USER/OneDrive/Documents/NetBeansProjects/HELPEX-JAVAFX-Formation/src/gui/Api.fxml</file>
             <file>file:/C:/Users/USER/OneDrive/Documents/NetBeansProjects/HELPEX-JAVAFX-Formation/src/gui/cc.java</file>
             <file>file:/C:/Users/USER/OneDrive/Documents/NetBeansProjects/HELPEX-JAVAFX-Formation/src/entities/Commentaire.java</file>
             <file>file:/C:/Users/USER/OneDrive/Documents/NetBeansProjects/HELPEX-JAVAFX-Formation/src/home/Controller.java</file>

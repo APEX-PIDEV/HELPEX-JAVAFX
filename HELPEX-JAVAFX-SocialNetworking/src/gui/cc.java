@@ -19,12 +19,19 @@ import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import java.net.HttpURLConnection;
 import java.net.URL;
 import java.sql.Connection;
 import java.util.List;
 import java.util.ResourceBundle;
+import java.util.Scanner;
+import javafx.scene.control.TextField;
+//import jdk.nashorn.internal.parser.JSONParser;
 import services.CRUDPoste;
 import utils.MyConnection;
+import org.json.simple.JSONArray;
+import org.json.simple.JSONObject;
+import org.json.simple.parser.JSONParser;
 
 public class cc implements Initializable {
 
@@ -64,6 +71,8 @@ public class cc implements Initializable {
     private Pane pnlMenus;
     @FXML
     private Label NumPostes;
+    @FXML
+    private TextField searchfield;
 
     public VBox getPnItems() {
         return pnItems;
@@ -77,13 +86,17 @@ public class cc implements Initializable {
         posteList=CRUDposte.afficherPoste();
         for (Poste poste : posteList)
             LoadItem(poste);
-        NumPostes.setText(String.valueOf(posteList.size()));;
+        NumPostes.setText(String.valueOf(posteList.size()));
+                 pnlOverview.setStyle("-fx-background-color : #02030A");
+            pnlOverview.toFront();
 
     }
 
 
     @FXML
     public void handleClicks(ActionEvent actionEvent) {
+         pnlOverview.setStyle("-fx-background-color : #02030A");
+            pnlOverview.toFront();
         if (actionEvent.getSource() == btnCustomers) {
             pnlCustomer.setStyle("-fx-background-color : #1620A1");
             pnlCustomer.toFront();
@@ -145,6 +158,32 @@ public class cc implements Initializable {
     @FXML
     private void Refresh(ActionEvent event) {
         refresh();
+    }
+
+    @FXML
+    private void Statistique(ActionEvent event) throws IOException {
+          FXMLLoader loader = new FXMLLoader(getClass().getResource("Api.fxml"));
+        AnchorPane newInterface = loader.load();
+        ApiController newInterfaceController = loader.getController();
+
+        Stage stage = new Stage();
+        stage.setScene(new Scene(newInterface));
+        stage.setOnHidden((event1) -> refresh());
+        stage.show();
+        
+    }
+
+    @FXML
+    private void search(MouseEvent event) {
+        CRUDPoste CRUDposte=new CRUDPoste();
+        List<Poste> posteList;
+        posteList=CRUDposte.afficherPoste();
+        pnItems.getChildren().clear();
+        for (Poste poste : posteList)
+        {
+            if (poste.getTitre().contains(searchfield.getText()))
+            LoadItem(poste);
+        }
     }
 
 }
