@@ -7,7 +7,6 @@ import com.itextpdf.text.Paragraph;
 import com.itextpdf.text.pdf.PdfPCell;
 import com.itextpdf.text.pdf.PdfPTable;
 import com.itextpdf.text.pdf.PdfWriter;
-import com.lowagie.text.DocumentException;
 import com.twilio.Twilio;
 import com.twilio.rest.api.v2010.account.Message;
 import entites.Accompagnement;

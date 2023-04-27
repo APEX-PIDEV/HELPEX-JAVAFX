@@ -9,6 +9,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.print.*;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
@@ -19,6 +20,7 @@ import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseButton;
 import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
+import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import services.ItemService;
 
@@ -28,6 +30,8 @@ import java.sql.Time;
 import java.util.*;
 
 public class GuiTaskAdmin implements Initializable {
+    @FXML
+    private Button bilan;
     @FXML
     private Label AccompagnementLabel;
 
@@ -271,4 +275,40 @@ public class GuiTaskAdmin implements Initializable {
         } catch (IOException e) {
             e.printStackTrace();
         }}
+
+@FXML
+    public  void printing (){
+    System.out.println("3aaaaaaa");
+        // create a node to print
+        Text text = new Text("hey");
+
+        // create a button to trigger the print action
+        Button printButton = new Button("Print");
+        printButton.setOnAction(event -> {
+            // create a printer job
+            PrinterJob job = PrinterJob.createPrinterJob();
+            if (job != null) {
+                // create a page layout for the printer job
+                PageLayout pageLayout = job.getPrinter().createPageLayout(Paper.A4, PageOrientation.PORTRAIT, Printer.MarginType.DEFAULT);
+
+                // set the job status message
+                //jobStatus.setText("Printing...");
+
+                // print the node
+                boolean printed = job.printPage(pageLayout, text);
+
+                if (printed) {
+                    // end the job and set the job status message
+                    job.endJob();
+                    System.out.println("Printing completed.");
+                } else {
+                    // end the job and set the job status message
+                    job.endJob();
+                    System.out.println("Printing failed.");
+                }
+            } else {
+                System.out.println("Printer job could not be created.");
+            }
+        });
+    }
 }

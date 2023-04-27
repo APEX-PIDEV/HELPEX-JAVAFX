@@ -96,6 +96,24 @@ public class TasksService implements InterfaceTasks {
 
     }
 
+    public void MakeTaskValid(int id ) {
+        String req ="UPDATE `tasks` SET `is_valid`= ? WHERE id= ?" ;
+        try {
+            PreparedStatement pst = ConnexionJDBC.getInstance().getCnx()
+                    .prepareStatement(req);
+
+            pst.setBoolean(1, true);
+            pst.setInt(2, id);
+            pst.executeUpdate();
+            System.out.println("Done  TASK becomes Valid !");
+
+
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+
+    }
+
     @Override
     public void SupprimerTask(int id) throws SQLException {
         String sql = "DELETE FROM Tasks WHERE id= '"+id+"'";

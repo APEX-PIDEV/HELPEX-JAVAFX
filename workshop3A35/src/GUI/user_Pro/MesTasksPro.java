@@ -31,6 +31,7 @@ public class MesTasksPro  implements Initializable {
     @FXML
     private Label accomswitch;
     private int current_user_pro_connectes=8 ;
+
     DataSingleton dataSingleton=DataSingleton.instance ;
 
     @Override
@@ -74,8 +75,8 @@ public class MesTasksPro  implements Initializable {
                 // targetScene.setUserData(val());
                 Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
 
-                window.setWidth(1350);
-                window.setHeight(890);
+               // window.setWidth(1350);
+               // window.setHeight(890);
                 window.setScene(targetScene);
 
                 window.show();
@@ -143,8 +144,8 @@ public class MesTasksPro  implements Initializable {
             Parent root = loader.load();
             Scene newScene = new Scene(root);
             Stage currentStage = (Stage) accomswitch.getScene().getWindow();
-            currentStage.setWidth(1350);
-            currentStage.setHeight(890);
+           // currentStage.setWidth(1350);
+          //  currentStage.setHeight(890);
             currentStage.setScene(newScene);
         } catch (IOException e) {
             e.printStackTrace();

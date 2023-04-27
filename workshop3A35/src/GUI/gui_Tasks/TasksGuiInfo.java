@@ -13,6 +13,7 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.VBox;
+import javafx.scene.text.Font;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 import services.ItemService;
@@ -99,6 +100,7 @@ public class TasksGuiInfo  implements Initializable {
             }
 
             title = new Label(tasks.get(i).getId_task().getTitre());
+            title.setFont(new Font(20));
 
             ImageView imageView = new ImageView(image);
             imageView.setFitWidth(20);

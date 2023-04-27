@@ -6,6 +6,8 @@ import entites.User;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.collections.transformation.FilteredList;
+import javafx.collections.transformation.SortedList;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -17,6 +19,7 @@ import javafx.scene.control.TableCell;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
@@ -30,6 +33,8 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 public class AccompagnementUserPro  implements Initializable {
+    @FXML
+    private TextField recherche;
     @FXML
     private TableColumn<?, ?> accepterId;
 
@@ -50,6 +55,8 @@ public class AccompagnementUserPro  implements Initializable {
 
     @FXML
     private HBox hboxAccompagnement;
+    @FXML
+    javafx.scene.control.TextField hhh ;
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         mesAccompagnments();
@@ -168,6 +175,44 @@ public class AccompagnementUserPro  implements Initializable {
 
 
 
+
+    }
+
+
+
+
+    @FXML
+    private void handleKeyReleased(KeyEvent event) {
+
+
+
+
+
+
+
+        // wrap the TableView's data in a FilteredList
+         FilteredList<Accompagnement> filteredList;
+        filteredList = new FilteredList<>(accompagnement_Table.getItems(), p -> true);
+
+        // set the filter predicate whenever the search text changes
+
+            String newValue = hhh.getText().toLowerCase();
+            filteredList.setPredicate(accompagnement -> {
+                if (newValue == null || newValue.isEmpty()) {
+                    return true;
+                }
+                String lowerCaseFilter = newValue.toLowerCase();
+                return accompagnement.getUser().getNom().toLowerCase().contains(lowerCaseFilter)
+                        || accompagnement.getUser().getPrenom().toLowerCase().contains(lowerCaseFilter);
+            });
+
+
+        // wrap the filtered list in a SortedList
+        SortedList<Accompagnement> sortedList = new SortedList<>(filteredList);
+
+        // bind the sorted list to the TableView
+        sortedList.comparatorProperty().bind(accompagnement_Table.comparatorProperty());
+        accompagnement_Table.setItems(sortedList);
 
     }
 }
