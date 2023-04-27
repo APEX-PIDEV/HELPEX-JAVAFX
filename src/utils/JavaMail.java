@@ -5,6 +5,7 @@
  */
 package apex.helpex.utils;
 
+import entities.Formation;
 import java.util.Properties;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -24,7 +25,7 @@ import javax.mail.internet.MimeMessage;
  */
 public class JavaMail {
 
-    public static void sendMail(String recepient) throws Exception {
+    public static void sendMail(String recepient, Formation f) throws Exception {
         Properties properties = new Properties();
 
         properties.put("mail.smtp.auth", "true");
@@ -43,26 +44,32 @@ public class JavaMail {
 
         });
 
-        Message message = prepareMessage(session, "apex.pidev1@gmail.com", recepient);
+        Message message = prepareMessage(session, "apex.pidev1@gmail.com", recepient,f);
 
         Transport.send(message);
         System.out.println("Message sent successfully");
 
     }
 
-    private static Message prepareMessage(Session session, String myAccountEmail, String recepient) {
-        try {
-            Message message = new MimeMessage(session);
-            message.setFrom(new InternetAddress(myAccountEmail));
-            message.setRecipient(Message.RecipientType.TO, new InternetAddress(recepient));
-            message.setSubject("my first email");
-            message.setText("Hey i wanna be you client");
-            return message;
-        } catch (Exception ex) {
-            Logger.getLogger(JavaMail.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        return null;
+   private static Message prepareMessage(Session session, String myAccountEmail, String recepient, Formation f) {
+    try {
+        Message message = new MimeMessage(session);
+        message.setFrom(new InternetAddress(myAccountEmail));
+        message.setRecipient(Message.RecipientType.TO, new InternetAddress(recepient));
+        message.setSubject("my first email");
+        String messageText = "Hey i wanna be you client" + "\n\n" +
+            "Formation nom: " + f.getNomFormation() + "\n" +
+            "Formation Description: " + f.getDescriptionFormation() + "\n" +
+            "Formation cout: " + f.getCoutFormation() + "\n" +
+            "Formation duree: " + f.getDuree();
+        message.setText(messageText);
+        return message;
+    } catch (Exception ex) {
+        Logger.getLogger(JavaMail.class.getName()).log(Level.SEVERE, null, ex);
     }
+    return null;
+}
+
 
     
 

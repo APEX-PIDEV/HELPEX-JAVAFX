@@ -43,6 +43,9 @@
                </columns>
             </TableView>
             <Button fx:id="btnimprimer" layoutX="571.0" layoutY="468.0" mnemonicParsing="false" onAction="#imprimerF" prefHeight="50.0" prefWidth="111.0" text="imprimer" />
+            <Button fx:id="inscribtn" layoutX="715.0" layoutY="468.0" mnemonicParsing="false" onAction="#inscriptionF" prefHeight="50.0" prefWidth="111.0" text="inscription" />
+            <Button fx:id="btnlocalisation" layoutX="390.0" layoutY="463.0" mnemonicParsing="false" onAction="#localisationF" prefHeight="50.0" prefWidth="111.0" text="localisation" />
+            <TextField fx:id="rechercher" layoutX="524.0" layoutY="21.0" />
          </children>
       </AnchorPane>
    </children>

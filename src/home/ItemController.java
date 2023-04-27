@@ -7,11 +7,19 @@ package home;
 
 import apex.helpex.utils.JavaMail;
 import entities.Centre;
+import entities.Formation;
 import java.io.IOException;
 import java.net.URL;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javafx.beans.property.SimpleStringProperty;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -19,10 +27,12 @@ import javafx.fxml.Initializable;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.HBox;
 import javafx.stage.Stage;
 import services.CRUDCentre;
+import utils.MyConnection;
 
 /**
  * FXML Controller class
@@ -100,16 +110,12 @@ public class ItemController implements Initializable {
     }
 
     @FXML
-    private void detail(ActionEvent event) throws IOException {
-        
+    private void detail(ActionEvent event) throws IOException, SQLException {
+        PreparedStatement pst;
+
         FXMLLoader loader = new FXMLLoader(getClass().getResource("AjouterF.fxml"));
             AnchorPane newInterface = loader.load();
-            try {
-                //send email to emailField.getText()
-                JavaMail.sendMail("ahmedbelhajhassen22@gmail.com");
-            } catch (Exception ex) {
-                Logger.getLogger(ItemController.class.getName()).log(Level.SEVERE, null, ex);
-            }
+         
             AjouterFormationController newInterfaceController = loader.getController();
             Centre P=new Centre();
             P.setId(Integer.parseInt(id_centre.getText()));
@@ -118,6 +124,51 @@ public class ItemController implements Initializable {
         stage.setScene(new Scene(newInterface));
         stage.setOnHidden((event1) -> refresh());
         stage.show();
+        try
+       {
+           Connection conn= MyConnection.getInstance().getConn();
+           ObservableList<Formation> formations = FXCollections.observableArrayList();
+            
+           pst = conn.prepareStatement("SELECT `id`, `nom_formation`, `description_formation`, `cout_formation`, `nombre_de_place`, `duree` FROM `formation`WHERE id_centre_id='"+P.getId()+"'");  
+           ResultSet rs = pst.executeQuery();
+        while (rs.next())
+        {
+            Formation st = new Formation();
+            st.setId(rs.getInt("id"));
+          
+            st.setNomFormation(rs.getString("nom_formation"));
+            st.setDescriptionFormation(rs.getString("description_formation"));
+            st.setCoutFormation(rs.getFloat("cout_formation"));
+                        st.setNombreDePlace(rs.getInt("nombre_de_place"));
+                       // st.setDuree(rs.getString("duree"));
+           
+            formations.add(st);
+       }
+      
+    
+           
+                newInterfaceController.tableF.setItems(formations);
+                //IDColumn.setCellValueFactory(f -> f.getValue().idProperty());
+              //  IDColumn.setCellValueFactory(f -> new ReadOnlyIntegerWrapper(f.getValue().getId()).asObject());
+       newInterfaceController.IDColumn.setCellValueFactory(new PropertyValueFactory<>("id"));
+
+newInterfaceController.NOMColumnF.setCellValueFactory(f -> new SimpleStringProperty(f.getValue().getNomFormation()));
+                newInterfaceController.DESCRIPTIONColumn.setCellValueFactory(f -> new SimpleStringProperty(f.getValue().getDescriptionFormation()));
+               // newInterfaceController.COUTColumn.setCellValueFactory(f -> new SimpleStringProperty(f.getValue().getCoutFormation()));
+                                  newInterfaceController.COUTColumn.setCellValueFactory(new PropertyValueFactory<>("cout_formation"));
+
+                //newInterfaceController.DUREEColumn.setCellValueFactory(f -> new SimpleStringProperty(f.getValue().getDuree()));
+          //    TELEPHONEColumn.setCellValueFactory(f -> f.getValue().courseProperty());
+                  newInterfaceController.PLACEColumn.setCellValueFactory(new PropertyValueFactory<>("nombre_de_place"));
+               
+       }
+      
+     
+      
+       catch (SQLException ex)
+       {
+           Logger.getLogger(AjouterCController.class.getName()).log(Level.SEVERE, null, ex);
+       }
     }
     
 }

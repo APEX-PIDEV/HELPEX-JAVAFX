@@ -5,6 +5,7 @@
  */
 package home;
 
+import apex.helpex.utils.JavaMail;
 import entities.Centre;
 import entities.Formation;
 import java.net.URL;
@@ -34,7 +35,7 @@ import utils.MyConnection;
 import java.io.FileOutputStream;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
-
+import javafx.application.Application;
 import com.itextpdf.text.Document;
 import com.itextpdf.text.Element;
 import com.itextpdf.text.Font;
@@ -42,6 +43,10 @@ import com.itextpdf.text.Paragraph;
 import com.itextpdf.text.pdf.PdfPCell;
 import com.itextpdf.text.pdf.PdfPTable;
 import com.itextpdf.text.pdf.PdfWriter;
+import javafx.application.HostServices;
+import javafx.collections.transformation.FilteredList;
+import javafx.collections.transformation.SortedList;
+import javafx.scene.control.Hyperlink;
 
 /**
  * FXML Controller class
@@ -69,26 +74,32 @@ public class AjouterFormationController implements Initializable {
     @FXML
     private Button btnUpdateF;
     @FXML
-    private TableView<Formation> tableF;
+    public TableView<Formation> tableF;
  
     @FXML
-    private TableColumn<Formation,String> IDColumn;
+    public TableColumn<Formation,String> IDColumn;
     @FXML
-    private TableColumn<Formation,String> NOMColumnF;
+    public TableColumn<Formation,String> NOMColumnF;
     @FXML
-    private TableColumn<Formation,String> DESCRIPTIONColumn;
+    public TableColumn<Formation,String> DESCRIPTIONColumn;
     @FXML
-    private TableColumn<Formation,String> COUTColumn;
+    public TableColumn<Formation,String> COUTColumn;
     @FXML
-    private TableColumn<Formation,String> PLACEColumn;
+    public TableColumn<Formation,String> PLACEColumn;
     @FXML
-    private TableColumn<Formation,String> DUREEColumn;
+    public TableColumn<Formation,String> DUREEColumn;
     @FXML
     private TextField txt_id_centre;
     
     private Centre F;
     @FXML
     private Button btnimprimer;
+    @FXML
+    private Button inscribtn;
+    @FXML
+    private Button btnlocalisation;
+    @FXML
+    private TextField rechercher;
 
     public Centre getF() {
         return F;
@@ -104,7 +115,7 @@ public class AjouterFormationController implements Initializable {
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-table();    }    
+   }    
 
     @FXML
     
@@ -131,6 +142,7 @@ table();    }
             CRUDFormation cu = new CRUDFormation();
             cu.ajouterFormation(c);
              table();
+             
     }
 
   
@@ -165,17 +177,18 @@ table();    }
     PreparedStatement pst;
       Connection con;
       int id;
+      ObservableList<Formation> formations = FXCollections.observableArrayList();
+
      
       public void table()
       {
-          
-    Connection conn= MyConnection.getInstance().getConn();
-          ObservableList<Formation> formations = FXCollections.observableArrayList();
-       try
+             try
        {
-           pst = conn.prepareStatement("SELECT `id`, `nom_formation`, `description_formation`, `cout_formation`, `nombre_de_place`, `duree` FROM `formation`");  
+           Connection conn= MyConnection.getInstance().getConn();
+          //  formations = FXCollections.observableArrayList();
+
+           pst = conn.prepareStatement("SELECT `id`, `nom_formation`, `description_formation`, `cout_formation`, `nombre_de_place`, `duree` FROM `formation`WHERE id_centre_id='"+F.getId()+"'");  
            ResultSet rs = pst.executeQuery();
-      {
         while (rs.next())
         {
             Formation st = new Formation();
@@ -186,27 +199,27 @@ table();    }
             st.setCoutFormation(rs.getFloat("cout_formation"));
                         st.setNombreDePlace(rs.getInt("nombre_de_place"));
                         st.setDuree(rs.getString("duree"));
-
+           
             formations.add(st);
        }
-    }
+      
+    
+           
                 tableF.setItems(formations);
                 //IDColumn.setCellValueFactory(f -> f.getValue().idProperty());
               //  IDColumn.setCellValueFactory(f -> new ReadOnlyIntegerWrapper(f.getValue().getId()).asObject());
-        IDColumn.setCellValueFactory(new PropertyValueFactory<>("id"));
+       IDColumn.setCellValueFactory(new PropertyValueFactory<>("id"));
 
 NOMColumnF.setCellValueFactory(f -> new SimpleStringProperty(f.getValue().getNomFormation()));
-                DESCRIPTIONColumn.setCellValueFactory(f -> new SimpleStringProperty(f.getValue().getDescriptionFormation()));
-               // COUTColumn.setCellValueFactory(f -> new SimpleStringProperty(f.getValue().getCoutFormation()));
-                                  COUTColumn.setCellValueFactory(new PropertyValueFactory<>("cout_formation"));
+           DESCRIPTIONColumn.setCellValueFactory(f -> new SimpleStringProperty(f.getValue().getDescriptionFormation()));
+               // newInterfaceController.COUTColumn.setCellValueFactory(f -> new SimpleStringProperty(f.getValue().getCoutFormation()));
+                                 COUTColumn.setCellValueFactory(new PropertyValueFactory<>("cout_formation"));
 
-                DUREEColumn.setCellValueFactory(f -> new SimpleStringProperty(f.getValue().getDuree()));
+               DUREEColumn.setCellValueFactory(f -> new SimpleStringProperty(f.getValue().getDuree()));
           //    TELEPHONEColumn.setCellValueFactory(f -> f.getValue().courseProperty());
                   PLACEColumn.setCellValueFactory(new PropertyValueFactory<>("nombre_de_place"));
-
- 
+               
        }
-      
        catch (SQLException ex)
        {
            Logger.getLogger(AjouterCController.class.getName()).log(Level.SEVERE, null, ex);
@@ -256,6 +269,29 @@ NOMColumnF.setCellValueFactory(f -> new SimpleStringProperty(f.getValue().getNom
         Formation c= new Formation();
               c= tableF.getSelectionModel().getSelectedItem();
               rcd.generatePDF(c);
+         
     }
+
+    @FXML
+    private void inscriptionF(ActionEvent event) {
+          Formation c= new Formation();
+              c= tableF.getSelectionModel().getSelectedItem();
+                try {
+                //send email to emailField.getText()
+                JavaMail.sendMail("ahmedbelhajhassen22@gmail.com",c);
+            } catch (Exception ex) {
+                Logger.getLogger(ItemController.class.getName()).log(Level.SEVERE, null, ex);
+            }
+    }
+
+    @FXML
+    private void localisationF(ActionEvent event) {
+        Hyperlink link = new Hyperlink();
+link.setText("https://www.google.com/maps/");
+
+
+    }
+    
+   
     
 }

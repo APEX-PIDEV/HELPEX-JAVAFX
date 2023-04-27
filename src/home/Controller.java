@@ -23,6 +23,7 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.List;
 import java.util.ResourceBundle;
+import javafx.scene.control.TextField;
 
 public class Controller implements Initializable {
 
@@ -60,6 +61,8 @@ public class Controller implements Initializable {
 
     @FXML
     private Pane pnlMenus;
+    @FXML
+    private TextField search;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -68,10 +71,12 @@ public class Controller implements Initializable {
         centreList=CRUDCentre.affichercentre();
         for (Centre centre : centreList)
             LoadItem(centre);
+        search();
 
     }
 
 
+    @FXML
     public void handleClicks(ActionEvent actionEvent) {
         if (actionEvent.getSource() == btnCustomers) {
             pnlCustomer.setStyle("-fx-background-color : #1620A1");
@@ -137,6 +142,24 @@ public class Controller implements Initializable {
         centreList=CRUDCentre.affichercentre();
         for (Centre centre : centreList)
             LoadItem(centre);
+    }
+    private void search() {
+        CRUDCentre CRUDcentre=new CRUDCentre();
+        List<Centre> posteList;
+
+        posteList=CRUDcentre.affichercentre();
+
+            search.textProperty().addListener((observable, oldValue, newValue)-> {
+                        pnItems.getChildren().clear();
+
+ for (Centre poste : posteList)
+        {
+                if (poste.getNomCentre().contains(search.getText()))
+            LoadItem(poste);
+             }});
+
+
+
     }
 
 }
