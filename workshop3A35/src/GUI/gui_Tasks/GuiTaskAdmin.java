@@ -73,7 +73,8 @@ public class GuiTaskAdmin implements Initializable {
     public void switching() {
 
         try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("TasksGui_info.fxml"));
+            //FXMLLoader loader = new FXMLLoader(getClass().getResource("TasksGui_info.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("GUI_Tasks.fxml"));
             Parent root = loader.load();
             Scene newScene = new Scene(root);
             Stage currentStage = (Stage) tasksSideNav.getScene().getWindow();

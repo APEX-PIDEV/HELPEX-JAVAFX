@@ -16,9 +16,13 @@ import entites.User;
 import javafx.fxml.FXML;
 import com.itextpdf.text.Document;
 
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.stage.FileChooser;
+import javafx.stage.Stage;
 import org.xhtmlrenderer.pdf.ITextRenderer;
 import services.AccompagnementService;
 
@@ -40,6 +44,8 @@ import javax.swing.plaf.ButtonUI;
 public class AccompagnementButton implements Initializable {
 
 
+    @FXML
+    private Button pro;
     @FXML
     MenuButton accompagnment_button ;
     @FXML
@@ -166,5 +172,19 @@ public class AccompagnementButton implements Initializable {
 
             System.out.println("Message SID: " + message.getSid());
         }
+
+    @FXML
+    public void buttUSERPRO() {
+
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("../user_Pro/Accompagnement_UserPro.fxml"));
+            Parent root = loader.load();
+            Scene newScene = new Scene(root);
+            Stage currentStage = (Stage) pro.getScene().getWindow();
+            currentStage.setScene(newScene);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
 
 }

@@ -15,9 +15,9 @@
 
 <BorderPane prefHeight="518.0" prefWidth="964.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.gui_Tasks.TasksGuiInfo">
    <left>
-      <VBox prefHeight="200.0" prefWidth="100.0" style="-fx-background-color: #435ba1;" BorderPane.alignment="CENTER">
+      <VBox prefHeight="460.0" prefWidth="127.0" style="-fx-background-color: #05071F;" BorderPane.alignment="CENTER">
          <children>
-            <Label fx:id="dash" onMouseClicked="#switch1" onMouseDragExited="#switch1" prefHeight="42.0" prefWidth="105.0" text="Dashboard">
+            <Label fx:id="dash" onMouseClicked="#switch1" onMouseDragExited="#switch1" prefHeight="42.0" prefWidth="123.0" text="Dashboard" textFill="WHITE">
                <graphic>
                   <ImageView fitHeight="25.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
                      <image>
@@ -25,8 +25,11 @@
                      </image>
                   </ImageView>
                </graphic>
+               <font>
+                  <Font size="16.0" />
+               </font>
             </Label>
-            <Label fx:id="tasklabel" prefHeight="42.0" prefWidth="105.0" text="Tasks">
+            <Label fx:id="tasklabel" prefHeight="42.0" prefWidth="105.0" text="Tasks" textFill="WHITE">
                <graphic>
                   <ImageView fitHeight="25.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
                      <image>
@@ -34,6 +37,9 @@
                      </image>
                   </ImageView>
                </graphic>
+               <font>
+                  <Font size="20.0" />
+               </font>
             </Label>
          </children>
       </VBox>
@@ -64,11 +70,11 @@
    <top>
       <HBox prefHeight="58.0" prefWidth="600.0" BorderPane.alignment="CENTER">
          <children>
-            <Pane prefHeight="27.0" prefWidth="98.0" style="-fx-background-color: #def8f6;">
+            <Pane prefHeight="58.0" prefWidth="159.0" style="-fx-background-color: #05071F;">
                <children>
-                  <Label prefHeight="24.0" prefWidth="105.0" text="HELPEX" textFill="#dc2e59">
+                  <Label prefHeight="60.0" prefWidth="155.0" textFill="#dc2e59">
                      <graphic>
-                        <ImageView fitHeight="29.0" fitWidth="39.0" pickOnBounds="true" preserveRatio="true">
+                        <ImageView fitHeight="60.0" fitWidth="131.0" pickOnBounds="true" preserveRatio="true">
                            <image>
                               <Image url="@../../images/helpexpro.png" />
                            </image>
@@ -82,9 +88,9 @@
             </Pane>
             <Pane prefHeight="35.0" prefWidth="867.0">
                <children>
-                  <HBox layoutX="1.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="58.0" prefWidth="964.0" style="-fx-background-color: #def8f6;">
+                  <HBox layoutX="1.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="58.0" prefWidth="964.0" style="-fx-background-color: #05071F;">
                      <children>
-                        <Button mnemonicParsing="false" prefHeight="58.0" prefWidth="102.0" style="-fx-background-radius: 50; -fx-background-color: #21cdc0;" text="Button" />
+                        <Button mnemonicParsing="false" prefHeight="58.0" prefWidth="110.0" style="-fx-background-radius: 50; -fx-background-color: #21cdc0;" text="Button" />
                         <Button layoutX="10.0" layoutY="10.0" mnemonicParsing="false" prefHeight="58.0" prefWidth="102.0" style="-fx-background-radius: 50; -fx-background-color: #435ba1;" text="Button" />
                         <Button layoutX="10.0" layoutY="10.0" mnemonicParsing="false" prefHeight="58.0" prefWidth="102.0" style="-fx-background-radius: 50; -fx-background-color: #21cdc0;" text="Button" />
                         <Button layoutX="10.0" layoutY="10.0" mnemonicParsing="false" prefHeight="58.0" prefWidth="102.0" style="-fx-background-radius: 50; -fx-background-color: #435ba1;" text="Button" />

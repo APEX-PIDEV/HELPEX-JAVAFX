@@ -107,6 +107,20 @@ public class Tasks_Controller implements Initializable {
             e.printStackTrace();
         }
     }
+
+    @FXML
+    public void buttaccomp() {
+
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("accompagnement_button.fxml"));
+            Parent root = loader.load();
+            Scene newScene = new Scene(root);
+            Stage currentStage = (Stage) tasksSideNav.getScene().getWindow();
+            currentStage.setScene(newScene);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
         @FXML
         public void switchingAccompagnemment()  {
 
