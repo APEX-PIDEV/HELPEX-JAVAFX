@@ -7,8 +7,8 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.Pane?>
-<?import javafx.scene.layout.VBox?>
 <?import javafx.scene.shape.Circle?>
+<?import javafx.scene.text.Font?>
 
 <AnchorPane id="AnchorPane" prefHeight="670.0" prefWidth="1203.0" style="-fx-background-color: #435ba1;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="apex.helpex.GUI.ProfileController">
    <children>
@@ -32,7 +32,7 @@
             <Image url="@../images/helpex.png" />
          </image>
       </ImageView>
-      <Pane layoutX="278.0" layoutY="231.0" prefHeight="415.0" prefWidth="678.0" style="-fx-background-color: white; -fx-background-radius: 50;">
+      <Pane layoutX="278.0" layoutY="231.0" prefHeight="213.0" prefWidth="678.0" style="-fx-background-color: white; -fx-background-radius: 50;">
          <children>
             <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="27.0" layoutY="23.0" pickOnBounds="true" preserveRatio="true">
                <image>
@@ -40,22 +40,13 @@
                </image>
             </ImageView>
             <Circle fill="#64be56" layoutX="145.0" layoutY="63.0" radius="14.0" stroke="#0ab925" strokeType="INSIDE" strokeWidth="3.0" />
-            <VBox layoutX="245.0" layoutY="39.0" prefHeight="256.0" prefWidth="291.0" spacing="10.0">
-               <children>
-                  <HBox prefHeight="33.0" prefWidth="100.0">
-                     <children>
-                        <Label fx:id="prenom" prefHeight="34.0" prefWidth="121.0" text="prenom" textAlignment="CENTER" />
-                        <Label fx:id="nom" prefHeight="34.0" prefWidth="121.0" text="nom" textAlignment="CENTER" />
-                     </children>
-                  </HBox>
-                  <Label fx:id="email" prefHeight="34.0" prefWidth="234.0" text="Email" textAlignment="CENTER" />
-                  <Label fx:id="num" prefHeight="34.0" prefWidth="232.0" text="num_tel" textAlignment="CENTER" />
-               </children>
-            </VBox>
-            <Button fx:id="updateBtn" layoutX="131.0" layoutY="326.0" mnemonicParsing="false" onAction="#updateprofile" prefHeight="58.0" prefWidth="405.0" style="-fx-background-radius: 20; -fx-background-color: #21cdc0;" text="Update Profile" />
-            <Label fx:id="bio" layoutX="27.0" layoutY="224.0" prefHeight="34.0" prefWidth="234.0" text="bio" textAlignment="CENTER" />
-            <Label fx:id="adresse" layoutX="472.0" layoutY="221.0" prefHeight="34.0" prefWidth="239.0" text="adresse" textAlignment="CENTER" />
+            <Label fx:id="email" layoutX="242.0" layoutY="63.0" prefHeight="48.0" prefWidth="361.0" text="Email" textAlignment="CENTER">
+               <font>
+                  <Font size="27.0" />
+               </font>
+            </Label>
          </children>
       </Pane>
+      <Button fx:id="updateBtn" layoutX="512.0" layoutY="415.0" mnemonicParsing="false" onAction="#updateprofile" prefHeight="58.0" prefWidth="405.0" style="-fx-background-radius: 20; -fx-background-color: #21cdc0;" text="Update Profile" />
    </children>
 </AnchorPane>
