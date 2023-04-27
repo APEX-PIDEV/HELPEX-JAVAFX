@@ -36,6 +36,15 @@
                                  </image>
                               </ImageView>
                            </graphic></Button>
+                        <Button id="pdfButton" fx:id="pdfButton" layoutX="604.0" layoutY="7.0" mnemonicParsing="false" onAction="#createpdf" prefHeight="25.0" prefWidth="80.0" text=" pdf">
+                           <graphic>
+                              <ImageView fitHeight="19.0" fitWidth="23.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../../images/pdf.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                        </Button>
                      </children>
                   </Pane>
                </children>

@@ -5,6 +5,13 @@
  */
 package GUI.gui_Tasks;
 
+import com.itextpdf.text.Document;
+import com.itextpdf.text.Element;
+import com.itextpdf.text.PageSize;
+import com.itextpdf.text.Paragraph;
+import com.itextpdf.text.pdf.PdfPCell;
+import com.itextpdf.text.pdf.PdfPTable;
+import com.itextpdf.text.pdf.PdfWriter;
 import entites.Accompagnement;
 import entites.Item;
 import entites.Tasks;
@@ -26,12 +33,17 @@ import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseButton;
 import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
+import javafx.stage.FileChooser;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
+import org.xhtmlrenderer.pdf.ITextRenderer;
 import services.ItemService;
 import services.TasksService;
 
+import java.io.File;
+import java.io.FileOutputStream;
 import java.io.IOException;
+import java.io.OutputStream;
 import java.net.URL;
 import java.sql.Date;
 import java.sql.Time;
@@ -76,6 +88,8 @@ public class Tasks_Controller implements Initializable {
     private VBox vboxUltimit ;
     @FXML
     private Label AccompagnementLabel;
+    @FXML
+    private Button pdfButton;
 
 
     private  Scene scene ;
@@ -502,6 +516,71 @@ public class Tasks_Controller implements Initializable {
         dialog.show();
     }
 
+    @FXML
+    public void createpdf(javafx.event.ActionEvent actionEvent)  {
+
+
+        FileChooser fileChooser = new FileChooser();
+        fileChooser.setTitle("Save PDF");
+        fileChooser.setInitialFileName("example.pdf");
+        File outputFile = fileChooser.showSaveDialog(null);
+        if (outputFile == null) {
+            return; // User canceled the dialog
+        }
+
+        try {
+            OutputStream outputStream = new FileOutputStream(outputFile);
+
+            ItemService itemService = new ItemService();
+            ArrayList<Item>items =itemService.listerItemsforUser(10);
+
+            Document document = new Document(PageSize.A4.rotate());
+            String filename = "output.pdf";
+
+
+            PdfWriter.getInstance(document, outputStream);
+
+            document.open();
+            PdfPTable table = new PdfPTable(2);
+            table.setWidths(new int[]{2, 4});
+            PdfPCell cell = new PdfPCell(new Paragraph("Header 1"));
+            table.addCell(cell);
+            cell = new PdfPCell(new Paragraph("Header 2"));
+            table.addCell(cell);
+                /*cell = new PdfPCell(new Paragraph("Header 3"));
+                table.addCell(cell);*/
+            int i = 0 ;
+            for(Item item : items){
+
+                i++ ;
+                cell = new PdfPCell(new Paragraph(item.getTitre()));
+                table.addCell(cell);
+                cell = new PdfPCell(new Paragraph("5 DT"));
+                table.addCell(cell);
+            }
+
+            Paragraph totalColumns = new Paragraph("Total : " + i*5, new com.itextpdf.text.Font(com.itextpdf.text.Font.FontFamily.HELVETICA, 18, com.itextpdf.text.Font.BOLD));
+            totalColumns.setAlignment(Element.ALIGN_RIGHT);
+            Paragraph header = new Paragraph("Totale de facture ", new com.itextpdf.text.Font(com.itextpdf.text.Font.FontFamily.HELVETICA, 24, com.itextpdf.text.Font.BOLD));
+            header.setAlignment(Element.ALIGN_CENTER);
+            document.add(header);
+            document.add(table);
+            document.add(totalColumns);
+
+
+
+            ///css
+
+            document.close();
+
+            ITextRenderer renderer = new ITextRenderer();
+
+
+            outputStream.close();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
 
 }
 

@@ -31,7 +31,7 @@ public class FirstWindow extends Application {
 
            // Parent  root = FXMLLoader.load(getClass().getResource("../GUI/gui_Tasks/GUI_Tasks.fxml"));
             //Parent  root = FXMLLoader.load(getClass().getResource("../GUI/gui_Tasks/Gui_taskAdmin.fxml"));
-           Parent  root = FXMLLoader.load(getClass().getResource("../GUI/gui_Tasks/accompagnement_button.fxml"));
+        //   Parent  root = FXMLLoader.load(getClass().getResource("../GUI/gui_Tasks/accompagnement_button.fxml"));
 
 
 
@@ -42,7 +42,7 @@ public class FirstWindow extends Application {
 
 
             ///////////////////admin////////////////////
-            // Parent  root = FXMLLoader.load(getClass().getResource("../GUI/gui_Tasks/chart.fxml"));
+             Parent  root = FXMLLoader.load(getClass().getResource("../GUI/gui_Tasks/chart.fxml"));
 
             ///////////////////admin////////////////////
 

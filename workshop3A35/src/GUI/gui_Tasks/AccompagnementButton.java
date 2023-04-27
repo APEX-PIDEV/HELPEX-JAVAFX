@@ -146,15 +146,15 @@ public class AccompagnementButton implements Initializable {
             }
         }
 
-        public static final String ACCOUNT_SID = "AC5a8aebca0ead5f90b81f948c9f9c12c2";
-        public static final String AUTH_TOKEN = "c1534113c9053a2f99ecdc19f4c8523b";
+        public static final String ACCOUNT_SID = "AC35f3e6bdc59a86fd5d3763e8d3e093a6";
+        public static final String AUTH_TOKEN = "b98f6255b040afaa8779af5c687286dd";
 
         public void sendSms(){
             Twilio.init(ACCOUNT_SID, AUTH_TOKEN);
 
             Message message = Message.creator(
-                            new PhoneNumber("+21621339405"), // destination phone number
-                            new PhoneNumber("+16205368369"), // your Twilio phone number
+                            new PhoneNumber("+21623398991"), // destination phone number
+                            new PhoneNumber("+19103354023"), // your Twilio phone number
                            "Bonjour,\n" +
                                    "\n" +
                                    "Nous espérons que vous allez bien. Nous tenions à vous informer que vous avez un nouveau demande d'accompagnment.\n" +
