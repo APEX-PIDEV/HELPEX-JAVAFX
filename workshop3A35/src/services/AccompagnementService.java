@@ -26,7 +26,7 @@ public class AccompagnementService implements InterfaceAccompagnement {
             PreparedStatement pst = ConnexionJDBC.getInstance().getCnx()
                     .prepareStatement(requete);
             // pst.setInt(1,667);
-            pst.setInt(1,accompagnement.getId_task());
+            pst.setInt(1,accompagnement.getId_task().getId());
             pst.setInt(2, accompagnement.getUser().getId());
             pst.setInt(3,accompagnement.getUser_pro().getId());
             pst.setBoolean(4, false);
@@ -45,7 +45,7 @@ public class AccompagnementService implements InterfaceAccompagnement {
             PreparedStatement pst = ConnexionJDBC.getInstance().getCnx()
                     .prepareStatement(requete);
             // pst.setInt(1,667);
-            pst.setInt(1,accompagnement.getId_task());
+            pst.setInt(1,accompagnement.getId_task().getId());
             pst.setInt(2, accompagnement.getUser().getId());
             pst.setInt(3,accompagnement.getUser_pro().getId());
             pst.setBoolean(4, true);
@@ -66,7 +66,7 @@ public class AccompagnementService implements InterfaceAccompagnement {
             pst = ConnexionJDBC.getInstance().getCnx()
                     .prepareStatement(req);
             pst.setInt(1,accompagnement.getUser_pro().getId());
-            pst.setInt(2,accompagnement.getId_task());
+            pst.setInt(2,accompagnement.getId_task().getId());
             pst.setInt(3, accompagnement.getUser().getId());
 
             pst.executeUpdate();
@@ -121,11 +121,13 @@ public class AccompagnementService implements InterfaceAccompagnement {
              ResultSet rs = st.executeQuery(sql);
              while(rs.next()){
                  Accompagnement accompagnement =new Accompagnement();
-                 accompagnement.setId(rs.getInt(1));
-                 accompagnement.setId_task(rs.getInt(2));
-                 accompagnement.getUser().setId(rs.getInt(3));
-                 accompagnement.getUser().setId(rs.getInt(4));
-                 accompagnement.setIs_accepted(rs.getBoolean(5));
+                 accompagnement.setId(rs.getInt("id"));
+                 accompagnement.setId_task(new Tasks(rs.getInt("task_id")));
+                 User user = new User(rs.getInt("user_id"));
+                 accompagnement.setUser(user);
+                 User userpro = new User(rs.getInt("user_pro_id"));
+                 accompagnement.setUser_pro_id(userpro);
+                 accompagnement.setIs_accepted(rs.getBoolean("is_accepted"));
 
                  myList.add(accompagnement);
 
@@ -169,7 +171,7 @@ public class AccompagnementService implements InterfaceAccompagnement {
             while(rs.next()) {
                 Accompagnement accompagnement = new Accompagnement();
                 accompagnement.setId(rs.getInt(1));
-                accompagnement.setId_task(rs.getInt(5));
+                accompagnement.setId_task( new Tasks(rs.getInt(5)));
                 User user = new User(rs.getInt(2));
                 user.setNom(rs.getString(3));
                 user.setPrenom(rs.getString(4));

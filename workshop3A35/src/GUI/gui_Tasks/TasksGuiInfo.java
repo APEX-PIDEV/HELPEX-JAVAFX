@@ -1,5 +1,6 @@
 package GUI.gui_Tasks;
 
+import entites.Accompagnement;
 import entites.Item;
 import entites.Tasks;
 import javafx.fxml.FXML;
@@ -32,6 +33,9 @@ public class TasksGuiInfo  implements Initializable {
     private Label dash ;
     @FXML
     private GridPane gridBox ;
+    @FXML
+    private Label accomswitch;
+    private int currentUser=10 ;
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         listerTasks();
@@ -55,17 +59,37 @@ public class TasksGuiInfo  implements Initializable {
 
 
     }
+
+    @FXML
+    public void switchingAccompagnemment()  {
+
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("../admin/accompagnmemnts_admin.fxml"));
+            Parent root = loader.load();
+            Scene newScene = new Scene(root);
+            Stage currentStage = (Stage) accomswitch.getScene().getWindow();
+            currentStage.setScene(newScene);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+
+
+
+    }
     public void switch3(){
 
     }
 
+
+
     public void listerTasks(){
         TasksService tasksService = new TasksService() ;
-        ArrayList<Tasks> tasks = tasksService.listerTasks();
+        ArrayList<Accompagnement> tasks = tasksService.listerTasksofUser(currentUser);
         for (int i = 0; i < tasks.size(); i++){
             Image image ;
             Label title = null;
-            if (tasks.get(i).isIs_valid()){
+            if (tasks.get(i).getId_task().isIs_valid()){
                 image  = new Image("images/folderyes.png");
 
 
@@ -74,7 +98,7 @@ public class TasksGuiInfo  implements Initializable {
                 image  = new Image("images/folderno.png");
             }
 
-            title = new Label(tasks.get(i).getTitre());
+            title = new Label(tasks.get(i).getId_task().getTitre());
 
             ImageView imageView = new ImageView(image);
             imageView.setFitWidth(20);
@@ -92,13 +116,14 @@ public class TasksGuiInfo  implements Initializable {
             Label finalTitle = title;
 
             ///////////tootltip////////////
-            Tooltip tooltip = new Tooltip(tasks.get(i).getStart_date()+"/"+tasks.get(i).getEnd_date());
+            Tooltip tooltip = new Tooltip(tasks.get(i).getId_task().getStart_date()+"/"+tasks.get(i).getId_task().getEnd_date());
             Tooltip.install(finalTitle, tooltip);
 
             ////////////tooltip///////////
             editItem.setOnAction(event -> {
-                MakeDialog(tasks.get(finalI1), finalTitle)  ;          });
+                MakeDialog(tasks.get(finalI1).getId_task(), finalTitle)  ;          });
             int finalI = i;
+
 
 
             deleteItem.setOnAction(event -> {

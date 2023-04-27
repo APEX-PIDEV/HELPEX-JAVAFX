@@ -57,7 +57,7 @@ public class TasksService implements InterfaceTasks {
     public void AjouterAccompagnement(Tasks task){
         //here id user & id user_pro
         Accompagnement accompagnement = new Accompagnement();
-        accompagnement.setId_task(task.getId());
+        accompagnement.setId_task(task);
         String requette = "INSERT INTO `accompagnement`(`task_id`, `user_id`,  `is_accepted`) VALUES (?,?,?)";
         try {
             PreparedStatement pst =ConnexionJDBC.getInstance().getCnx().prepareStatement(requette);
@@ -132,21 +132,31 @@ public class TasksService implements InterfaceTasks {
     }
 
     @Override
-    public ArrayList<Tasks> listerTasksofUser(int id_user) {
-        ArrayList<Tasks> myList = new ArrayList<>();
+    public ArrayList<Accompagnement> listerTasksofUser(int id_user) {
+        ArrayList<Accompagnement> myList = new ArrayList<>();
         try {
-            String requete = "SELECT * FROM `accompagnement` join tasks on accompagnement.task_id = tasks.id WHERE accompagnement.user_pro_id= "+ id_user;
+            String requete = "SELECT * FROM `accompagnement` join tasks on accompagnement.task_id = tasks.id JOIN user on accompagnement.user_id=user.id WHERE accompagnement.user_id = "+ id_user;
             Statement st = ConnexionJDBC.getInstance().getCnx()
                     .createStatement();
             ResultSet rs = st.executeQuery(requete);
             while(rs.next()){
-                Tasks tasks = new Tasks();
-                tasks.setId(rs.getInt(1));
+                Accompagnement accompagnement = new Accompagnement();
+                accompagnement.setId(rs.getInt("id"));
+                User user = new User(rs.getInt("user_id"));
+                user.setNom(rs.getString("nom"));
+                user.setPrenom(rs.getString("prenom"));
+                accompagnement.setUser(user);
+                User userPro = new User(rs.getInt("user_pro_id"));
+                accompagnement.setUser_pro_id(userPro);
+                Tasks tasks = new Tasks(rs.getInt("task_id"));
+                tasks.setTitre("titre");
                 tasks.setTitre(rs.getString("titre"));
                 tasks.setStart_date(rs.getDate("start_date"));
                 tasks.setEnd_date(rs.getDate("end_date"));
                 tasks.setIs_valid(rs.getBoolean("is_valid"));
-                myList.add(tasks);
+                accompagnement.setId_task(tasks);
+
+                myList.add(accompagnement);
 
             }
         } catch (SQLException ex) {
@@ -156,8 +166,38 @@ public class TasksService implements InterfaceTasks {
     }
 
     @Override
-    public ArrayList<Tasks> listerTasksofUser_pro(int id_user_pro) {
-        return null;
+    public ArrayList<Accompagnement> listerTasksofUser_pro(int id_user_pro) {
+        ArrayList<Accompagnement> myList = new ArrayList<>();
+        try {
+            String requete="SELECT * FROM `accompagnement` join tasks on accompagnement.task_id = tasks.id JOIN user on accompagnement.user_id=user.id WHERE accompagnement.user_pro_id ="+id_user_pro+" and is_accepted=1 and tasks.start_date>= CURRENT_TIMESTAMP;";
+
+            Statement st = ConnexionJDBC.getInstance().getCnx()
+                    .createStatement();
+            ResultSet rs = st.executeQuery(requete);
+            while(rs.next()){
+                Accompagnement accompagnement = new Accompagnement();
+                accompagnement.setId(rs.getInt("id"));
+                User user = new User(rs.getInt("user_id"));
+                user.setNom(rs.getString("nom"));
+                user.setPrenom(rs.getString("prenom"));
+                accompagnement.setUser(user);
+                User userPro = new User(rs.getInt("user_pro_id"));
+                accompagnement.setUser_pro_id(userPro);
+                Tasks tasks = new Tasks(rs.getInt("task_id"));
+                tasks.setTitre("titre");
+                tasks.setTitre(rs.getString("titre"));
+                tasks.setStart_date(rs.getDate("start_date"));
+                tasks.setEnd_date(rs.getDate("end_date"));
+                tasks.setIs_valid(rs.getBoolean("is_valid"));
+                accompagnement.setId_task(tasks);
+
+                myList.add(accompagnement);
+
+            }
+        } catch (SQLException ex) {
+            System.out.println(ex.getMessage());
+        }
+        return myList;
     }
 
     @Override

@@ -7,7 +7,10 @@ import javafx.beans.property.SimpleStringProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TableCell;
@@ -16,11 +19,13 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
+import javafx.stage.Stage;
 import javafx.util.Callback;
 import services.AccompagnementService;
 
 import java.awt.*;
 import java.awt.event.MouseEvent;
+import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
@@ -35,6 +40,10 @@ public class AccompagnementUserPro  implements Initializable {
     private TableColumn<?, ?> clientId;
     @FXML
     private Label number ;
+    @FXML
+    private Label accomswitch;
+    @FXML
+    private Label tasklabel;
 
     @FXML
     private TableColumn<?, ?> taskCid;
@@ -124,5 +133,41 @@ public class AccompagnementUserPro  implements Initializable {
 
         accompagnement_Table.getColumns().addAll(nomColumn,buttonColumn,buttonColumn1);
         accompagnement_Table.setItems(accompagnementObservableList);
+    }
+
+
+    @FXML
+    public void switchingAccompagnemment()  {
+
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("Accompagnement_UserPro.fxml"));
+            Parent root = loader.load();
+            Scene newScene = new Scene(root);
+            Stage currentStage = (Stage) accomswitch.getScene().getWindow();
+            currentStage.setScene(newScene);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+
+
+
+    }
+    @FXML
+    public void switchingTasks()  {
+
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("mes_tasks_pro.fxml"));
+            Parent root = loader.load();
+            Scene newScene = new Scene(root);
+            Stage currentStage = (Stage) accomswitch.getScene().getWindow();
+            currentStage.setScene(newScene);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+
+
+
     }
 }

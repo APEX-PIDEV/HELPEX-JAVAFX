@@ -5,6 +5,7 @@
  */
 package GUI.gui_Tasks;
 
+import entites.Accompagnement;
 import entites.Item;
 import entites.Tasks;
 import javafx.beans.property.SimpleBooleanProperty;
@@ -66,17 +67,21 @@ public class Tasks_Controller implements Initializable {
     private int numberoftasks =0, numberCompleteItem=0,numbernonCompleteItem=0;
     VBox vBox = new VBox();
     TasksService tasksService = new TasksService();
-    ArrayList<Tasks> listTasks= tasksService.listerTasks();
+
+    private  int currentuser =10 ;
+    ArrayList<Accompagnement> listTasks= tasksService.listerTasksofUser(currentuser);
     @FXML
     private  Label tasksSideNav ;
     @FXML
     private VBox vboxUltimit ;
+    @FXML
+    private Label AccompagnementLabel;
 
 
     private  Scene scene ;
     private Stage stage;
     @FXML
-    public void switching()  {
+    public void switching() {
 
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("TasksGui_info.fxml"));
@@ -87,10 +92,24 @@ public class Tasks_Controller implements Initializable {
         } catch (IOException e) {
             e.printStackTrace();
         }
-
-
-
     }
+        @FXML
+        public void switchingAccompagnemment()  {
+
+            try {
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("../admin/accompagnmemnts_admin.fxml"));
+                Parent root = loader.load();
+                Scene newScene = new Scene(root);
+                Stage currentStage = (Stage) AccompagnementLabel.getScene().getWindow();
+                currentStage.setScene(newScene);
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+
+
+
+
+        }
     @FXML
     public void switching1(ActionEvent event)  {
         Parent root = null;
@@ -125,13 +144,14 @@ public class Tasks_Controller implements Initializable {
         TasksService tasksService = new TasksService();
         listTasks.clear();
         taskMenuItem.getItems().clear();
-        ArrayList<Tasks>listTasks= tasksService.listerTasks();
+        ArrayList<Accompagnement>listTasks= tasksService.listerTasksofUser(currentuser);
 
 
-        for (Tasks task : listTasks) {
+        for (Accompagnement accompagnement
+                : listTasks) {
             numberoftasks++;
-            MenuItem menuItem = new MenuItem(task.getTitre());
-            int idTask = task.getId();
+            MenuItem menuItem = new MenuItem(accompagnement.getId_task().getTitre());
+            int idTask = accompagnement.getId_task().getId();
             menuItem.setOnAction(e -> {
 
                 if( itemTextField.getText().isEmpty() ){
@@ -194,7 +214,7 @@ public class Tasks_Controller implements Initializable {
         vBox.getChildren().clear();
         ItemService service = new ItemService();
 
-        ArrayList<Item> items= service.listerItems();
+        ArrayList<Item> items= service.listerItemsforUser(currentuser);
         for (Item item :items){
             if (item.isId_complete()) {
                 numberCompleteItem++;

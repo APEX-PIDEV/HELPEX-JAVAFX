@@ -2,7 +2,7 @@ package entites;
 
 public class Accompagnement {
     private int id ;
-    private int id_task ;
+    private Tasks id_task ;
     private Boolean is_accepted ;
     private User   user ;
     private User     userPro ;
@@ -10,7 +10,7 @@ public class Accompagnement {
     public Accompagnement() {
     }
 
-    public Accompagnement(int id, int id_task, Boolean is_accepted, User   user, User     userPro ) {
+    public Accompagnement(int id, Tasks id_task, Boolean is_accepted, User   user, User     userPro ) {
         this.id = id;
         this.id_task = id_task;
         this.is_accepted = is_accepted;
@@ -18,7 +18,7 @@ public class Accompagnement {
         this.userPro = userPro;
     }
 
-    public Accompagnement(int id_task, Boolean is_accepted,  User   user, User     userPro ) {
+    public Accompagnement(Tasks id_task, Boolean is_accepted,  User   user, User     userPro ) {
         this.id_task = id_task;
         this.is_accepted = is_accepted;
         this.user = user;
@@ -33,11 +33,11 @@ public class Accompagnement {
         this.id = id;
     }
 
-    public int getId_task() {
+    public Tasks getId_task() {
         return id_task;
     }
 
-    public void setId_task(int id_task) {
+    public void setId_task(Tasks id_task) {
         this.id_task = id_task;
     }
 

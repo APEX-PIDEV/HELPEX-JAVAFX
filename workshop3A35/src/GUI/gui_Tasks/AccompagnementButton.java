@@ -1,13 +1,22 @@
 package GUI.gui_Tasks;
 
 import api.pdfGenerator;
+import com.itextpdf.text.Element;
+import com.itextpdf.text.PageSize;
+import com.itextpdf.text.Paragraph;
+import com.itextpdf.text.pdf.PdfPCell;
+import com.itextpdf.text.pdf.PdfPTable;
+import com.itextpdf.text.pdf.PdfWriter;
 import com.lowagie.text.DocumentException;
 import com.twilio.Twilio;
 import com.twilio.rest.api.v2010.account.Message;
 import entites.Accompagnement;
+import entites.Item;
 import entites.Tasks;
 import entites.User;
 import javafx.fxml.FXML;
+import com.itextpdf.text.Document;
+
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 import javafx.stage.FileChooser;
@@ -25,6 +34,7 @@ import java.util.ResourceBundle;
 import com.twilio.Twilio;
 
 import com.twilio.type.PhoneNumber;
+import services.ItemService;
 
 import javax.swing.plaf.ButtonUI;
 
@@ -56,8 +66,9 @@ public class AccompagnementButton implements Initializable {
 
             MenuItem menuItem = new MenuItem(task.getTitre());
             menuItem.setOnAction(e->{
-                System.out.println("bon baya");
-                accompagnementService.EnvoierAccompagnementPartie3(new Accompagnement(idTask,false,myUser,thisUser)) ;
+                sendSms();
+
+                accompagnementService.EnvoierAccompagnementPartie3(new Accompagnement(new Tasks(idTask),false,myUser,thisUser)) ;
                 Alert a = new Alert(Alert.AlertType.CONFIRMATION, "ACCOMPAGNEMENT ENVOYER !!", ButtonType.OK);
                     a.showAndWait();
                     accompagnment_button.getItems().remove(menuItem);
@@ -75,7 +86,7 @@ public class AccompagnementButton implements Initializable {
 
             FileChooser fileChooser = new FileChooser();
             fileChooser.setTitle("Save PDF");
-            //fileChooser.setInitialFileName("example.pdf");
+            fileChooser.setInitialFileName("example.pdf");
             File outputFile = fileChooser.showSaveDialog(null);
             if (outputFile == null) {
                 return; // User canceled the dialog
@@ -84,11 +95,50 @@ public class AccompagnementButton implements Initializable {
             try {
                 OutputStream outputStream = new FileOutputStream(outputFile);
 
+                ItemService itemService = new ItemService();
+                ArrayList<Item>items =itemService.listerItemsforUser(10);
+
+                Document document = new Document(PageSize.A4.rotate());
+                String filename = "output.pdf";
+
+
+                PdfWriter.getInstance(document, outputStream);
+
+                document.open();
+                PdfPTable table = new PdfPTable(2);
+                table.setWidths(new int[]{2, 4});
+                PdfPCell cell = new PdfPCell(new Paragraph("Header 1"));
+                table.addCell(cell);
+                cell = new PdfPCell(new Paragraph("Header 2"));
+                table.addCell(cell);
+                /*cell = new PdfPCell(new Paragraph("Header 3"));
+                table.addCell(cell);*/
+        int i = 0 ;
+                for(Item item : items){
+
+                    i++ ;
+                    cell = new PdfPCell(new Paragraph(item.getTitre()));
+                    table.addCell(cell);
+                    cell = new PdfPCell(new Paragraph("5 DT"));
+                    table.addCell(cell);
+                }
+
+                Paragraph totalColumns = new Paragraph("Total : " + i*5, new com.itextpdf.text.Font(com.itextpdf.text.Font.FontFamily.HELVETICA, 18, com.itextpdf.text.Font.BOLD));
+                totalColumns.setAlignment(Element.ALIGN_RIGHT);
+                Paragraph header = new Paragraph("Totale de facture ", new com.itextpdf.text.Font(com.itextpdf.text.Font.FontFamily.HELVETICA, 24, com.itextpdf.text.Font.BOLD));
+                header.setAlignment(Element.ALIGN_CENTER);
+                document.add(header);
+                document.add(table);
+                document.add(totalColumns);
+
+
+
+                ///css
+
+                document.close();
+
                 ITextRenderer renderer = new ITextRenderer();
-                String html ="helloo";
-                renderer.setDocumentFromString("hello" );
-                renderer.layout();
-                renderer.createPDF(outputStream);
+
 
                 outputStream.close();
             } catch (Exception e) {
@@ -103,9 +153,16 @@ public class AccompagnementButton implements Initializable {
             Twilio.init(ACCOUNT_SID, AUTH_TOKEN);
 
             Message message = Message.creator(
-                            new PhoneNumber("+21627938112"), // destination phone number
+                            new PhoneNumber("+21621339405"), // destination phone number
                             new PhoneNumber("+16205368369"), // your Twilio phone number
-                            "Hello from Apex helpex !  you have a new task from me open it ") // message body
+                           "Bonjour,\n" +
+                                   "\n" +
+                                   "Nous espérons que vous allez bien. Nous tenions à vous informer que vous avez un nouveau demande d'accompagnment.\n" +
+                                   "\n" +
+                                   "Nous vous remercions de votre confiance et restons à votre disposition pour toute question ou demande.\n" +
+                                   "\n" +
+                                   "Cordialement,\n" +
+                                   "[APEX]") // message body
                     .create();
 
             System.out.println("Message SID: " + message.getSid());

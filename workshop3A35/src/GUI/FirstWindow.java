@@ -29,11 +29,34 @@ public class FirstWindow extends Application {
     public void start(Stage primaryStage) {
         try {
 
-          //  Parent  root = FXMLLoader.load(getClass().getResource("../GUI/gui_Tasks/GUI_Tasks.fxml"));
-           // Parent  root = FXMLLoader.load(getClass().getResource("../GUI/gui_Tasks/accompagnement_button.fxml"));
-         //   Parent  root = FXMLLoader.load(getClass().getResource("../GUI/gui_Tasks/chart.fxml"));
-           Parent  root = FXMLLoader.load(getClass().getResource("../GUI/user_Pro/Accompagnement_UserPro.fxml"));
-            Scene scene = new Scene(root,1000,600);
+           // Parent  root = FXMLLoader.load(getClass().getResource("../GUI/gui_Tasks/GUI_Tasks.fxml"));
+            //Parent  root = FXMLLoader.load(getClass().getResource("../GUI/gui_Tasks/Gui_taskAdmin.fxml"));
+           Parent  root = FXMLLoader.load(getClass().getResource("../GUI/gui_Tasks/accompagnement_button.fxml"));
+
+
+
+            //  Parent  root = FXMLLoader.load(getClass().getResource("../GUI/user_Pro/Accompagnement_UserPro.fxml"));
+         // Parent  root = FXMLLoader.load(getClass().getResource("../GUI/user_normal/user_normal_tasks/mes_tasks_user_normal.fxml"));
+          // Parent  root = FXMLLoader.load(getClass().getResource("../GUI/admin/accompagnmemnts_admin.fxml"));
+
+
+
+            ///////////////////admin////////////////////
+            // Parent  root = FXMLLoader.load(getClass().getResource("../GUI/gui_Tasks/chart.fxml"));
+
+            ///////////////////admin////////////////////
+
+            ////////////////////user 3adi//////////
+           // Parent  root = FXMLLoader.load(getClass().getResource("../GUI/gui_Tasks/GUI_Tasks.fxml"));
+
+            ///////////////////user 3adi /////////////
+
+
+            //////////////////user pro ///////////////
+       //     Parent  root = FXMLLoader.load(getClass().getResource("../GUI/user_Pro/mes_tasks_pro.fxml"));
+            /////////////////user pro //////////////
+
+            Scene scene = new Scene(root,1350,890);
             Image icon = new Image("images/helpexpro.png");
             primaryStage.getIcons().add(icon);
             primaryStage.setTitle("Helpex");

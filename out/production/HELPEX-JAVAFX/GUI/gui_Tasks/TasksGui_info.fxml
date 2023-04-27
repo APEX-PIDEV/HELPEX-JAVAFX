@@ -34,15 +34,6 @@
                   </ImageView>
                </graphic>
             </Label>
-            <Label fx:id="accomswitch" prefHeight="42.0" prefWidth="105.0" text="accompagnement">
-               <graphic>
-                  <ImageView fitHeight="25.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@../../images/conference-.png" />
-                     </image>
-                  </ImageView>
-               </graphic>
-            </Label>
          </children>
       </VBox>
    </left>

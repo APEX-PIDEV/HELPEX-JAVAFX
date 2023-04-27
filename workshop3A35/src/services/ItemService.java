@@ -38,6 +38,24 @@ public class ItemService implements InterfaceItem {
         }
     }
 
+
+
+    public  void completeItem(int id){
+        String req ="UPDATE `item` SET is_complete=1 WHERE id = ? ";
+        try {
+            PreparedStatement pst = ConnexionJDBC.getInstance().getCnx().prepareStatement(req);
+            pst.setInt(1,id);
+
+            pst.executeUpdate();
+            System.out.println("Done Modification!");
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+
+
+
+    }
+
     @Override
     public void EditerItem( Item item) {
         String req = "UPDATE item SET titre=? , time= ?,is_complete = ?,`photo`= ? WHERE id = ?";
@@ -99,6 +117,69 @@ public class ItemService implements InterfaceItem {
             System.out.println(ex.getMessage());
         }
         return myList;
+    }
+
+    public ArrayList<Item> listerItemsforUser(int id) {
+        ArrayList<Item> myList = new ArrayList<>();
+        try {
+            String requete = "SELECT * FROM `item` join tasks ON item.tasks_id=tasks.id join accompagnement on task_id=tasks.id WHERE accompagnement.user_id= "+id;
+            Statement st = ConnexionJDBC.getInstance().getCnx()
+                    .createStatement();
+            ResultSet rs = st.executeQuery(requete);
+            while(rs.next()){
+                Item i = new Item();
+                i.setId(rs.getInt(1));
+                i.setTitre(rs.getString("titre"));
+                i.setTime(rs.getTime("time"));
+                i.setId_complete(rs.getBoolean("is_complete"));
+                if (rs.getBoolean("is_complete")==false){
+                    complete ++;
+                }
+                else {
+                    noncomplete ++ ;
+                }
+                //maybe an error
+                i.setTasks(new Tasks(rs.getInt("tasks_id"),rs.getString("tasks.titre"),rs.getDate("tasks.start_date"),rs.getDate("tasks.end_date"),rs.getBoolean("tasks.is_valid")) );
+                i.setPhoto(rs.getString("photo"));
+                myList.add(i);
+            }
+        } catch (SQLException ex) {
+            System.out.println(ex.getMessage());
+        }
+        return myList;
+    }
+
+    public ArrayList<Item>listerItemById(int id_task){
+        ArrayList<Item> myList = new ArrayList<>();
+        try {
+            String requete ="SELECT * FROM `item` join tasks ON item.tasks_id=tasks.id WHERE item.is_complete=0 and  item.tasks_id = "+id_task;
+
+            Statement st = ConnexionJDBC.getInstance().getCnx()
+                    .createStatement();
+            ResultSet rs = st.executeQuery(requete);
+            while(rs.next()){
+                Item i = new Item();
+                i.setId(rs.getInt(1));
+                i.setTitre(rs.getString("titre"));
+                i.setTime(rs.getTime("time"));
+                i.setId_complete(rs.getBoolean("is_complete"));
+                if (rs.getBoolean("is_complete")==false){
+                    complete ++;
+                }
+                else {
+                    noncomplete ++ ;
+                }
+                //maybe an error
+                i.setTasks(new Tasks(rs.getInt("tasks_id"),rs.getString("tasks.titre"),rs.getDate("tasks.start_date"),rs.getDate("tasks.end_date"),rs.getBoolean("tasks.is_valid")) );
+                i.setPhoto(rs.getString("photo"));
+                myList.add(i);
+            }
+        } catch (SQLException ex) {
+            System.out.println(ex.getMessage());
+        }
+        return myList;
+
+
     }
 
     public int getComplete() {

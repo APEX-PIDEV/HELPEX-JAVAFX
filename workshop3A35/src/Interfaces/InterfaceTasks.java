@@ -1,6 +1,7 @@
 package Interfaces;
 
 
+import entites.Accompagnement;
 import entites.Item;
 import entites.Tasks;
 
@@ -15,9 +16,9 @@ public interface InterfaceTasks {
   // for admin
     public ArrayList<Tasks> listerTasks ();
     // for user
-    public ArrayList<Tasks> listerTasksofUser (int id_user);
+    public ArrayList<Accompagnement> listerTasksofUser (int id_user);
     // for pro user
-    public ArrayList<Tasks> listerTasksofUser_pro ( int id_user_pro);
+    public ArrayList<Accompagnement> listerTasksofUser_pro ( int id_user_pro);
 
 
     public  ArrayList <Item> listeIemsTasks (int id_tasks);

@@ -61,7 +61,7 @@ public class JavaHelpex {
 
         /////////////accompagnment ok /////////////////
 
-        Accompagnement accompagnement=new Accompagnement(2,false,new User(7),new User(6));
+        Accompagnement accompagnement=new Accompagnement(new Tasks(2),false,new User(7),new User(6));
         AccompagnementService accompagnementService =new AccompagnementService();
         accompagnementService.EnvoierAccompagnement(accompagnement);
         accompagnementService.accepterAccompagnement(accompagnement);
