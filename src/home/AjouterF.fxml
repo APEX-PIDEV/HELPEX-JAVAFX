@@ -42,6 +42,7 @@
                   <TableColumn fx:id="DUREEColumn" prefWidth="151.199951171875" text="DUREE" />
                </columns>
             </TableView>
+            <Button fx:id="btnimprimer" layoutX="571.0" layoutY="468.0" mnemonicParsing="false" onAction="#imprimerF" prefHeight="50.0" prefWidth="111.0" text="imprimer" />
          </children>
       </AnchorPane>
    </children>

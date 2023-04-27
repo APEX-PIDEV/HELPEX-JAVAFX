@@ -87,6 +87,8 @@ public class AjouterFormationController implements Initializable {
     private TextField txt_id_centre;
     
     private Centre F;
+    @FXML
+    private Button btnimprimer;
 
     public Centre getF() {
         return F;
@@ -155,7 +157,7 @@ table();    }
         r=tableF.getSelectionModel().getSelectedItem();
         rc.modifierFormation(r,var1,var2,5,2,var6);
        table();
-       rc.generatePDF(r);
+      // rc.generatePDF(r);
     
     }
     
@@ -246,6 +248,14 @@ NOMColumnF.setCellValueFactory(f -> new SimpleStringProperty(f.getValue().getNom
               System.out.println(c);
               rcd.supprimerFormation(c);
               table();
+    }
+
+    @FXML
+    private void imprimerF(ActionEvent event) {
+             CRUDFormation  rcd = new  CRUDFormation();
+        Formation c= new Formation();
+              c= tableF.getSelectionModel().getSelectedItem();
+              rcd.generatePDF(c);
     }
     
 }

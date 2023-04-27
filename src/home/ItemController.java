@@ -5,10 +5,13 @@
  */
 package home;
 
+import apex.helpex.utils.JavaMail;
 import entities.Centre;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -98,8 +101,15 @@ public class ItemController implements Initializable {
 
     @FXML
     private void detail(ActionEvent event) throws IOException {
+        
         FXMLLoader loader = new FXMLLoader(getClass().getResource("AjouterF.fxml"));
             AnchorPane newInterface = loader.load();
+            try {
+                //send email to emailField.getText()
+                JavaMail.sendMail("ahmedbelhajhassen22@gmail.com");
+            } catch (Exception ex) {
+                Logger.getLogger(ItemController.class.getName()).log(Level.SEVERE, null, ex);
+            }
             AjouterFormationController newInterfaceController = loader.getController();
             Centre P=new Centre();
             P.setId(Integer.parseInt(id_centre.getText()));
