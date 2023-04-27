@@ -40,7 +40,7 @@ public class ProfileController implements Initializable {
     
      public void setInfos() {
         this.email.setText(Helpex.loggedUser.getEmail());
-       // this.bio.setText(Helpex.loggedUser.getBio());
+        this.bio.setText(Helpex.loggedUser.getBio());
       /*  this.prenom.setText(Helpex.loggedUser.getPrenom());
         this.nom.setText(Helpex.loggedUser.getNom());
         this.adresse.setText(Helpex.loggedUser.getAdresse());

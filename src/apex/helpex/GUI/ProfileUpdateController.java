@@ -49,20 +49,49 @@ public class ProfileUpdateController implements Initializable {
     /**
      * Initializes the controller class.
      */
-    @Override
-    public void initialize(URL url, ResourceBundle rb) {
-        // TODO
-    }    
+    
+     public void setInfos() {
+         
+          this.nom.setText(Helpex.loggedUser.getNom());
+        this.prenom.setText(Helpex.loggedUser.getPrenom());
+        this.adresse.setText(Helpex.loggedUser.getAdresse());
+                this.num.setText(Helpex.loggedUser.getNum_tel());
+        this.pdp.setText(Helpex.loggedUser.getPdp());
+        this.bio.setText(Helpex.loggedUser.getBio());
+                this.bio.setText(Helpex.loggedUser.getBio());
 
-    @FXML
-    private void updateprofile(ActionEvent event) {
-                    UserService us = new UserService();
- Helpex.loggedUser.setNom(nom.getText());
+
+      /*Helpex.loggedUser.setNom(nom.getText());
   Helpex.loggedUser.setPrenom(prenom.getText());
  Helpex.loggedUser.setAdresse(adresse.getText());
  Helpex.loggedUser.setNum_tel(num.getText());
  Helpex.loggedUser.setPdp(pdp.getText());
+  Helpex.loggedUser.setPdp(bio.getText());
+ Helpex.loggedUser.setTarif(Integer.parseInt(tarif.getText()));*/
+    }
+     
+    @Override
+    public void initialize(URL url, ResourceBundle rb) {
+       setInfos();
+     
+    }    
+
+    @FXML
+    private void updateprofile(ActionEvent event) {
+        
+        
+          Helpex.loggedUser.setNom(nom.getText());
+  Helpex.loggedUser.setPrenom(prenom.getText());
+ Helpex.loggedUser.setAdresse(adresse.getText());
+ Helpex.loggedUser.setNum_tel(num.getText());
+ Helpex.loggedUser.setPdp(pdp.getText());
+  Helpex.loggedUser.setPdp(bio.getText());
  Helpex.loggedUser.setTarif(Integer.parseInt(tarif.getText()));
+        
+        
+        
+                    UserService us = new UserService();
+ 
 
                     us.updateProfile(Helpex.loggedUser);
         
