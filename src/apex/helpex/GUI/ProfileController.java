@@ -28,15 +28,7 @@ import javafx.scene.image.Image;
 public class ProfileController implements Initializable {
 
     @FXML
-    private Label prenom;
-    @FXML
-    private Label nom;
-    @FXML
     private Label email;
-    @FXML
-    private Label adresse;
-    @FXML
-    private Label num;
     @FXML
     private Label bio;
     @FXML
@@ -48,6 +40,7 @@ public class ProfileController implements Initializable {
     
      public void setInfos() {
         this.email.setText(Helpex.loggedUser.getEmail());
+       // this.bio.setText(Helpex.loggedUser.getBio());
       /*  this.prenom.setText(Helpex.loggedUser.getPrenom());
         this.nom.setText(Helpex.loggedUser.getNom());
         this.adresse.setText(Helpex.loggedUser.getAdresse());

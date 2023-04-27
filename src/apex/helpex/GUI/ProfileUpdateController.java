@@ -79,4 +79,9 @@ public class ProfileUpdateController implements Initializable {
       
     
     }    
+
+    @FXML
+    private void signout(ActionEvent event) {
+        
+    }
 }
