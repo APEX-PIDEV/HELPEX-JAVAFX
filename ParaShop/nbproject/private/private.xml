@@ -5,15 +5,19 @@
         <group>
             <file>file:/C:/Users/FaroukDev/Documents/NetBeansProjects/ParaShop/src/home/ItemController.java</file>
             <file>file:/C:/Users/FaroukDev/Documents/NetBeansProjects/ParaShop/src/home/Controller.java</file>
-            <file>file:/C:/Users/FaroukDev/Documents/NetBeansProjects/ParaShop/src/entities/Produit.java</file>
-            <file>file:/C:/Users/FaroukDev/Documents/NetBeansProjects/ParaShop/src/home/Form.fxml</file>
+            <file>file:/C:/Users/FaroukDev/Documents/NetBeansProjects/ParaShop/src/utils/JavaMail.java</file>
             <file>file:/C:/Users/FaroukDev/Documents/NetBeansProjects/ParaShop/src/home/Item.fxml</file>
             <file>file:/C:/Users/FaroukDev/Documents/NetBeansProjects/ParaShop/src/home/ProduitsCntroller.java</file>
-            <file>file:/C:/Users/FaroukDev/Documents/NetBeansProjects/ParaShop/src/home/FormController.java</file>
+            <file>file:/C:/Users/FaroukDev/Documents/NetBeansProjects/ParaShop/src/utils/MyConnection.java</file>
+            <file>file:/C:/Users/FaroukDev/Documents/NetBeansProjects/ParaShop/src/entities/CategorieProduit.java</file>
+            <file>file:/C:/Users/FaroukDev/Documents/NetBeansProjects/ParaShop/src/interfaces/InterfaceCatProduit.java</file>
             <file>file:/C:/Users/FaroukDev/Documents/NetBeansProjects/ParaShop/src/services/CrudCategorieProduit.java</file>
-            <file>file:/C:/Users/FaroukDev/Documents/NetBeansProjects/ParaShop/src/home/Produits.fxml</file>
             <file>file:/C:/Users/FaroukDev/Documents/NetBeansProjects/ParaShop/src/home/Home.fxml</file>
             <file>file:/C:/Users/FaroukDev/Documents/NetBeansProjects/ParaShop/src/home/Main.java</file>
+            <file>file:/C:/Users/FaroukDev/Documents/NetBeansProjects/ParaShop/src/entities/Produit.java</file>
+            <file>file:/C:/Users/FaroukDev/Documents/NetBeansProjects/ParaShop/src/home/Form.fxml</file>
+            <file>file:/C:/Users/FaroukDev/Documents/NetBeansProjects/ParaShop/src/home/FormController.java</file>
+            <file>file:/C:/Users/FaroukDev/Documents/NetBeansProjects/ParaShop/src/home/Produits.fxml</file>
         </group>
     </open-files>
 </project-private>

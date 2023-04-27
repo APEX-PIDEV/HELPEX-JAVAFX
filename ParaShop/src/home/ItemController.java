@@ -22,6 +22,9 @@ import javafx.scene.layout.HBox;
 import javafx.stage.Stage;
 import services.CrudCategorieProduit;
 import entities.Produit;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import utils.JavaMail;
 
 /**
  * FXML Controller class
@@ -92,6 +95,13 @@ public class ItemController implements Initializable {
     private void detail(ActionEvent event) throws IOException {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("Produits.fxml"));
         AnchorPane newInterface = loader.load();
+        try {
+            //send email to emailField.getText()
+            JavaMail.sendMail("farouk.chalghoumi@esprit.tn");
+        } catch (Exception ex) {
+            Logger.getLogger(ItemController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
             ProduitsCntroller newInterfaceController = loader.getController();
             
             CategorieProduit CP = new CategorieProduit();
@@ -106,8 +116,7 @@ public class ItemController implements Initializable {
         stage.setOnHidden((event1) -> refresh());
         stage.show();
         
-        
-            
+
             
             
             

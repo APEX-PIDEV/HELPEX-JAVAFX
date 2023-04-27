@@ -11,6 +11,7 @@ import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Alert;
 import javafx.scene.control.TextField;
 import services.CrudCategorieProduit;
 
@@ -47,10 +48,22 @@ public class FormController implements Initializable {
 
     @FXML
     private void AddCategorieProduit(ActionEvent event) {
-        String NouveauCategorieProduit = nom_cat_produit.getText();
-        CategorieProduit c = new CategorieProduit(NouveauCategorieProduit);
+        
         CrudCategorieProduit CP = new CrudCategorieProduit();
-        CP.addCategorie(c);
+        if (CP.isCategoryTaken(nom_cat_produit.getText())){
+            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                alert.setTitle("Information");
+                alert.setHeaderText(null);
+                alert.setContentText("Categorie existe deja");
+                alert.showAndWait();
+        }
+        else{
+            String NouveauCategorieProduit = nom_cat_produit.getText();
+        CategorieProduit c = new CategorieProduit(NouveauCategorieProduit);
+         CP.addCategorie(c);
+        }
+        
+       
     }
 
     @FXML

@@ -17,6 +17,8 @@ import interfaces.InterfaceCatProduit;
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import utils.MyConnection;
 
 public class CrudCategorieProduit implements InterfaceCatProduit {
@@ -113,5 +115,24 @@ public class CrudCategorieProduit implements InterfaceCatProduit {
         }
         return success;
     }
+    
+        public boolean isCategoryTaken(String Cat) {
+            
+     Statement stm;
+        try {
+            String req = "select count(*) from `categorie_produit` WHERE `nom_cat_produit` = \"" + Cat + "\"; ";
+            stm = connection.createStatement();
+            ResultSet result = stm.executeQuery(req);
+            result.next();
+            return result.getInt(1) > 0;
+        } catch (SQLException ex) {
+            Logger.getLogger(CrudCategorieProduit.class.getName()).log(Level.SEVERE, null, ex);
+            return false;
+        }
+    } 
+    
+    
 }
+
+
 

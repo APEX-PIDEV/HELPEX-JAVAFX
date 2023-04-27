@@ -20,5 +20,6 @@ public interface InterfaceCatProduit {
     boolean addCategorie(CategorieProduit categorie);
     boolean updateCategorie(CategorieProduit categorie);
     boolean deleteCategorie(int id);
+    boolean isCategoryTaken(String Cat);
 }
 
