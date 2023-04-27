@@ -134,6 +134,18 @@ public class ResetPasswordController implements Initializable {
             }
         }
     }
+
+    @FXML
+    private void back(ActionEvent event) {
+         FXMLLoader loader = new FXMLLoader(getClass().getResource("Login.fxml"));
+        try {
+            Parent root = loader.load();
+            emailField.getScene().setRoot(root);
+
+        } catch (IOException ex) {
+            System.out.println("Error: " + ex.getMessage());
+        }
+    }
         
     
     
