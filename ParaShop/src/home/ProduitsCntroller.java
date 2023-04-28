@@ -33,12 +33,14 @@ import javafx.collections.transformation.SortedList;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.TableRow;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 import services.CrudProduits;
+import utils.JavaMail;
 import utils.MyConnection;
 
 /**
@@ -60,6 +62,8 @@ public class ProduitsCntroller implements Initializable {
     private TextArea txtAuthorisationProduit;
     @FXML
     public TableView<Produit> table;
+     @FXML
+    public TableColumn<Produit, String> IdProduitColumn;
     @FXML
     public TableColumn<Produit, String> NomProduitColumn;
     @FXML
@@ -97,6 +101,15 @@ public class ProduitsCntroller implements Initializable {
     private TextField searchfieldProd;
     @FXML
     private Button StatProd;
+    @FXML
+    private ChoiceBox<String> TriProduits  ;
+    
+    private ObservableList<String> TriChoices = FXCollections.observableArrayList("All Products" , "Authorized", "Not Authorized");
+    @FXML
+    private Label TriLabel;
+    
+    
+    private static String choice = "Authorized" ; 
     
     
        public Produit getC() {
@@ -111,88 +124,213 @@ public class ProduitsCntroller implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
-        //table();
+        
         //advanced_search();
+        TriProduits.getItems().addAll(TriChoices);
+        TriProduits.setValue("Authorized");
+        TriProduits.setOnAction(this::getTriProduits);
+        table();
+       // advanced_search();
+        
+       
+            //System.out.println(TriProduits.getValue());
+        
+/*         if (choice.equals("All Products"))
+            System.out.println("id = "+ItemController.P.getCategoryProduit().getId());
+        else if (choice.equals("Authorized"))
+            System.out.println("hello");*/
+
+
+  /* try
+                     {
+                         Connection conn= MyConnection.getInstance().getConn();
+                         ObservableList<Produit> produits = FXCollections.observableArrayList();
+                          PreparedStatement pst;
+                           
+                         pst = conn.prepareStatement("select nom_produit,etat_produit,prix_produit FROM produits WHERE categorie_produit_id='"+ItemController.P.getCategoryProduit().getId()+"'");  
+                         ResultSet rs = pst.executeQuery();
+                      while (rs.next())
+                      {
+                          Produit st = new Produit();
+                          st.setNomProduit(rs.getString("nom_produit"));
+                          st.setEtatproduit(rs.getString("etat_produit"));
+                          st.setPrixProduit(rs.getString("prix_produit"));
+
+                          produits.add(st);
+                     }
+
+
+
+                              table.setItems(produits);
+                              //IDColumn.setCellValueFactory(f -> f.getValue().idProperty());
+                            //  IDColumn.setCellValueFactory(f -> new ReadOnlyIntegerWrapper(f.getValue().getId()).asObject());
+
+                            NomProduitColumn.setCellValueFactory(f -> new SimpleStringProperty(f.getValue().getNomProduit()));
+                              EtatProduitColumn.setCellValueFactory(f -> new SimpleStringProperty(f.getValue().getEtatproduit()));
+                                PrixProduitColumn.setCellValueFactory(f -> new SimpleStringProperty(f.getValue().getPrixProduit()));
+
+
+                     }
+
+
+
+                     catch (SQLException ex)
+                     {
+                         Logger.getLogger(ProduitsCntroller.class.getName()).log(Level.SEVERE, null, ex);
+                     }
+
+
+                        table.setRowFactory(tv -> {
+                   TableRow<Produit> myRow = new TableRow<>();
+                   myRow.setOnMouseClicked (event ->
+                   {
+                      if (event.getClickCount() == 1 && (!myRow.isEmpty()))
+                      {
+                         myIndex =  table.getSelectionModel().getSelectedIndex();
+                         id = Integer.parseInt(String.valueOf(table.getItems().get(myIndex).getId()));
+                         txtNomProduit.setText(table.getItems().get(myIndex).getNomProduit());
+                      //   txtTelephone.setText(table.getItems().get(myIndex));
+                         txtEtatProduit.setText(table.getItems().get(myIndex).getEtatproduit());
+                         txtPrixProduit.setText(table.getItems().get(myIndex).getPrixProduit());
+                         txtAuthorisationProduit.setText(Boolean.toString(table.getItems().get(myIndex).isAuthorization()));
+
+
+
+
+                      }
+                   });
+                      return myRow;
+                                 });*/
+        
+        
         
     }   
+    
+    public void getTriProduits (ActionEvent event){
+        ProduitsCntroller.choice = TriProduits.getValue();
+        //TriLabel = new Label();
+        TriLabel.setText( ProduitsCntroller.choice);
+        table();
+        //advanced_search();
+
+        
+    }
     
         public void table() 
       {
           
+          System.out.println(TriProduits.getValue());
          // MyConnection conn= MyConnection.getInstance();
           
          //CrudProduits ProduitList = new CrudProduits( conn);
          
-          
+          //advanced_search();
            
           
           //for (Produit p : ProduitList.getProduitByCatProduit(C.getCategoryProduit())) {
           /*for (Produit p : ProduitList.getAllProduit()) {
               produits.add(p);
           }*/
-         
-                  try
-       {
-           Connection conn= MyConnection.getInstance().getConn();
-           ObservableList<Produit> produits = FXCollections.observableArrayList();
-            PreparedStatement pst;
-           pst = conn.prepareStatement("select nom_produit,etat_produit,prix_produit FROM produits WHERE categorie_produit_id='"+C.getCategoryProduit().getId()+"'");  
-           ResultSet rs = pst.executeQuery();
-        while (rs.next())
-        {
-            Produit st = new Produit();
-            st.setNomProduit(rs.getString("nom_produit"));
-            st.setEtatproduit(rs.getString("etat_produit"));
-            st.setPrixProduit(rs.getString("prix_produit"));
-           
-            produits.add(st);
-       }
-      
-    
-           
-                table.setItems(produits);
-                //IDColumn.setCellValueFactory(f -> f.getValue().idProperty());
-              //  IDColumn.setCellValueFactory(f -> new ReadOnlyIntegerWrapper(f.getValue().getId()).asObject());
-
-              NomProduitColumn.setCellValueFactory(f -> new SimpleStringProperty(f.getValue().getNomProduit()));
-                EtatProduitColumn.setCellValueFactory(f -> new SimpleStringProperty(f.getValue().getEtatproduit()));
-                  PrixProduitColumn.setCellValueFactory(f -> new SimpleStringProperty(f.getValue().getPrixProduit()));
-                  
-               
-       }
-      
-     
-      
-       catch (SQLException ex)
-       {
-           Logger.getLogger(ProduitsCntroller.class.getName()).log(Level.SEVERE, null, ex);
-       }
-                  
           
-          table.setRowFactory(tv -> {
-     TableRow<Produit> myRow = new TableRow<>();
-     myRow.setOnMouseClicked (event ->
-     {
-        if (event.getClickCount() == 1 && (!myRow.isEmpty()))
-        {
-           myIndex =  table.getSelectionModel().getSelectedIndex();
-           id = Integer.parseInt(String.valueOf(table.getItems().get(myIndex).getId()));
-           txtNomProduit.setText(table.getItems().get(myIndex).getNomProduit());
-        //   txtTelephone.setText(table.getItems().get(myIndex));
-           txtEtatProduit.setText(table.getItems().get(myIndex).getEtatproduit());
-           txtPrixProduit.setText(table.getItems().get(myIndex).getPrixProduit());
-           txtAuthorisationProduit.setText(Boolean.toString(table.getItems().get(myIndex).isAuthorization()));
+          
+          
 
-                          
+      
+             
+          
+          
+        
                         
-                          
-        }
-     });
-        return myRow;
-                   });
+                        
+                        
+                        
+                        try
+                     {
+                         Connection conn= MyConnection.getInstance().getConn();
+                         ObservableList<Produit> produits = FXCollections.observableArrayList();
+                          PreparedStatement pst;
+                           if (TriProduits.getValue().equals("All Products"))
+                           {
+                               
 
-    
-     //advanced_search();
+                                 pst = conn.prepareStatement("select nom_produit,etat_produit,prix_produit,authorisation FROM produits ");
+                           }
+                           else {
+                               boolean  auth =true ; 
+                               if (TriProduits.getValue().equals("Authorized")){
+                                    auth = true ; 
+                               }
+                                   
+                               else if  (TriProduits.getValue().equals("Not Authorized")){
+                                    auth = false  ; 
+                               }
+                               
+                                   /*pst = conn.prepareStatement("select nom_produit,etat_produit,prix_produit,authorisation FROM produits WHERE categorie_produit_id='"+
+                                         ItemController.P.getCategoryProduit().getId()+" AND  authorisation='" + auth);*/
+
+                                pst = conn.prepareStatement("SELECT id,nom_produit, etat_produit, prix_produit , authorisation FROM produits WHERE categorie_produit_id = ? AND authorisation= ?");
+                                pst.setInt(1, ItemController.P.getCategoryProduit().getId());
+                                pst.setInt(2, auth ? 1 : 0);                                   
+                               
+                           }
+                         
+                         ResultSet rs = pst.executeQuery();
+                      while (rs.next())
+                      {
+                          Produit st = new Produit();
+                          st.setId(Integer.parseInt(rs.getString("id")));
+                          st.setNomProduit(rs.getString("nom_produit"));
+                          st.setEtatproduit(rs.getString("etat_produit"));
+                          st.setPrixProduit(rs.getString("prix_produit"));
+                          st.setAuthorization((rs.getInt("authorisation")!=0));
+
+                          produits.add(st);
+                     }
+
+
+
+                              table.setItems(produits);
+                              //IDColumn.setCellValueFactory(f -> f.getValue().idProperty());
+                            //  IDColumn.setCellValueFactory(f -> new ReadOnlyIntegerWrapper(f.getValue().getId()).asObject());
+
+                            NomProduitColumn.setCellValueFactory(f -> new SimpleStringProperty(f.getValue().getNomProduit()));
+                              EtatProduitColumn.setCellValueFactory(f -> new SimpleStringProperty(f.getValue().getEtatproduit()));
+                                PrixProduitColumn.setCellValueFactory(f -> new SimpleStringProperty(f.getValue().getPrixProduit()));
+                                   IdProduitColumn.setCellValueFactory(f -> new SimpleStringProperty(f.getValue().getId() +""));
+
+                     }
+
+
+
+                     catch (SQLException ex)
+                     {
+                         Logger.getLogger(ProduitsCntroller.class.getName()).log(Level.SEVERE, null, ex);
+                     }
+//advanced_search();
+
+                        table.setRowFactory(tv -> {
+                   TableRow<Produit> myRow = new TableRow<>();
+                   myRow.setOnMouseClicked (event ->
+                   {
+                      if (event.getClickCount() == 1 && (!myRow.isEmpty()))
+                      {
+                         myIndex =  table.getSelectionModel().getSelectedIndex();
+                         id = Integer.parseInt(String.valueOf(table.getItems().get(myIndex).getId()));
+                         txtNomProduit.setText(table.getItems().get(myIndex).getNomProduit());
+                      //   txtTelephone.setText(table.getItems().get(myIndex));
+                         txtEtatProduit.setText(table.getItems().get(myIndex).getEtatproduit());
+                         txtPrixProduit.setText(table.getItems().get(myIndex).getPrixProduit());
+                         txtAuthorisationProduit.setText(Boolean.toString(table.getItems().get(myIndex).isAuthorization()));
+
+
+
+
+                      }
+                   });
+                      return myRow;
+                                 });
+          
+          
       }
         
         
@@ -223,6 +361,8 @@ public class ProduitsCntroller implements Initializable {
         
        Produit r =new Produit();
        r= table.getSelectionModel().getSelectedItem();
+       System.out.println(id);
+        System.out.println(r);
        //Produit rtest =new Produit();
        //rtest = r ;
         //System.out.println("Before update = "+rtest);
@@ -230,6 +370,15 @@ public class ProduitsCntroller implements Initializable {
       r.setEtatproduit(var2);
       r.setPrixProduit(var3);
       r.setAuthorization(var5);
+      if (r.isAuthorization() == false )
+      {
+          try {
+            //send email to emailField.getText()
+            JavaMail.sendMail("farouk.chalghoumi@esprit.tn");
+        } catch (Exception ex) {
+            Logger.getLogger(ItemController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+      }
         //r=table.getSelectionModel().getSelectedItem();
         rcd.updateProduit(r);
        table();
@@ -248,7 +397,7 @@ public class ProduitsCntroller implements Initializable {
 
                 if (Produit.getNomProduit().toLowerCase().contains(lowerCaseFilter)) {
                     return true; 
-                } else return Produit.getEtatproduit().toLowerCase().contains(lowerCaseFilter); // Filter matches last name.
+                } else return Produit.getNomProduit().toLowerCase().contains(lowerCaseFilter); // Filter matches last name.
             });
         });
         SortedList<Produit> sortedData = new SortedList<>(filteredData);

@@ -52,6 +52,7 @@ public class ItemController implements Initializable {
     @FXML
     private Button button_modifier_centre;
 
+    public static Produit P = new Produit ();
     /**
      * Initializes the controller class.
      */
@@ -101,6 +102,11 @@ public class ItemController implements Initializable {
 
     @FXML
     private void detail(ActionEvent event) throws IOException, SQLException {
+        CategorieProduit CP = new CategorieProduit();
+            CP.setId(Integer.parseInt(id_categorie_produit.getText()));
+            ItemController.P.setCategoryProduit(CP);
+            //System.out.println(ItemController.P.getCategoryProduit());
+            
         FXMLLoader loader = new FXMLLoader(getClass().getResource("Produits.fxml"));
         AnchorPane newInterface = loader.load();
        /* try {
@@ -111,20 +117,19 @@ public class ItemController implements Initializable {
         }*/
 
             ProduitsCntroller newInterfaceController = loader.getController();
-            newInterfaceController.advanced_search();
+            //newInterfaceController.advanced_search();
             
-            CategorieProduit CP = new CategorieProduit();
-            CP.setId(Integer.parseInt(id_categorie_produit.getText()));
             
-            Produit P = new Produit ();
-            P.setCategoryProduit(CP);
+            
+            
+            
             
             newInterfaceController.setC(P);
             Stage stage = new Stage();
         stage.setScene(new Scene(newInterface));
         stage.setOnHidden((event1) -> refresh());
         stage.show();
-         newInterfaceController.table();
+         //newInterfaceController.table();
         
         /*try
        {

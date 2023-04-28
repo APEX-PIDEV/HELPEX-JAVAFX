@@ -189,7 +189,7 @@ int rowsAffected = 0;
             stmt.setBoolean(4, produit.isAuthorization());
 
             stmt.setInt(5, produit.getId());
-
+            //System.out.println(produit);
              rowsAffected = stmt.executeUpdate();
             if (rowsAffected > 0) {
                 {
