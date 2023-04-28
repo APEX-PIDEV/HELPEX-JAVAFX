@@ -6,6 +6,7 @@
 package home;
 
 import apex.helpex.utils.JavaMail;
+import com.google.zxing.qrcode.encoder.QRCode;
 import entities.Centre;
 import entities.Formation;
 import java.net.URL;
@@ -39,14 +40,33 @@ import javafx.application.Application;
 import com.itextpdf.text.Document;
 import com.itextpdf.text.Element;
 import com.itextpdf.text.Font;
+import com.itextpdf.text.Image;
 import com.itextpdf.text.Paragraph;
 import com.itextpdf.text.pdf.PdfPCell;
 import com.itextpdf.text.pdf.PdfPTable;
 import com.itextpdf.text.pdf.PdfWriter;
+import com.sun.javafx.iio.ImageStorage.ImageType;
+import java.awt.Desktop;
+import java.io.ByteArrayInputStream;
+import java.io.ByteArrayOutputStream;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.OutputStream;
+import java.io.UnsupportedEncodingException;
+import java.net.HttpURLConnection;
+import java.net.URI;
+import java.net.URLEncoder;
+import java.nio.charset.StandardCharsets;
+import java.util.Base64;
+import java.util.HashMap;
+import java.util.Map;
 import javafx.application.HostServices;
 import javafx.collections.transformation.FilteredList;
 import javafx.collections.transformation.SortedList;
+import javafx.scene.control.ButtonType;
+import javafx.scene.control.Dialog;
 import javafx.scene.control.Hyperlink;
+import javafx.scene.image.ImageView;
 
 /**
  * FXML Controller class
@@ -99,7 +119,7 @@ public class AjouterFormationController implements Initializable {
     @FXML
     private Button btnlocalisation;
     @FXML
-    private TextField rechercher;
+    private Button genererQRF;
 
     public Centre getF() {
         return F;
@@ -184,6 +204,7 @@ public class AjouterFormationController implements Initializable {
       {
              try
        {
+           formations.clear();
            Connection conn= MyConnection.getInstance().getConn();
           //  formations = FXCollections.observableArrayList();
 
@@ -271,25 +292,92 @@ NOMColumnF.setCellValueFactory(f -> new SimpleStringProperty(f.getValue().getNom
               rcd.generatePDF(c);
          
     }
+public void sendSMS(String nom,String numeroTel) throws IOException {
+    String endpointUrl = "https://api.twilio.com/2010-04-01/Accounts/AC35f3e6bdc59a86fd5d3763e8d3e093a6/Messages.json";
+    String numeroTelephone="+216"+numeroTel;
+    Map<String, String> parameters = new HashMap<>();
+    parameters.put("To", "+21623398991");
+    parameters.put("From", "+19103354023");
+    parameters.put("Body", "inscription a la formation "+nom+" €");
 
+    URL url = new URL(endpointUrl);
+    HttpURLConnection connection = (HttpURLConnection) url.openConnection();
+    connection.setRequestMethod("POST");
+    connection.setRequestProperty("Content-Type", "application/x-www-form-urlencoded");
+    String username = "AC35f3e6bdc59a86fd5d3763e8d3e093a6";
+    String password = "b98f6255b040afaa8779af5c687286dd";
+    String encodedCredentials = Base64.getEncoder().encodeToString((username + ":" + password).getBytes());
+
+    connection.setRequestProperty("Authorization", "Basic " + encodedCredentials);
+    connection.setDoOutput(true);
+    connection.setDoOutput(true);
+
+    String requestBody = encodeFormData(parameters);
+    OutputStream outputStream = connection.getOutputStream();
+    byte[] requestBodyBytes = requestBody.getBytes(StandardCharsets.UTF_8);
+    outputStream.write(requestBodyBytes);
+    outputStream.close();
+
+    int responseCode = connection.getResponseCode();
+    System.out.println("Response Code : " + responseCode);
+}
+    private static String encodeFormData(Map<String, String> parameters) throws UnsupportedEncodingException {
+        StringBuilder sb = new StringBuilder();
+
+        for (Map.Entry<String, String> entry : parameters.entrySet()) {
+            if (sb.length() > 0) {
+                sb.append("&");
+            }
+            sb.append(URLEncoder.encode(entry.getKey(), "utf-8"));
+            sb.append("=");
+            sb.append(URLEncoder.encode(entry.getValue(), "utf-8"));
+        }
+
+        return sb.toString();
+    }
     @FXML
     private void inscriptionF(ActionEvent event) {
           Formation c= new Formation();
               c= tableF.getSelectionModel().getSelectedItem();
                 try {
                 //send email to emailField.getText()
+                    sendSMS(c.getNomFormation(),"test");
                 JavaMail.sendMail("ahmedbelhajhassen22@gmail.com",c);
             } catch (Exception ex) {
                 Logger.getLogger(ItemController.class.getName()).log(Level.SEVERE, null, ex);
             }
+                
     }
 
     @FXML
     private void localisationF(ActionEvent event) {
-        Hyperlink link = new Hyperlink();
-link.setText("https://www.google.com/maps/");
+          Formation c= new Formation();
+              c= tableF.getSelectionModel().getSelectedItem();
+         String url = "https://www.google.com/maps/place/"+c.getDescriptionFormation()+"/";
+        try {
+            Desktop.getDesktop().browse(URI.create(url).create(url));
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
 
 
+    }
+
+    @FXML
+    private void genererQR(ActionEvent event) {
+        /* Formation c = tableF.getSelectionModel().getSelectedItem();
+    String data = c.getNomFormation() + "\n" + c.getDescriptionFormation();
+    ByteArrayOutputStream out = QRCode.from(data).to(ImageType.PNG).stream();
+    InputStream is = new ByteArrayInputStream(out.toByteArray());
+    Image image = new Image(is) ;
+    ImageView imageView = new ImageView(image);
+    imageView.setFitWidth(300);
+    imageView.setFitHeight(300);
+    Dialog<ButtonType> dialog = new Dialog<>();
+    dialog.setTitle("Code QR de la formation " + c.getNomFormation());
+    dialog.getDialogPane().setContent(imageView);
+    dialog.getDialogPane().getButtonTypes().add(ButtonType.OK);
+    dialog.showAndWait();*/
     }
     
    

@@ -5,10 +5,10 @@
         <group>
             <file>file:/C:/Users/ASUS/OneDrive/Documents/GitHub/HELPEX-JAVAFX/src/interfaces/InterfaceFormation.java</file>
             <file>file:/C:/Users/ASUS/OneDrive/Documents/GitHub/HELPEX-JAVAFX/src/home/Controller.java</file>
-            <file>file:/C:/Users/ASUS/OneDrive/Documents/GitHub/HELPEX-JAVAFX/src/home/FormController.java</file>
             <file>file:/C:/Users/ASUS/OneDrive/Documents/GitHub/HELPEX-JAVAFX/src/home/AjouterFormationController.java</file>
+            <file>file:/C:/Users/ASUS/OneDrive/Documents/GitHub/HELPEX-JAVAFX/src/home/AjouterCController.java</file>
             <file>file:/C:/Users/ASUS/OneDrive/Documents/GitHub/HELPEX-JAVAFX/src/entities/Formation.java</file>
-            <file>file:/C:/Users/ASUS/OneDrive/Documents/GitHub/HELPEX-JAVAFX/src/home/ItemController.java</file>
+            <file>file:/C:/Users/ASUS/OneDrive/Documents/GitHub/HELPEX-JAVAFX/src/home/Main.java</file>
             <file>file:/C:/Users/ASUS/OneDrive/Documents/GitHub/HELPEX-JAVAFX/src/services/CRUDFormation.java</file>
             <file>file:/C:/Users/ASUS/OneDrive/Documents/GitHub/HELPEX-JAVAFX/src/entities/Centre.java</file>
         </group>
