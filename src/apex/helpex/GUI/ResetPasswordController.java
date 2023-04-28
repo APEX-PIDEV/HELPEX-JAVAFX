@@ -26,6 +26,11 @@ import javafx.scene.Parent;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.VBox;
+import tray.notification.NotificationType;
+import tray.notification.TrayNotification;
+import javafx.util.Duration;
+
+
 
 /**
  * FXML Controller class
@@ -80,7 +85,15 @@ public class ResetPasswordController implements Initializable {
             } catch (Exception ex) {
                 Logger.getLogger(ResetPasswordController.class.getName()).log(Level.SEVERE, null, ex);
             }
-            //make the layer invisble and show the code layer
+                  
+            String title = "Email sent";
+            String message = "User "+emailField.getText()+" has received mail successfully.";
+    NotificationType notificationType = NotificationType.SUCCESS;
+    TrayNotification trayNotification = new TrayNotification(title, message, notificationType);
+    trayNotification.showAndDismiss(Duration.seconds(5));
+           
+    
+//make the layer invisble and show the code layer
             sendEmailLayer.setVisible(false);
             sendCodeLayer.setVisible(true);
             resetPassLayer.setVisible(false);
