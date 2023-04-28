@@ -37,6 +37,8 @@ public class ItemUserController implements Initializable {
     @FXML
     private Label email;
     @FXML
+    private Button delete;
+    @FXML
     private Label sexe;
     @FXML
     private Label adresse;
@@ -44,8 +46,6 @@ public class ItemUserController implements Initializable {
     private Label num_tel;
     @FXML
     private Label enabled;
-    @FXML
-    private Button delete;
     @FXML
     private Button disable;
     @FXML
@@ -90,6 +90,8 @@ public class ItemUserController implements Initializable {
     UserService t = new UserService();
     t.Enable(P); 
     }
+
+  
 
    
     

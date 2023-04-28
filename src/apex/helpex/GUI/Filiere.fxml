@@ -15,7 +15,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="612.0" prefWidth="1177.0" style="-fx-background-color: #02030A;" stylesheets="@style.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="apex.helpex.GUI.DashboardController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="612.0" prefWidth="1177.0" style="-fx-background-color: #02030A;" stylesheets="@style.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="apex.helpex.GUI.FiliereController">
  <children>
       <VBox alignment="TOP_CENTER" layoutX="2.0" layoutY="-20.0" prefHeight="612.0" prefWidth="264.0" style="-fx-background-color: #05071F;">
          <children>
@@ -185,32 +185,21 @@
                   </Label>
                   <HBox alignment="CENTER_LEFT" layoutX="41.0" layoutY="190.0" prefHeight="42.0" prefWidth="856.0" spacing="80.0" style="-fx-background-color: #02030A;">
                      <children>
-                        <Label prefHeight="18.0" prefWidth="82.0" text="Email" textFill="#e7e5e5">
+                        <Label prefHeight="18.0" prefWidth="82.0" text="id" textFill="#e7e5e5">
                            <HBox.margin>
                               <Insets left="50.0" />
                            </HBox.margin>
                         </Label>
-                        <Label prefHeight="18.0" prefWidth="58.0" text="sexe" textFill="#e7e5e5">
+                        <Label prefHeight="18.0" prefWidth="58.0" text="nom filiere" textFill="#e7e5e5">
                            <HBox.margin>
                               <Insets />
                            </HBox.margin>
                         </Label>
-                        <Label prefHeight="18.0" prefWidth="110.0" text="adresse" textFill="#e7e5e5">
+                        <Label prefHeight="18.0" prefWidth="110.0" text="desc" textFill="#e7e5e5">
                            <HBox.margin>
                               <Insets />
                            </HBox.margin>
                         </Label>
-                        <Label prefHeight="18.0" prefWidth="78.0" text="Num_tel" textFill="#e7e5e5">
-                           <HBox.margin>
-                              <Insets />
-                           </HBox.margin>
-                        </Label>
-                        <Label prefHeight="18.0" prefWidth="90.0" text="enabled" textFill="#e7e5e5">
-                           <HBox.margin>
-                              <Insets />
-                           </HBox.margin>
-                        </Label>
-                        <Label prefHeight="18.0" prefWidth="72.0" text="Actions" textFill="#e7e5e5" />
                      </children>
                   </HBox>
                   <ScrollPane layoutX="60.0" layoutY="222.0" prefHeight="340.0" prefWidth="850.0" stylesheets="@style.css">

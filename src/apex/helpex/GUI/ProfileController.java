@@ -10,6 +10,8 @@ import apex.helpex.main.Helpex;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -33,6 +35,10 @@ public class ProfileController implements Initializable {
     private Label bio;
     @FXML
     private Button updateBtn;
+    @FXML
+    private Label num;
+    @FXML
+    private Label adresse;
 
     /**
      * Initializes the controller class.
@@ -41,10 +47,11 @@ public class ProfileController implements Initializable {
      public void setInfos() {
         this.email.setText(Helpex.loggedUser.getEmail());
         this.bio.setText(Helpex.loggedUser.getBio());
+                this.num.setText(Helpex.loggedUser.getNum_tel());
+        this.adresse.setText(Helpex.loggedUser.getAdresse());
+
       /*  this.prenom.setText(Helpex.loggedUser.getPrenom());
         this.nom.setText(Helpex.loggedUser.getNom());
-        this.adresse.setText(Helpex.loggedUser.getAdresse());
-        this.num.setText(Helpex.loggedUser.getNum_tel());
         this.bio.setText(Helpex.loggedUser.getBio());*/
     }
     
@@ -63,6 +70,18 @@ public class ProfileController implements Initializable {
         } catch (IOException ex) {
             System.out.println("Error: " + ex.getMessage());
         }
+    }
+
+    @FXML
+    private void signout(ActionEvent event) {
+         Helpex.loggedUser = new User();
+            try {
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("Login.fxml"));
+                Parent root = loader.load();
+                this.email.getScene().setRoot(root);
+            } catch (IOException ex) {
+                Logger.getLogger(LoginController.class.getName()).log(Level.SEVERE, null, ex);
+            }
     }
     
 }

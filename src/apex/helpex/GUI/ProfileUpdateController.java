@@ -5,6 +5,7 @@
  */
 package apex.helpex.GUI;
 
+import apex.helpex.entities.User;
 import apex.helpex.main.Helpex;
 import apex.helpex.services.UserService;
 import java.io.IOException;
@@ -85,7 +86,7 @@ public class ProfileUpdateController implements Initializable {
  Helpex.loggedUser.setAdresse(adresse.getText());
  Helpex.loggedUser.setNum_tel(num.getText());
  Helpex.loggedUser.setPdp(pdp.getText());
-  Helpex.loggedUser.setPdp(bio.getText());
+  Helpex.loggedUser.setBio(bio.getText());
  Helpex.loggedUser.setTarif(Integer.parseInt(tarif.getText()));
         
         
@@ -111,6 +112,24 @@ public class ProfileUpdateController implements Initializable {
 
     @FXML
     private void signout(ActionEvent event) {
-        
+          Helpex.loggedUser = new User();
+            try {
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("Login.fxml"));
+                Parent root = loader.load();
+                this.bio.getScene().setRoot(root);
+            } catch (IOException ex) {
+                Logger.getLogger(LoginController.class.getName()).log(Level.SEVERE, null, ex);
+            }
+    }
+
+    @FXML
+    private void profile(ActionEvent event) {
+         try {
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("Profile.fxml"));
+                Parent root = loader.load();
+                this.bio.getScene().setRoot(root);
+            } catch (IOException ex) {
+                Logger.getLogger(LoginController.class.getName()).log(Level.SEVERE, null, ex);
+            }
     }
 }

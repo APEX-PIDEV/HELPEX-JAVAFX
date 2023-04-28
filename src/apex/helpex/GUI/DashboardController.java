@@ -153,4 +153,16 @@ public class DashboardController implements Initializable {
             LoadItem(user);
     }
 
+    @FXML
+    private void filieres(ActionEvent event) {
+         FXMLLoader loader = new FXMLLoader(getClass().getResource("Filiere.fxml"));
+        try {
+            Parent root = loader.load();
+            title.getScene().setRoot(root);
+
+        } catch (IOException ex) {
+            System.out.println("Error: " + ex.getMessage());
+        }
+    }
+
 }
