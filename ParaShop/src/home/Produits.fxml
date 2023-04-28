@@ -26,7 +26,7 @@
                         <Font name="Arial Black" size="22.0" />
                      </font>
                   </Label>
-                  <TextField layoutX="658.0" layoutY="56.0" prefHeight="27.0" prefWidth="183.0" promptText="search" style="-fx-background-color: #02030A; -fx-border-color: #B7C3D7; -fx-border-radius: 2em;" />
+                  <TextField fx:id="searchfieldProd" layoutX="658.0" layoutY="56.0" prefHeight="27.0" prefWidth="183.0" promptText="search" style="-fx-background-color: #02030A; -fx-border-color: #B7C3D7; -fx-border-radius: 2em;" />
                   <Label layoutX="36.0" layoutY="59.0" text="Nom Produit" textFill="#2a73ff">
                      <font>
                         <Font size="15.0" />
@@ -83,6 +83,7 @@
                   <Button fx:id="btnAdaa" layoutX="179.0" layoutY="379.0" mnemonicParsing="false" onAction="#Add" prefHeight="38.0" prefWidth="58.0" text="Add" />
                   <Button fx:id="btnDelete" layoutX="92.0" layoutY="379.0" mnemonicParsing="false" onAction="#Delete" prefHeight="38.0" prefWidth="58.0" text="Delete" />
                   <Button fx:id="btnUpdate" layoutX="17.0" layoutY="379.0" mnemonicParsing="false" onAction="#Update" prefHeight="38.0" prefWidth="58.0" text="Update" />
+                  <Button fx:id="StatProd" layoutX="708.0" layoutY="194.0" mnemonicParsing="false" onAction="#Stat" prefHeight="37.0" prefWidth="149.0" text="Statistique" />
                </children>
             </Pane>
          </children>

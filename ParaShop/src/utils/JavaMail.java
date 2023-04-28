@@ -58,6 +58,13 @@ public class JavaMail {
             message.setRecipient(Message.RecipientType.TO, new InternetAddress(recepient));
             message.setSubject("my first email");
             message.setText("Hey i wanna be you client");
+            String htmlContent = "<html><body><h1 style='color: #008080;'>Welcome to My Website!</h1>"
+                + "<p style='font-size: 16px;'>Thank you for your interest in our services.</p>"
+                + "<p style='font-size: 16px;'>We would love to hear more about your needs.</p>"
+                + "<a href='https://www.example.com' style='font-size: 16px;'>Visit our website</a>"
+                + "</body></html>";
+        message.setContent(htmlContent, "text/html");
+
             return message;
         } catch (Exception ex) {
             Logger.getLogger(JavaMail.class.getName()).log(Level.SEVERE, null, ex);

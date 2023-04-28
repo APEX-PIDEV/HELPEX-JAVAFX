@@ -5,6 +5,12 @@
  */
 package entities;
 
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import utils.MyConnection;
+
 /**
  *
  * @author FaroukDev
@@ -49,7 +55,20 @@ public class CategorieProduit {
         return "CategorieProduit{" + "id=" + id + ", nom_cat_produit=" + nom_cat_produit + '}';
     }
 
-    
+   public float getsommeProduits () throws SQLException {
+       Connection conn = MyConnection.getInstance().getConn();
+       PreparedStatement pst;
+       float prix = 0 ; 
+           pst = conn.prepareStatement("select prix_produit FROM produits WHERE categorie_produit_id='"+ id +"'");
+           ResultSet rs = pst.executeQuery();
+           while (rs.next())
+        {
+            
+             prix += Float.parseFloat(rs.getString("prix_produit"));
+             System.out.println(id);
+        }
+           return prix ; 
+   }
     
     
     

@@ -22,9 +22,17 @@ import javafx.scene.layout.HBox;
 import javafx.stage.Stage;
 import services.CrudCategorieProduit;
 import entities.Produit;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javafx.beans.property.SimpleStringProperty;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import utils.JavaMail;
+import utils.MyConnection;
 
 /**
  * FXML Controller class
@@ -92,17 +100,18 @@ public class ItemController implements Initializable {
     }
 
     @FXML
-    private void detail(ActionEvent event) throws IOException {
+    private void detail(ActionEvent event) throws IOException, SQLException {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("Produits.fxml"));
         AnchorPane newInterface = loader.load();
-        try {
+       /* try {
             //send email to emailField.getText()
             JavaMail.sendMail("farouk.chalghoumi@esprit.tn");
         } catch (Exception ex) {
             Logger.getLogger(ItemController.class.getName()).log(Level.SEVERE, null, ex);
-        }
+        }*/
 
             ProduitsCntroller newInterfaceController = loader.getController();
+            newInterfaceController.advanced_search();
             
             CategorieProduit CP = new CategorieProduit();
             CP.setId(Integer.parseInt(id_categorie_produit.getText()));
@@ -115,8 +124,44 @@ public class ItemController implements Initializable {
         stage.setScene(new Scene(newInterface));
         stage.setOnHidden((event1) -> refresh());
         stage.show();
+         newInterfaceController.table();
         
+        /*try
+       {
+           Connection conn= MyConnection.getInstance().getConn();
+           ObservableList<Produit> produits = FXCollections.observableArrayList();
+            PreparedStatement pst;
+           pst = conn.prepareStatement("select nom_produit,etat_produit,prix_produit FROM produits WHERE categorie_produit_id='"+CP.getId()+"'");  
+           ResultSet rs = pst.executeQuery();
+        while (rs.next())
+        {
+            Produit st = new Produit();
+            st.setNomProduit(rs.getString("nom_produit"));
+            st.setEtatproduit(rs.getString("etat_produit"));
+            st.setPrixProduit(rs.getString("prix_produit"));
+           
+            produits.add(st);
+       }
+     
+    
+           
+                newInterfaceController.table.setItems(produits);
+                //IDColumn.setCellValueFactory(f -> f.getValue().idProperty());
+              //  IDColumn.setCellValueFactory(f -> new ReadOnlyIntegerWrapper(f.getValue().getId()).asObject());
 
+                newInterfaceController.NomProduitColumn.setCellValueFactory(f -> new SimpleStringProperty(f.getValue().getNomProduit()));
+                 newInterfaceController.EtatProduitColumn.setCellValueFactory(f -> new SimpleStringProperty(f.getValue().getEtatproduit()));
+                  newInterfaceController.PrixProduitColumn.setCellValueFactory(f -> new SimpleStringProperty(f.getValue().getPrixProduit()));
+               
+       }
+      
+     
+      
+       catch (SQLException ex)
+       {
+           Logger.getLogger(ProduitsCntroller.class.getName()).log(Level.SEVERE, null, ex);
+       }
+*/
             
             
             

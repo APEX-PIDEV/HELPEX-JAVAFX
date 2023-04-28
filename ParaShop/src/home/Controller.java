@@ -17,6 +17,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
@@ -54,6 +55,8 @@ public class Controller implements Initializable {
     private Pane pnlOrders;
     @FXML
     private Pane pnlMenus;
+    @FXML
+    private TextField searchfield;
 
     /**
      * Initializes the controller class.
@@ -66,6 +69,8 @@ public class Controller implements Initializable {
         categoriesList=CRUDcategorie.getAllCategories();
         for (CategorieProduit categorie : categoriesList)
             LoadItem(categorie);
+        
+        search();
     }    
 
     @FXML
@@ -113,7 +118,6 @@ public class Controller implements Initializable {
             LoadItem(CategorieP);
     }
     
-    @FXML
     private void Refresh(ActionEvent event) {
         refresh();
     }
@@ -141,6 +145,26 @@ public class Controller implements Initializable {
         pnItems.getChildren().add(itemPane);
     }
     
+    
+    
+    private void search() {
+        CrudCategorieProduit CRUDcategoriePeoduit=new CrudCategorieProduit();
+        List<CategorieProduit> CategorieList;
+
+        CategorieList=CRUDcategoriePeoduit.getAllCategories();
+
+            searchfield.textProperty().addListener((observable, oldValue, newValue)-> {
+                        pnItems.getChildren().clear();
+
+ for (CategorieProduit Cat : CategorieList)
+        {
+                if (Cat.getNom_cat_produit().contains(searchfield.getText()))
+            LoadItem(Cat);
+             }});
+
+
+
+    }
     
     
 }
