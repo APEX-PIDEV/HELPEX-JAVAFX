@@ -11,7 +11,7 @@
         <DropShadow blurType="GAUSSIAN" height="5.0" radius="2.0" width="5.0" />
     </effect>
     <Label fx:id="id" prefHeight="18.0" prefWidth="95.0" text="id" textFill="#b7c3d7" />
-   <Label fx:id="nf" prefHeight="18.0" prefWidth="96.0" text="nom filiere" textFill="#faf7f7" />
+   <Label fx:id="nom_filiere" prefHeight="18.0" prefWidth="96.0" text="nom filiere" textFill="#faf7f7" />
    <Label fx:id="desc" layoutX="618.0" layoutY="28.0" prefHeight="18.0" prefWidth="96.0" text="desc" textFill="#faf7f7" />
     <Button fx:id="delete" mnemonicParsing="false" onAction="#delete" prefHeight="27.0" prefWidth="115.0" style="-fx-border-color: #2A73FF; -fx-border-radius: 20; -fx-background-color: transparent;" stylesheets="@style.css" text="delete">
         <HBox.margin>

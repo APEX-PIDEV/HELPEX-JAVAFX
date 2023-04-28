@@ -81,6 +81,7 @@ public class DashboardController implements Initializable {
         UserService us=new UserService();
         List<User> usersList;
         usersList=us.afficherProUsers();
+        
         for (User user : usersList)
             LoadItem(user);
 
@@ -155,7 +156,7 @@ public class DashboardController implements Initializable {
 
     @FXML
     private void filieres(ActionEvent event) {
-         FXMLLoader loader = new FXMLLoader(getClass().getResource("Filiere.fxml"));
+         FXMLLoader loader = new FXMLLoader(getClass().getResource("Fil.fxml"));
         try {
             Parent root = loader.load();
             title.getScene().setRoot(root);

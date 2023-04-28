@@ -29,13 +29,13 @@ public class ItemFController implements Initializable {
     @FXML
     private Label id;
     @FXML
-    private Label nf;
-    @FXML
     private Label desc;
     @FXML
     private Button delete;
     @FXML
     private Button modif;
+    @FXML
+    private Label nom_filiere;
 
     /**
      * Initializes the controller class.
