@@ -71,7 +71,7 @@ public class AccompagnementButton implements Initializable {
 
             MenuItem menuItem = new MenuItem(task.getTitre());
             menuItem.setOnAction(e->{
-                sendSms();
+               sendSms();
 
                 accompagnementService.EnvoierAccompagnementPartie3(new Accompagnement(new Tasks(idTask),false,myUser,thisUser)) ;
                 Alert a = new Alert(Alert.AlertType.CONFIRMATION, "ACCOMPAGNEMENT ENVOYER !!", ButtonType.OK);

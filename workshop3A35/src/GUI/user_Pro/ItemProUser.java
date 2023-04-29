@@ -120,20 +120,20 @@ public void sendEmail() {
             new javax.mail.Authenticator() {
                 @Override
                 protected javax.mail.PasswordAuthentication getPasswordAuthentication() {
-                    return new javax.mail.PasswordAuthentication("hedil.aouadi@esprit.tn", "bacmath2019");
+                    return new javax.mail.PasswordAuthentication("aidme.io.tn@gmail.com", "pjbrnycqrolmwtyh");
                 }
             });
 
     try {
         Message message = new MimeMessage(session);
-        message.setFrom(new InternetAddress("hedil.aouadi@esprit.tn"));
+        message.setFrom(new InternetAddress("aidme.io.tn@gmail.com"));
         message.setRecipients(Message.RecipientType.TO,
                 InternetAddress.parse("naimihedia1@gmail.com"));
         message.setSubject("Task information");
 
 
         // Construction du contenu de l'email
-        String emailContent = "task : " + dataSingleton + "\n" +
+        String emailContent = "task : " + dataSingleton.getValue() + "\n" +
                 " est validé et tout les items son't bien terminés  " ;
 
         message.setText(emailContent);
