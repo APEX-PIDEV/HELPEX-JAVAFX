@@ -243,7 +243,7 @@ NOMColumnF.setCellValueFactory(f -> new SimpleStringProperty(f.getValue().getNom
        }
        catch (SQLException ex)
        {
-           Logger.getLogger(AjouterCController.class.getName()).log(Level.SEVERE, null, ex);
+           //Logger.getLogger(AjouterCController.class.getName()).log(Level.SEVERE, null, ex);
        }
  
                 tableF.setRowFactory(tv -> {
