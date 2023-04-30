@@ -241,4 +241,8 @@ public class User {
     }
     
     /////OTHER CONSTRUCTORSSSSSSS
+    
+     public User(int id) {
+        this.id = id;
+    }
 }
