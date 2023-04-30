@@ -51,7 +51,7 @@
                         <Label layoutX="55.0" layoutY="56.0" text="items complété" />
                      </children>
                   </Pane>
-                  <Pane prefHeight="99.0" prefWidth="311.0" style="-fx-background-color: white; -fx-background-radius: 0 20px 20px 0px;">
+                  <Pane prefHeight="99.0" prefWidth="295.0" style="-fx-background-color: white; -fx-background-radius: 0 20px 20px 0px;">
                      <children>
                         <Label fx:id="ExpiredLabel" layoutX="93.0" layoutY="25.0" text="0" textFill="#ff1313">
                            <font>
