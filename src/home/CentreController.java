@@ -25,7 +25,7 @@ import java.util.List;
 import java.util.ResourceBundle;
 import javafx.scene.control.TextField;
 
-public class Controller implements Initializable {
+public class CentreController implements Initializable {
 
     @FXML
     private VBox pnItems = null;
@@ -97,7 +97,7 @@ public class Controller implements Initializable {
         }
     }
     public void LoadItem(Centre centre){
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("Item.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("ItemCentre.fxml"));
         Pane itemPane = null;
         try {
             itemPane = loader.load();
@@ -125,9 +125,9 @@ public class Controller implements Initializable {
     }
     @FXML
     private void AjouterInterface(ActionEvent event) throws IOException {
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("Form.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("FormCentre.fxml"));
         AnchorPane newInterface = loader.load();
-        FormController newInterfaceController = loader.getController();
+        FormCentreController newInterfaceController = loader.getController();
 
         Stage stage = new Stage();
         stage.setScene(new Scene(newInterface));

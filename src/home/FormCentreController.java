@@ -17,7 +17,7 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import javax.swing.JOptionPane;
 
-public class FormController implements Initializable {
+public class FormCentreController implements Initializable {
 
   
     @FXML

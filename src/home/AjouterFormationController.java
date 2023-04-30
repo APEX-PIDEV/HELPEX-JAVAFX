@@ -344,7 +344,7 @@ public void sendSMS(String nom,String numeroTel) throws IOException {
                     sendSMS(c.getNomFormation(),"test");
                 JavaMail.sendMail("ahmedbelhajhassen22@gmail.com",c);
             } catch (Exception ex) {
-                Logger.getLogger(ItemController.class.getName()).log(Level.SEVERE, null, ex);
+                Logger.getLogger(ItemCentreController.class.getName()).log(Level.SEVERE, null, ex);
             }
                 
     }

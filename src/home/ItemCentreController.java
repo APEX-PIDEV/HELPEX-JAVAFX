@@ -39,7 +39,7 @@ import utils.MyConnection;
  *
  * @author ASUS
  */
-public class ItemController implements Initializable {
+public class ItemCentreController implements Initializable {
 
     @FXML
     private HBox itemC;
@@ -70,9 +70,9 @@ public class ItemController implements Initializable {
 
     @FXML
     private void modifierCentreBtn(ActionEvent event) throws IOException {
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("Form.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("FormCentre.fxml"));
             AnchorPane newInterface = loader.load();
-            FormController newInterfaceController = loader.getController();
+            FormCentreController newInterfaceController = loader.getController();
             Centre P=new Centre();
             Stage stage = new Stage();
             String nomcentre=nom_centre.getText();
@@ -167,7 +167,7 @@ newInterfaceController.NOMColumnF.setCellValueFactory(f -> new SimpleStringPrope
       
        catch (SQLException ex)
        {
-           Logger.getLogger(AjouterCController.class.getName()).log(Level.SEVERE, null, ex);
+           Logger.getLogger(CentreController.class.getName()).log(Level.SEVERE, null, ex);
        }
     }
     
