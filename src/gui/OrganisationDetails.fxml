@@ -52,7 +52,7 @@
          </children>
       </HBox>
 
-      <TableView fx:id="Caisses" layoutX="102.0" layoutY="430.0" prefHeight="278.0" prefWidth="517.0" stylesheets="@tableview.css">
+      <TableView fx:id="Caisses" layoutX="102.0" layoutY="430.0" prefHeight="278.0" prefWidth="517.0">
          <columns>
             <TableColumn fx:id="Montant" maxWidth="183.20001220703125" prefWidth="127.99993896484375" style="-fx-alignment: center;" text="Montant" />
             <TableColumn fx:id="Goal" maxWidth="183.20001220703125" prefWidth="130.39996337890625" style="-fx-alignment: center;" text="Goal" />

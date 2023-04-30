@@ -19,7 +19,7 @@ public class Main extends Application {
     public void start(Stage primaryStage) throws Exception {
 
         try {
-            Parent parent = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("Home.fxml")));
+            Parent parent = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("Organisation.fxml")));
             Scene scene = new Scene(parent);
             scene.setFill(Color.TRANSPARENT);
             primaryStage.setScene(scene);

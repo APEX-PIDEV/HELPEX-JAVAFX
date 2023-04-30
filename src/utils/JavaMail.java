@@ -36,13 +36,14 @@ public class JavaMail {
         Session session = Session.getDefaultInstance(properties, new Authenticator() {
             @Override
             protected PasswordAuthentication getPasswordAuthentication() {
-                return new PasswordAuthentication("apex.pidev1@gmail.com", "smzibedrpqanjggp"); //To change body of generated methods, choose Tools | Templates.
+                return new PasswordAuthentication("oussema.ayari2001@gmail.com", "osdysqsfjqbwveyn"); //To change body of generated methods, choose Tools | Templates.
             }
 
         });
 
-        Message message = prepareMessage(session, "apex.pidev1@gmail.com", recepient);
+        Message message = prepareMessage(session, "oussema.ayari2020@gmail.com", recepient);
 
+        assert message != null;
         Transport.send(message);
         System.out.println("Message sent successfully");
 

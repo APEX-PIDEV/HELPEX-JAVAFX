@@ -67,7 +67,7 @@ public class OrganisationDetails implements Initializable {
             try {
                 loader.load();
             } catch (IOException ex) {
-                Logger.getLogger(Controller.class.getName()).log(Level.SEVERE, null, ex);
+                Logger.getLogger(OrganisationController.class.getName()).log(Level.SEVERE, null, ex);
             }
 
             CaisseForm caisseForm = loader.getController();
@@ -104,7 +104,7 @@ public class OrganisationDetails implements Initializable {
 
 
         } catch (SQLException ex) {
-            Logger.getLogger(Controller.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(OrganisationController.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 
@@ -151,7 +151,7 @@ public class OrganisationDetails implements Initializable {
                                 refreshTable();
 
                             } catch (SQLException ex) {
-                                Logger.getLogger(Controller.class.getName()).log(Level.SEVERE, null, ex);
+                                Logger.getLogger(OrganisationController.class.getName()).log(Level.SEVERE, null, ex);
                             }
                         });
                         editIcon.setOnMouseClicked((MouseEvent event) -> {
@@ -162,7 +162,7 @@ public class OrganisationDetails implements Initializable {
                             try {
                                 loader.load();
                             } catch (IOException ex) {
-                                Logger.getLogger(Controller.class.getName()).log(Level.SEVERE, null, ex);
+                                Logger.getLogger(OrganisationController.class.getName()).log(Level.SEVERE, null, ex);
                             }
 
                             CaisseForm caisseForm = loader.getController();
