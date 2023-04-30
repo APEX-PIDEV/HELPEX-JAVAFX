@@ -39,7 +39,10 @@ import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
+import javafx.util.Duration;
 import services.CrudProduits;
+import tray.notification.NotificationType;
+import tray.notification.TrayNotification;
 import utils.JavaMail;
 import utils.MyConnection;
 
@@ -269,7 +272,7 @@ public class ProduitsCntroller implements Initializable {
                                          ItemController.P.getCategoryProduit().getId()+" AND  authorisation='" + auth);*/
 
                                 pst = conn.prepareStatement("SELECT id,nom_produit, etat_produit, prix_produit , authorisation FROM produits WHERE categorie_produit_id = ? AND authorisation= ?");
-                                pst.setInt(1, ItemController.P.getCategoryProduit().getId());
+                                pst.setInt(1, ItemCatProdController.P.getCategoryProduit().getId());
                                 pst.setInt(2, auth ? 1 : 0);                                   
                                
                            }
@@ -370,17 +373,22 @@ public class ProduitsCntroller implements Initializable {
       r.setEtatproduit(var2);
       r.setPrixProduit(var3);
       r.setAuthorization(var5);
-      if (r.isAuthorization() == false )
+      if (r.isAuthorization() == true )
       {
           try {
             //send email to emailField.getText()
             JavaMail.sendMail("farouk.chalghoumi@esprit.tn");
         } catch (Exception ex) {
-            Logger.getLogger(ItemController.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(ItemCatProdController.class.getName()).log(Level.SEVERE, null, ex);
         }
       }
         //r=table.getSelectionModel().getSelectedItem();
         rcd.updateProduit(r);
+        String title = "Product  Authorized";
+        String message = "The Product "+txtNomProduit.getText()+" has been Authorized To Parashop.";
+            NotificationType notificationType = NotificationType.SUCCESS;
+            TrayNotification trayNotification = new TrayNotification(title, message, notificationType);
+        trayNotification.showAndDismiss(Duration.seconds(5));
        table();
     }
     
@@ -415,7 +423,7 @@ public class ProduitsCntroller implements Initializable {
         try {
             loader1.load();
         } catch (IOException ex) {
-            Logger.getLogger(Controller.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(CatProdController.class.getName()).log(Level.SEVERE, null, ex);
         }
 
 

@@ -29,7 +29,7 @@ import services.CrudCategorieProduit;
  *
  * @author FaroukDev
  */
-public class Controller implements Initializable {
+public class CatProdController implements Initializable {
 
     @FXML
     private Button btnOverview;
@@ -99,9 +99,9 @@ public class Controller implements Initializable {
     @FXML
     private void AjouterInterface(ActionEvent event) throws IOException {
         
-                FXMLLoader loader = new FXMLLoader(getClass().getResource("Form.fxml"));
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("FormCatProduit.fxml"));
         AnchorPane newInterface = loader.load();
-        FormController newInterfaceController = loader.getController();
+        FormCatProdController newInterfaceController = loader.getController();
 
         Stage stage = new Stage();
         stage.setScene(new Scene(newInterface));
@@ -125,7 +125,7 @@ public class Controller implements Initializable {
     
 
     private void LoadItem(CategorieProduit categorie) {
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("Item.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("ItemCatProduit.fxml"));
         Pane itemPane = null;
         try {
             itemPane = loader.load();

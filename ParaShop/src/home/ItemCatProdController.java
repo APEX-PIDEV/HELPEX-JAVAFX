@@ -39,7 +39,7 @@ import utils.MyConnection;
  *
  * @author FaroukDev
  */
-public class ItemController implements Initializable {
+public class ItemCatProdController implements Initializable {
 
     @FXML
     private HBox itemC;
@@ -76,9 +76,9 @@ public class ItemController implements Initializable {
     @FXML
     private void modifierCentreBtn(ActionEvent event) throws IOException {
         
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("Form.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("FormCatProdController.fxml"));
         AnchorPane newInterface = loader.load();
-        FormController newInterfaceController = loader.getController();
+        FormCatProdController newInterfaceController = loader.getController();
         
         CategorieProduit CatProduit = new CategorieProduit();
         
@@ -104,7 +104,7 @@ public class ItemController implements Initializable {
     private void detail(ActionEvent event) throws IOException, SQLException {
         CategorieProduit CP = new CategorieProduit();
             CP.setId(Integer.parseInt(id_categorie_produit.getText()));
-            ItemController.P.setCategoryProduit(CP);
+            ItemCatProdController.P.setCategoryProduit(CP);
             //System.out.println(ItemController.P.getCategoryProduit());
             
         FXMLLoader loader = new FXMLLoader(getClass().getResource("Produits.fxml"));

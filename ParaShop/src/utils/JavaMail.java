@@ -39,12 +39,12 @@ public class JavaMail {
         Session session = Session.getDefaultInstance(properties, new Authenticator() {
             @Override
             protected PasswordAuthentication getPasswordAuthentication() {
-                return new PasswordAuthentication("apex.pidev1@gmail.com", "smzibedrpqanjggp"); //To change body of generated methods, choose Tools | Templates.
+                return new PasswordAuthentication("oussema.ayari2001@gmail.com", "osdysqsfjqbwveyn"); //To change body of generated methods, choose Tools | Templates.
             }
 
         });
 
-        Message message = prepareMessage(session, "apex.pidev1@gmail.com", recepient);
+        Message message = prepareMessage(session, "oussema.ayari2001@gmail.com", recepient);
 
         Transport.send(message);
         System.out.println("Message sent successfully");
@@ -58,10 +58,10 @@ public class JavaMail {
             message.setRecipient(Message.RecipientType.TO, new InternetAddress(recepient));
             message.setSubject("my first email");
             message.setText("Hey i wanna be you client");
-            String htmlContent = "<html><body><h1 style='color: #008080;'>Welcome to My Website!</h1>"
+            String htmlContent = "<html><body><h1 style='color: #008080;'>This Product is Authorised Welcome To Helpex's ParaShop !</h1>"
                 + "<p style='font-size: 16px;'>Thank you for your interest in our services.</p>"
                 + "<p style='font-size: 16px;'>We would love to hear more about your needs.</p>"
-                + "<a href='https://www.example.com' style='font-size: 16px;'>Visit our website</a>"
+                + "<a href='http://127.0.0.1:8000/produits/' style='font-size: 16px;'>Visit our website</a>"
                 + "</body></html>";
         message.setContent(htmlContent, "text/html");
 
