@@ -7,6 +7,9 @@ package help;
 
 import entities.Commentaire;
 import entities.Poste;
+import entities.User;
+import javafx.application.Application;
+import javafx.stage.Stage;
 import services.CRUDCommentaire;
 import services.CRUDPoste;
 import utils.MyConnection;
@@ -15,8 +18,12 @@ import utils.MyConnection;
  *
  * @author ASUS
  */
-public class Help {
+public class Help extends Application {
 
+    
+            public static User loggedUser = null;
+
+    
     /**
      * @param args the command line arguments
      */
@@ -33,6 +40,11 @@ public class Help {
        // PR.ajouterPoste(p);
         //System.out.println(PR.afficherPoste());
      //   CR.ajouterCommentaire(c);
+    }
+
+    @Override
+    public void start(Stage primaryStage) throws Exception {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
     
 }

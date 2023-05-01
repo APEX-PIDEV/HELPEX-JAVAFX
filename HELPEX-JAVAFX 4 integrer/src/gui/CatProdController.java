@@ -6,6 +6,8 @@
 package gui;
 
 import entities.CategorieProduit;
+import entities.User;
+import help.Help;
 import java.io.IOException;
 import java.net.URL;
 import java.util.List;
@@ -84,6 +86,17 @@ Numbreproduit.setText(String.valueOf(categoriesList.size()));
     @FXML
     private void handleClicks(ActionEvent actionEvent) {
         
+          if(actionEvent.getSource()==btnUser)
+        { 
+             try {
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("Dashboard.fxml"));
+                Parent root = loader.load();
+                               this.title.getScene().setRoot(root);
+            } catch (IOException ex) {
+                Logger.getLogger(CatProdController.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+        
                   if(actionEvent.getSource()==btnCentre)
         {
         
@@ -115,6 +128,19 @@ Numbreproduit.setText(String.valueOf(categoriesList.size()));
                                this.title.getScene().setRoot(root);
             } catch (IOException ex) {
                 Logger.getLogger(OrganisationController.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+         
+         
+           if(actionEvent.getSource()==btnSignout)
+        {         
+                   Help.loggedUser = new User();
+            try {
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("Login.fxml"));
+                Parent root = loader.load();
+                this.title.getScene().setRoot(root);
+            } catch (IOException ex) {
+                Logger.getLogger(GUI.LoginController.class.getName()).log(Level.SEVERE, null, ex);
             }
         }
         

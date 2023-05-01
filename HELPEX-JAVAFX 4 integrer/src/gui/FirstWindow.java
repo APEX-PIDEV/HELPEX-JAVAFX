@@ -3,11 +3,9 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package gui;
+package GUI;
 
 import java.io.IOException;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javafx.application.Application;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
@@ -20,28 +18,22 @@ import javafx.stage.Stage;
 
 /**
  *
- * @author ASUS
+ * @author Asus-PC
  */
-public class firstwindow extends Application {
+public class FirstWindow extends Application {
     
     @Override
-    public void start(Stage primaryStage) {
-        Parent root;
-        try {
-            root = FXMLLoader.load(getClass().getResource("Socialnetwork.FXML"));
-            Scene scene = new Scene(root);
+    public void start(Stage primaryStage)  {
+       try{
+        Parent root = FXMLLoader.load(getClass().getResource("Login.fxml"));
+        Scene scene = new Scene(root);
         
-        primaryStage.setTitle("gestion postes!");
+        primaryStage.setTitle("Login");
         primaryStage.setScene(scene);
         primaryStage.show();
-        
-        
-        } catch (IOException ex) {
-            System.out.println(ex.getMessage());
-            Logger.getLogger(firstwindow.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        
-        
+       } catch(IOException ex) {
+              System.out.println(ex.getMessage());
+       }
     }
 
     /**

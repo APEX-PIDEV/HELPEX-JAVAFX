@@ -2,6 +2,8 @@ package gui;
 
 import com.sun.org.apache.xpath.internal.operations.Or;
 import entities.Poste;
+import entities.User;
+import help.Help;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
@@ -99,6 +101,17 @@ public class SocialnetworkController implements Initializable {
     public void handleClicks(ActionEvent actionEvent) {
          pnlOverview.setStyle("-fx-background-color : #02030A");
             pnlOverview.toFront();
+            
+              if(actionEvent.getSource()==btnUser)
+        { 
+             try {
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("Dashboard.fxml"));
+                Parent root = loader.load();
+                               this.title.getScene().setRoot(root);
+            } catch (IOException ex) {
+                Logger.getLogger(CatProdController.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
         if(actionEvent.getSource()==btnShop)
         {
         
@@ -130,6 +143,18 @@ public class SocialnetworkController implements Initializable {
                                this.title.getScene().setRoot(root);
             } catch (IOException ex) {
                 Logger.getLogger(CentreController.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+                  
+                    if(actionEvent.getSource()==btnSignout)
+        {         
+                   Help.loggedUser = new User();
+            try {
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("Login.fxml"));
+                Parent root = loader.load();
+                this.title.getScene().setRoot(root);
+            } catch (IOException ex) {
+                Logger.getLogger(GUI.LoginController.class.getName()).log(Level.SEVERE, null, ex);
             }
         }
     }

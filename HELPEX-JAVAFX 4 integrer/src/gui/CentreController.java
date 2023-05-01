@@ -2,6 +2,8 @@ package gui;
 
 import com.sun.org.apache.xpath.internal.operations.Or;
 import entities.Centre;
+import entities.User;
+import help.Help;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
@@ -73,6 +75,18 @@ public class CentreController implements Initializable {
 
     @FXML
     public void handleClicks(ActionEvent actionEvent) {
+        
+        if(actionEvent.getSource()==btnUser)
+        { 
+             try {
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("Dashboard.fxml"));
+                Parent root = loader.load();
+                               this.title.getScene().setRoot(root);
+            } catch (IOException ex) {
+                Logger.getLogger(CatProdController.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+        
      if(actionEvent.getSource()==btnShop)
         {
         
@@ -106,6 +120,21 @@ public class CentreController implements Initializable {
                 Logger.getLogger(CentreController.class.getName()).log(Level.SEVERE, null, ex);
             }
         }
+                  
+          if(actionEvent.getSource()==btnSignout)
+        {         
+                   Help.loggedUser = new User();
+            try {
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("Login.fxml"));
+                Parent root = loader.load();
+                this.title.getScene().setRoot(root);
+            } catch (IOException ex) {
+                Logger.getLogger(GUI.LoginController.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+                  
+                  
+                  
     }
     public void LoadItem(Centre centre){
         FXMLLoader loader = new FXMLLoader(getClass().getResource("ItemCentre.fxml"));
