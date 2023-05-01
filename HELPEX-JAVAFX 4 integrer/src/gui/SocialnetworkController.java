@@ -76,6 +76,8 @@ public class SocialnetworkController implements Initializable {
     private Button btnCaisse;
     @FXML
     private Button btnShifts;
+    @FXML
+    private Label currentUser;
 
     public VBox getPnItems() {
         return pnItems;

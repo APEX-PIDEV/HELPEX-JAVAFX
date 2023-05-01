@@ -66,6 +66,8 @@ public class CatProdController implements Initializable {
     private Button btnCaisse;
     @FXML
     private Button btnShifts;
+    @FXML
+    private Label currentUser;
 
     /**
      * Initializes the controller class.

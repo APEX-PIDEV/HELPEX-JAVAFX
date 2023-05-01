@@ -60,6 +60,8 @@ public class CentreController implements Initializable {
     private Button btnShifts;
     @FXML
     private Label title;
+    @FXML
+    private Label currentUser;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
