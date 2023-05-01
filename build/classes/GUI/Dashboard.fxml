@@ -229,10 +229,6 @@
                   </ImageView>
                   <HBox layoutX="91.0" layoutY="20.0" prefHeight="67.0" prefWidth="747.0" spacing="30.0">
                      <children>
-                        <Button mnemonicParsing="false" prefHeight="35.0" prefWidth="95.0" text="All Users" />
-                        <Button mnemonicParsing="false" prefHeight="36.0" prefWidth="81.0" text="Pro Users" />
-                        <Button mnemonicParsing="false" prefHeight="36.0" prefWidth="81.0" text="Clients" />
-                        <Button mnemonicParsing="false" prefHeight="37.0" prefWidth="77.0" text="Stats" />
                         <Button mnemonicParsing="false" onAction="#filieres" prefHeight="37.0" prefWidth="105.0" text="filieres" />
                      </children>
                   </HBox>
