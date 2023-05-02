@@ -23,6 +23,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
+import main.Helpex;
 import org.xhtmlrenderer.pdf.ITextRenderer;
 import services.AccompagnementService;
 
@@ -53,7 +54,7 @@ public class AccompagnementButton implements Initializable {
     @FXML
     Button sms ;
 
-    private User myUser=new User(10) ;
+    private User myUser= Helpex.loggedUser;
     private User thisUser =new User(8);
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -71,7 +72,7 @@ public class AccompagnementButton implements Initializable {
 
             MenuItem menuItem = new MenuItem(task.getTitre());
             menuItem.setOnAction(e->{
-               sendSms();
+               //sendSms();
 
                 accompagnementService.EnvoierAccompagnementPartie3(new Accompagnement(new Tasks(idTask),false,myUser,thisUser)) ;
                 Alert a = new Alert(Alert.AlertType.CONFIRMATION, "ACCOMPAGNEMENT ENVOYER !!", ButtonType.OK);

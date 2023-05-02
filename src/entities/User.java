@@ -12,11 +12,12 @@ import java.sql.Date;
  * @author Asus-PC
  */
 public class User {
-     private int id,  is_enabled, tarif;
+    private int id,  is_enabled, tarif;
     private String email, password, roles, nom,prenom, sexe,adresse,num_tel,pdp,bio,diplome;
     private Date date_naissance;
-/*const PRO*/
-    public User( String email, String roles ,String password, String nom, String prenom, String sexe, String adresse, String num_tel, String pdp, String bio, Date date_naissance, String diplome, int tarif, int is_enabled) {
+    /*const PRO*/
+    public User( int id,String email, String roles ,String password, String nom, String prenom, String sexe, String adresse, String num_tel, String pdp, String bio, Date date_naissance, String diplome, int tarif, int is_enabled) {
+        this.id = id;
         this.email = email;
         this.roles = roles;
         this.password = password;
@@ -28,13 +29,31 @@ public class User {
         this.pdp = pdp;
         this.bio = bio;
         this.date_naissance = date_naissance;
-        this.diplome = diplome;       
+        this.diplome = diplome;
         this.tarif = tarif;
         this.is_enabled = is_enabled ;
-}
-    
+    }
+    public User(String email, String roles ,String password, String nom, String prenom, String sexe, String adresse, String num_tel, String pdp, String bio, Date date_naissance, String diplome, int tarif, int is_enabled) {
+
+        this.email = email;
+        this.roles = roles;
+        this.password = password;
+        this.nom = nom;
+        this.prenom = prenom;
+        this.sexe = sexe;
+        this.adresse = adresse;
+        this.num_tel = num_tel;
+        this.pdp = pdp;
+        this.bio = bio;
+        this.date_naissance = date_naissance;
+        this.diplome = diplome;
+        this.tarif = tarif;
+        this.is_enabled = is_enabled ;
+    }
+
     /*const Cli*/
-    public User( String email, String roles ,String password, String nom, String prenom, String sexe, String adresse, String num_tel, String pdp, String bio, Date date_naissance, int is_enabled) {
+    public User( int id ,String email, String roles ,String password, String nom, String prenom, String sexe, String adresse, String num_tel, String pdp, String bio, Date date_naissance, int is_enabled) {
+        this.id = id;
         this.email = email;
         this.roles = roles;
         this.password = password;
@@ -48,11 +67,12 @@ public class User {
         this.date_naissance = date_naissance;
 
         this.is_enabled = is_enabled ;
-}
-    
-    
-   /* const affich PRO */ 
-    
+    }
+
+
+
+    /* const affich PRO */
+
     public User(int id, String email, String roles , String nom, String prenom, String sexe, String adresse, String num_tel, String pdp, String bio, Date date_naissance, String diplome, int tarif, int is_enabled) {
         this.id = id;
         this.email = email;
@@ -65,14 +85,13 @@ public class User {
         this.pdp = pdp;
         this.bio = bio;
         this.date_naissance = date_naissance;
-        this.diplome = diplome;       
+        this.diplome = diplome;
         this.tarif = tarif;
         this.is_enabled = is_enabled ;
-}
+    }
 
     /*const CLIENT*/
-    public User(int id, String email, String roles ,String password, String nom, String prenom, String sexe, String adresse, String num_tel, String pdp, String bio, Date date_naissance,  int is_enabled) {
-        this.id = id;
+    public User( String email, String roles ,String password, String nom, String prenom, String sexe, String adresse, String num_tel, String pdp, String bio, Date date_naissance,  int is_enabled) {
         this.email = email;
         this.roles = roles;
         this.password = password;
@@ -84,11 +103,11 @@ public class User {
         this.pdp = pdp;
         this.bio = bio;
         this.date_naissance = date_naissance;
-        
+
         this.is_enabled = is_enabled ;
-}
-    /* const affich CLIENT */ 
-    
+    }
+    /* const affich CLIENT */
+
     public User(int id, String email, String roles , String nom, String prenom, String sexe, String adresse, String num_tel, String pdp, String bio, Date date_naissance, int is_enabled) {
         this.id = id;
         this.email = email;
@@ -101,20 +120,23 @@ public class User {
         this.pdp = pdp;
         this.bio = bio;
         this.date_naissance = date_naissance;
-        
+
         this.is_enabled = is_enabled ;
-}
+    }
+
+
+
 
     public User() {
     }
 
     public User(int aInt, String string, String string0, String string1, int aInt0) {
- this.id = aInt;
+        this.id = aInt;
         this.email = string;
         this.roles = string0;
         this.password = string1;
         this.is_enabled = aInt0 ;    }
-    
+
     public int getId() {
         return id;
     }
@@ -239,10 +261,9 @@ public class User {
     public String toString() {
         return "User{" + "id=" + id + ", is_enabled=" + is_enabled + ", tarif=" + tarif + ", email=" + email + ", password=" + password + ", roles=" + roles + ", nom=" + nom + ", prenom=" + prenom + ", sexe=" + sexe + ", adresse=" + adresse + ", num_tel=" + num_tel + ", pdp=" + pdp + ", bio=" + bio + ", diplome=" + diplome + ", date_naissance=" + date_naissance + '}';
     }
-    
-    /////OTHER CONSTRUCTORSSSSSSS
-    
-     public User(int id) {
+
+    public User(int id) {
         this.id = id;
     }
+    /////OTHER CONSTRUCTORSSSSSSS
 }

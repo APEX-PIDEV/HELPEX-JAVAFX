@@ -14,6 +14,7 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.GridPane;
 import javafx.stage.Stage;
+import main.Helpex;
 import services.TasksService;
 
 import java.io.IOException;
@@ -30,7 +31,7 @@ public class MesTasksPro  implements Initializable {
 
     @FXML
     private Label accomswitch;
-    private int current_user_pro_connectes=8 ;
+    private int current_user_pro_connectes= Helpex.loggedUser.getId() ;
 
     DataSingleton dataSingleton=DataSingleton.instance ;
 
@@ -55,6 +56,7 @@ public class MesTasksPro  implements Initializable {
             }
 
             title = new Label(accompagnements.get(i).getId_task().getTitre());
+
             int finalI = i;
             title.setOnMouseClicked(event -> {
                 dataSingleton.setValue(accompagnements.get(finalI).getId_task().getId());
@@ -83,9 +85,11 @@ public class MesTasksPro  implements Initializable {
             });
 
             ImageView imageView = new ImageView(image);
-            imageView.setFitWidth(20);
-            imageView.setFitHeight(20);
+            imageView.setFitWidth(100);
+            imageView.setFitHeight(100);
             title.setGraphic(imageView);
+            title.setMinWidth(500);
+            title.setMinHeight(500);
 
             //////////////event////////////
             ContextMenu contextMenu = new ContextMenu();

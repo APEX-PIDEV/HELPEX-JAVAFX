@@ -24,6 +24,7 @@ import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 import javafx.util.Callback;
+import main.Helpex;
 import services.AccompagnementService;
 
 import java.awt.*;
@@ -57,6 +58,8 @@ public class AccompagnementUserPro  implements Initializable {
     private HBox hboxAccompagnement;
     @FXML
     javafx.scene.control.TextField hhh ;
+
+    private  int current =Helpex.loggedUser.getId() ;
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         mesAccompagnments();
@@ -65,10 +68,10 @@ public class AccompagnementUserPro  implements Initializable {
 
     public void mesAccompagnments (){
         AccompagnementService accompagnementService = new AccompagnementService();
-        System.out.println(accompagnementService.lister_accompagnment_for_pro(8));
-        number.setText(String.valueOf(accompagnementService.lister_accompagnment_for_pro(8).size()));
+        System.out.println(accompagnementService.lister_accompagnment_for_pro(current));
+        number.setText(String.valueOf(accompagnementService.lister_accompagnment_for_pro(current).size()));
 
-        ObservableList<Accompagnement> accompagnementObservableList = FXCollections.observableArrayList(accompagnementService.lister_accompagnment_for_pro(8));
+        ObservableList<Accompagnement> accompagnementObservableList = FXCollections.observableArrayList(accompagnementService.lister_accompagnment_for_pro(current));
         TableColumn<Accompagnement, String> nomColumn = new TableColumn<Accompagnement, String>("User");
         nomColumn.setCellValueFactory(cellFactory-> new SimpleStringProperty(cellFactory.getValue().getUser().getNom()+ "  " +cellFactory.getValue().getUser().getPrenom() + " vous à envoyer une demande d'accompagnement "));
 

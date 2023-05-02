@@ -10,6 +10,7 @@ import javafx.scene.control.Tooltip;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.GridPane;
+import main.Helpex;
 import services.TasksService;
 
 import java.net.URL;
@@ -17,7 +18,7 @@ import java.util.ArrayList;
 import java.util.ResourceBundle;
 
 public class MesTasksUserNormal implements Initializable {
-    private int current_user_pro_connectes=10 ;
+    private int current_user_pro_connectes= Helpex.loggedUser.getId() ;
     @FXML
     private GridPane MyUserGrid;
     @Override

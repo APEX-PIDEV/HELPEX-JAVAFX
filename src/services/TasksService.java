@@ -8,6 +8,7 @@ import entities.Tasks;
 
 import entities.User;
 
+import main.Helpex;
 import utils.ConnexionJDBC;
 import utils.MyConnection;
 
@@ -64,7 +65,7 @@ public class TasksService implements InterfaceTasks {
         try {
             PreparedStatement pst =ConnexionJDBC.getInstance().getCnx().prepareStatement(requette);
             pst.setInt(1,task.getId());
-            pst.setInt(2,10);
+            pst.setInt(2, Helpex.loggedUser.getId());
 
             pst.setBoolean(3, false);
             pst.executeUpdate();
@@ -176,9 +177,11 @@ public class TasksService implements InterfaceTasks {
                 tasks.setIs_valid(rs.getBoolean("is_valid"));
                 accompagnement.setId_task(tasks);
 
+
                 myList.add(accompagnement);
 
             }
+            System.out.println("herrrrrre"+id_user +myList);
         } catch (SQLException ex) {
             System.out.println(ex.getMessage());
         }

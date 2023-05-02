@@ -16,6 +16,7 @@ import javafx.scene.layout.VBox;
 import javafx.scene.text.Font;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
+import main.Helpex;
 import services.ItemService;
 import services.TasksService;
 
@@ -36,7 +37,7 @@ public class TasksGuiInfo  implements Initializable {
     private GridPane gridBox ;
     @FXML
     private Label accomswitch;
-    private int currentUser=10 ;
+    private int currentUser= Helpex.loggedUser.getId() ;
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         listerTasks();

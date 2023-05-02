@@ -36,6 +36,7 @@ import javafx.scene.paint.Color;
 import javafx.stage.FileChooser;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
+import main.Helpex;
 import org.xhtmlrenderer.pdf.ITextRenderer;
 import services.ItemService;
 import services.TasksService;
@@ -80,7 +81,7 @@ public class Tasks_Controller implements Initializable {
     VBox vBox = new VBox();
     TasksService tasksService = new TasksService();
 
-    private  int currentuser =10 ;
+    private  int currentuser = Helpex.loggedUser.getId() ;
     ArrayList<Accompagnement> listTasks= tasksService.listerTasksofUser(currentuser);
     @FXML
     private  Label tasksSideNav ;
@@ -546,7 +547,7 @@ public class Tasks_Controller implements Initializable {
             OutputStream outputStream = new FileOutputStream(outputFile);
 
             ItemService itemService = new ItemService();
-            ArrayList<Item>items =itemService.listerItemsforUser(10);
+            ArrayList<Item>items =itemService.listerItemsforUser(currentuser);
 
             Document document = new Document(PageSize.A4.rotate());
             String filename = "output.pdf";

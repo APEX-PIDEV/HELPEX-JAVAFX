@@ -179,8 +179,8 @@ public void createDialog(String title,String header,String label1){
             Parent root = loader.load();
             Scene newScene = new Scene(root);
             Stage currentStage = (Stage) accomswitch.getScene().getWindow();
-            currentStage.setWidth(736);
-            currentStage.setHeight(466);
+
+
             currentStage.setScene(newScene);
         } catch (IOException e) {
             e.printStackTrace();
