@@ -261,6 +261,10 @@ public class User {
     public String toString() {
         return "User{" + "id=" + id + ", is_enabled=" + is_enabled + ", tarif=" + tarif + ", email=" + email + ", password=" + password + ", roles=" + roles + ", nom=" + nom + ", prenom=" + prenom + ", sexe=" + sexe + ", adresse=" + adresse + ", num_tel=" + num_tel + ", pdp=" + pdp + ", bio=" + bio + ", diplome=" + diplome + ", date_naissance=" + date_naissance + '}';
     }
+
+    public  User (int id){
+        id=id;
+    }
     
     /////OTHER CONSTRUCTORSSSSSSS
 }

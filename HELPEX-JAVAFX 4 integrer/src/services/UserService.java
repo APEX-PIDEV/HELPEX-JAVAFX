@@ -14,7 +14,7 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
-import help.Help;
+import help.Helpex;
 import utils.MyConnection;
 import utils.BcryptHasher;
 import java.util.logging.Level;
@@ -251,7 +251,7 @@ String req = "DELETE FROM `user` WHERE `email` = \"" + u.getEmail() + "\"; ";
 
             }
             if (hasher.checkPassword(user.getPassword(), password)) {
-                Help.loggedUser = user;
+                Helpex.loggedUser = user;
                 return true;
             } else {
                 return false;

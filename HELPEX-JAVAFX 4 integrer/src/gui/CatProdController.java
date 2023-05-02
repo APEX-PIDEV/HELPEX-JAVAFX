@@ -7,7 +7,7 @@ package gui;
 
 import entities.CategorieProduit;
 import entities.User;
-import help.Help;
+import help.Helpex;
 import java.io.IOException;
 import java.net.URL;
 import java.util.List;
@@ -136,13 +136,13 @@ Numbreproduit.setText(String.valueOf(categoriesList.size()));
          
            if(actionEvent.getSource()==btnSignout)
         {         
-                   Help.loggedUser = new User();
+                   Helpex.loggedUser = new User();
             try {
                 FXMLLoader loader = new FXMLLoader(getClass().getResource("Login.fxml"));
                 Parent root = loader.load();
                 this.title.getScene().setRoot(root);
             } catch (IOException ex) {
-                Logger.getLogger(GUI.LoginController.class.getName()).log(Level.SEVERE, null, ex);
+                Logger.getLogger(LoginController.class.getName()).log(Level.SEVERE, null, ex);
             }
         }
         

@@ -5,12 +5,10 @@
  */
 package help;
 
-import entities.Commentaire;
 import entities.Poste;
 import entities.User;
 import javafx.application.Application;
 import javafx.stage.Stage;
-import services.CRUDCommentaire;
 import services.CRUDPoste;
 import utils.MyConnection;
 
@@ -18,7 +16,7 @@ import utils.MyConnection;
  *
  * @author ASUS
  */
-public class Help extends Application {
+public class Helpex extends Application {
 
     
             public static User loggedUser = null;

@@ -1,43 +1,30 @@
 package gui;
 
-import com.sun.org.apache.xpath.internal.operations.Or;
 import entities.Poste;
 import entities.User;
-import help.Help;
+import help.Helpex;
 import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
-import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
-import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
 import java.io.IOException;
-import java.net.HttpURLConnection;
 import java.net.URL;
-import java.sql.Connection;
 import java.util.List;
 import java.util.ResourceBundle;
-import java.util.Scanner;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javafx.scene.Parent;
 import javafx.scene.control.TextField;
-import javafx.scene.input.KeyEvent;
 //import jdk.nashorn.internal.parser.JSONParser;
 import services.CRUDPoste;
-import utils.MyConnection;
-import org.json.simple.JSONArray;
-import org.json.simple.JSONObject;
-import org.json.simple.parser.JSONParser;
 
 public class SocialnetworkController implements Initializable {
 
@@ -150,13 +137,13 @@ public class SocialnetworkController implements Initializable {
                   
                     if(actionEvent.getSource()==btnSignout)
         {         
-                   Help.loggedUser = new User();
+                   Helpex.loggedUser = new User();
             try {
                 FXMLLoader loader = new FXMLLoader(getClass().getResource("Login.fxml"));
                 Parent root = loader.load();
                 this.title.getScene().setRoot(root);
             } catch (IOException ex) {
-                Logger.getLogger(GUI.LoginController.class.getName()).log(Level.SEVERE, null, ex);
+                Logger.getLogger(LoginController.class.getName()).log(Level.SEVERE, null, ex);
             }
         }
     }

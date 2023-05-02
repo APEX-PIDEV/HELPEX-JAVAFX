@@ -3,26 +3,18 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package GUI;
+package gui;
 
-import com.sun.org.apache.xpath.internal.operations.Or;
 import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.scene.Node;
-import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
-import javafx.scene.input.MouseEvent;
-import javafx.scene.layout.AnchorPane;
-import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
-import javafx.stage.Stage;
 import entities.User;
-import help.Help;
+import help.Helpex;
 import services.UserService;
 
 import java.io.IOException;
@@ -71,7 +63,7 @@ public class DashboardController implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-                currentUser.setText(Help.loggedUser.getEmail());
+                currentUser.setText(Helpex.loggedUser.getEmail());
 
         UserService us=new UserService();
         List<User> usersList;
@@ -104,7 +96,7 @@ public class DashboardController implements Initializable {
               
         if(actionEvent.getSource()==btnSignout){
             
-        Help.loggedUser = new User();
+        Helpex.loggedUser = new User();
             try {
                 FXMLLoader loader = new FXMLLoader(getClass().getResource("Login.fxml"));
                 Parent root = loader.load();
