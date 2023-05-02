@@ -94,4 +94,36 @@ public class OrganisationCRUD implements OrganisationInterface {
         }
         return list;
     }
+    
+    
+    public Organisation OrgByID(int id) {
+        Organisation organisation=new Organisation();
+
+
+        String req="SELECT * FROM `organisation` where id='"+id+"';";
+        Statement ste;
+        try {
+
+            ste = connection.createStatement();
+            ResultSet RS=ste.executeQuery(req);
+            while(RS.next()){
+                organisation.setId(RS.getInt(1));
+                organisation.setNom(RS.getString("nom_org"));
+                organisation.setDescription(RS.getString("description_organisation"));
+
+                organisation.setEmail(RS.getString("email_organisation"));
+
+                organisation.setNumero_tel(RS.getString("num_tel_organisation"));
+                organisation.setDocument(RS.getString("document_organisation"));
+                organisation.setPayment_info(RS.getString("payment_info"));
+                organisation.setLogo(RS.getString("logo_org"));
+
+            }
+            System.out.println("affichage avec succés");
+        } catch (SQLException ex) {
+            System.out.println("erreur d'afficahge");
+            System.out.println(ex.getMessage());
+        }
+        return organisation;
+    }
 }

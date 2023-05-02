@@ -3,13 +3,14 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package gui;
+package GUI;
 
 import entities.User;
-import help.Helpex;
+import help.Help;
 import services.UserService;
 import java.io.IOException;
 import java.net.URL;
+import java.sql.SQLException;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -19,6 +20,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 
 /**
@@ -51,13 +53,13 @@ public class ProfileUpdateController implements Initializable {
     
      public void setInfos() {
          
-          this.nom.setText(Helpex.loggedUser.getNom());
-        this.prenom.setText(Helpex.loggedUser.getPrenom());
-        this.adresse.setText(Helpex.loggedUser.getAdresse());
-                this.num.setText(Helpex.loggedUser.getNum_tel());
-        this.pdp.setText(Helpex.loggedUser.getPdp());
-        this.bio.setText(Helpex.loggedUser.getBio());
-                this.bio.setText(Helpex.loggedUser.getBio());
+          this.nom.setText(Help.loggedUser.getNom());
+        this.prenom.setText(Help.loggedUser.getPrenom());
+        this.adresse.setText(Help.loggedUser.getAdresse());
+                this.num.setText(Help.loggedUser.getNum_tel());
+        this.pdp.setText(Help.loggedUser.getPdp());
+        this.bio.setText(Help.loggedUser.getBio());
+                this.bio.setText(Help.loggedUser.getBio());
 
 
       /*Helpex.loggedUser.setNom(nom.getText());
@@ -79,12 +81,12 @@ public class ProfileUpdateController implements Initializable {
     private void updateprofile(ActionEvent event) {
         
         
-          Helpex.loggedUser.setNom(nom.getText());
-  Helpex.loggedUser.setPrenom(prenom.getText());
- Helpex.loggedUser.setAdresse(adresse.getText());
- Helpex.loggedUser.setNum_tel(num.getText());
- Helpex.loggedUser.setPdp(pdp.getText());
-  Helpex.loggedUser.setBio(bio.getText());
+          Help.loggedUser.setNom(nom.getText());
+  Help.loggedUser.setPrenom(prenom.getText());
+ Help.loggedUser.setAdresse(adresse.getText());
+ Help.loggedUser.setNum_tel(num.getText());
+ Help.loggedUser.setPdp(pdp.getText());
+  Help.loggedUser.setBio(bio.getText());
  //Help.loggedUser.setTarif(Integer.parseInt(tarif.getText()));
         
         
@@ -92,7 +94,7 @@ public class ProfileUpdateController implements Initializable {
                     UserService us = new UserService();
  
 
-                    us.updateProfile(Helpex.loggedUser);
+                    us.updateProfile(Help.loggedUser);
         
       
             FXMLLoader homeLoader = new FXMLLoader(getClass().getResource("Profile.fxml"));
@@ -110,7 +112,7 @@ public class ProfileUpdateController implements Initializable {
 
     @FXML
     private void signout(ActionEvent event) {
-          Helpex.loggedUser = new User();
+          Help.loggedUser = new User();
             try {
                 FXMLLoader loader = new FXMLLoader(getClass().getResource("Login.fxml"));
                 Parent root = loader.load();

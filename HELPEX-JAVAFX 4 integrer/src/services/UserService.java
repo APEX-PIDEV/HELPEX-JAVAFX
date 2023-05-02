@@ -14,7 +14,7 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
-import help.Helpex;
+import help.Help;
 import utils.MyConnection;
 import utils.BcryptHasher;
 import java.util.logging.Level;
@@ -247,11 +247,11 @@ String req = "DELETE FROM `user` WHERE `email` = \"" + u.getEmail() + "\"; ";
             ResultSet result = stm.executeQuery(req);
             User user = new User();
             while (result.next()) {
-             user = new User( result.getInt("id"),result.getString("email"), result.getString("roles"), result.getString("password"), result.getString("nom"), result.getString("prenom"), result.getString("sexe"), result.getString("adresse"), result.getString("num_tel"), result.getString("pdp"), result.getString("bio"), result.getDate("date_naissance"), result.getString("diplome"), result.getInt("tarif"), result.getInt("is_enabled"));
+             user = new User( result.getString("email"), result.getString("roles"), result.getString("password"), result.getString("nom"), result.getString("prenom"), result.getString("sexe"), result.getString("adresse"), result.getString("num_tel"), result.getString("pdp"), result.getString("bio"), result.getDate("date_naissance"), result.getString("diplome"), result.getInt("tarif"), result.getInt("is_enabled"));
 
             }
             if (hasher.checkPassword(user.getPassword(), password)) {
-                Helpex.loggedUser = user;
+                Help.loggedUser = user;
                 return true;
             } else {
                 return false;

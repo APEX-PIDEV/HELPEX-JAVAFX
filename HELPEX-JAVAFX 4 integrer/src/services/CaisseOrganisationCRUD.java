@@ -42,9 +42,77 @@ public class CaisseOrganisationCRUD implements CaisseOrganisationInterface {
             System.err.println(ex.getMessage());
         }
     }
+    
+     public List<CaisseOrganisation> afficher() {
+        List<CaisseOrganisation> list=new ArrayList<>();
 
 
+        String req="SELECT * FROM `caisse_organisation`";
+        Statement ste;
+        try {
+
+            ste = connection.createStatement();
+            ResultSet RS=ste.executeQuery(req);
+            while(RS.next()){
+                CaisseOrganisation organisation =new CaisseOrganisation();
+                organisation.setId(RS.getInt(1));
+                
+                organisation.setDescription(RS.getString("description"));
+                organisation.setMontant_caisse_org(RS.getFloat("montant_caisse_org"));
+                organisation.setGoal(RS.getFloat("goal"));
+                organisation.setOrganisation_id(RS.getInt("organisation_id"));
+                
+                list.add(organisation);
+
+            }
+            System.out.println("affichage avec succés");
+        } catch (SQLException ex) {
+            System.out.println("erreur d'afficahge");
+            System.out.println(ex.getMessage());
+        }
+        return list;
+    }
+
+     public CaisseOrganisation CaisseById(int id) {
+        CaisseOrganisation caisse=new CaisseOrganisation();
 
 
+        String req="SELECT * FROM `caisse_organisation` where id='"+id+"';";
+        Statement ste;
+        try {
+
+            ste = connection.createStatement();
+            ResultSet RS=ste.executeQuery(req);
+            while(RS.next()){
+                caisse.setId(RS.getInt(1));
+                
+                caisse.setDescription(RS.getString("description"));
+                caisse.setMontant_caisse_org(RS.getFloat("montant_caisse_org"));
+                caisse.setGoal(RS.getFloat("goal"));
+                caisse.setOrganisation_id(RS.getInt("organisation_id"));
+                
+
+            }
+            System.out.println("affichage avec succés");
+        } catch (SQLException ex) {
+            System.out.println("erreur d'afficahge");
+            System.out.println(ex.getMessage());
+        }
+        return caisse;
+    }
+
+     public void modifierMontantCaisse(int id, float montant) {
+        try {
+            String requete = "UPDATE `caisse_organisation` SET " + "montant_caisse_org = ?  WHERE id= " + id;
+            PreparedStatement pst = MyConnection.getInstance().getConn().prepareStatement(requete);
+            pst.setString(1, String.valueOf(montant));
+            pst.executeUpdate();
+            System.out.println("Caisse modifié avec succés !");
+            System.out.println(requete);
+
+        } catch (SQLException ex) {
+            System.err.println(ex.getMessage());
+        }
+    }
 
 }

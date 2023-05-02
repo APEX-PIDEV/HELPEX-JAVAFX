@@ -3,10 +3,10 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package gui;
+package GUI;
 import entities.User;
 
-import help.Helpex;
+import help.Help;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -19,6 +19,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.image.Image;
 
 
 /**
@@ -44,11 +45,10 @@ public class ProfileController implements Initializable {
      */
     
      public void setInfos() {
-        this.email.setText(Helpex.loggedUser.getEmail());
-        this.bio.setText(Helpex.loggedUser.getBio());
-          this.num.setText(Helpex.loggedUser.getNum_tel());
-       // this.adresse.setText(Help.loggedUser.getAdresse());
-        this.adresse.setText(String.valueOf(Helpex.loggedUser.getId()));
+        this.email.setText(Help.loggedUser.getEmail());
+        this.bio.setText(Help.loggedUser.getBio());
+                this.num.setText(Help.loggedUser.getNum_tel());
+        this.adresse.setText(Help.loggedUser.getAdresse());
 
       /*  this.prenom.setText(Helpex.loggedUser.getPrenom());
         this.nom.setText(Helpex.loggedUser.getNom());
@@ -74,9 +74,32 @@ public class ProfileController implements Initializable {
 
     @FXML
     private void signout(ActionEvent event) {
-         Helpex.loggedUser = new User();
+         Help.loggedUser = new User();
             try {
                 FXMLLoader loader = new FXMLLoader(getClass().getResource("Login.fxml"));
+                Parent root = loader.load();
+                this.email.getScene().setRoot(root);
+            } catch (IOException ex) {
+                Logger.getLogger(LoginController.class.getName()).log(Level.SEVERE, null, ex);
+            }
+    }
+    
+    @FXML
+    private void donationsFront(ActionEvent event){
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("frontdonations.fxml"));
+        try {
+            Parent root = loader.load();
+            email.getScene().setRoot(root);
+
+        } catch (IOException ex) {
+            System.out.println("Error: " + ex.getMessage());
+        }
+    }
+
+    @FXML
+    private void formationNavBar(ActionEvent event) {
+         try {
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("CentreFront.fxml"));
                 Parent root = loader.load();
                 this.email.getScene().setRoot(root);
             } catch (IOException ex) {

@@ -1,16 +1,21 @@
 package gui;
 
+import com.sun.org.apache.xpath.internal.operations.Or;
 import entities.Centre;
 import entities.User;
-import help.Helpex;
+import help.Help;
 import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
@@ -120,13 +125,13 @@ public class CentreController implements Initializable {
                   
           if(actionEvent.getSource()==btnSignout)
         {         
-                   Helpex.loggedUser = new User();
+                   Help.loggedUser = new User();
             try {
                 FXMLLoader loader = new FXMLLoader(getClass().getResource("Login.fxml"));
                 Parent root = loader.load();
                 this.title.getScene().setRoot(root);
             } catch (IOException ex) {
-                Logger.getLogger(LoginController.class.getName()).log(Level.SEVERE, null, ex);
+                Logger.getLogger(GUI.LoginController.class.getName()).log(Level.SEVERE, null, ex);
             }
         }
                   

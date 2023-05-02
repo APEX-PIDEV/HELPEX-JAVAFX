@@ -3,10 +3,10 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package gui;
+package GUI;
 
 import entities.User;
-import help.Helpex;
+import help.Help;
 import services.UserService;
 import java.io.IOException;
 import java.net.URL;
@@ -52,12 +52,12 @@ UserService us = new UserService();
         if (email.getText().equals("") || mdp.getText().equals("")) {
             errorMsg.setText("All fields are required!");
         } else if (us.login(email.getText(), mdp.getText())) {
-            if (Helpex.loggedUser.getIs_enabled() == 0) {
+            if (Help.loggedUser.getIs_enabled() == 0) {
                 errorMsg.setText("This account is banned!");
-                Helpex.loggedUser = new User();
+                Help.loggedUser = new User();
             } else {
                 errorMsg.setText("");
-                if (Helpex.loggedUser.getRoles().equals("[\"ROLE_ADMIN\"]")) {
+                if (Help.loggedUser.getRoles().equals("[\"ROLE_ADMIN\"]")) {
                     try {
                         FXMLLoader loader = new FXMLLoader(getClass().getResource("Dashboard.fxml"));
                         Parent root = loader.load();

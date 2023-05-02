@@ -3,18 +3,26 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package gui;
+package GUI;
 
+import com.sun.org.apache.xpath.internal.operations.Or;
 import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Node;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
+import javafx.stage.Stage;
 import entities.User;
-import help.Helpex;
+import help.Help;
 import services.UserService;
 
 import java.io.IOException;
@@ -26,8 +34,7 @@ import java.util.logging.Logger;
 import javafx.scene.Parent;
 
 public class DashboardController implements Initializable {
-    @FXML
-private Button btnAccomp;
+
     @FXML
     private VBox pnItems = null;
 
@@ -64,7 +71,7 @@ private Button btnAccomp;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-                currentUser.setText(Helpex.loggedUser.getEmail());
+                currentUser.setText(Help.loggedUser.getEmail());
 
         UserService us=new UserService();
         List<User> usersList;
@@ -97,7 +104,7 @@ private Button btnAccomp;
               
         if(actionEvent.getSource()==btnSignout){
             
-        Helpex.loggedUser = new User();
+        Help.loggedUser = new User();
             try {
                 FXMLLoader loader = new FXMLLoader(getClass().getResource("Login.fxml"));
                 Parent root = loader.load();
@@ -139,21 +146,6 @@ private Button btnAccomp;
             } catch (IOException ex) {
                 Logger.getLogger(gui.OrganisationController.class.getName()).log(Level.SEVERE, null, ex);
             }
-
-
-        }
-        if(actionEvent.getSource()==btnAccomp)
-        {
-
-            try {
-                FXMLLoader loader = new FXMLLoader(getClass().getResource("gui_Tasks/Gui_taskAdmin.fxml"));
-                Parent root = loader.load();
-                this.title.getScene().setRoot(root);
-            } catch (IOException ex) {
-                Logger.getLogger(gui.OrganisationController.class.getName()).log(Level.SEVERE, null, ex);
-            }
-
-
         }
                   if(actionEvent.getSource()==btnCentre)
         {

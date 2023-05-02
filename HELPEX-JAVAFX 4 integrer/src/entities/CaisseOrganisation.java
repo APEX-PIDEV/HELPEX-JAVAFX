@@ -21,6 +21,10 @@ public class CaisseOrganisation {
         this.goal = goal;
         this.organisation_id = organisation_id;
     }
+    
+    public CaisseOrganisation() {
+        
+    }
 
     public CaisseOrganisation(int organisation_id,float montant_caisse_org, float goal,String description) {
         this.description = description;
@@ -67,5 +71,10 @@ public class CaisseOrganisation {
 
     public void setOrganisation_id(int organisation_id) {
         this.organisation_id = organisation_id;
+    }
+
+    @Override
+    public String toString() {
+        return "CaisseOrganisation{" + "id=" + id + ", description=" + description + ", montant_caisse_org=" + montant_caisse_org + ", goal=" + goal + ", organisation_id=" + organisation_id + '}';
     }
 }

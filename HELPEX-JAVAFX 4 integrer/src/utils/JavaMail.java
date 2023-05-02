@@ -7,6 +7,7 @@
 package utils;
 
 import entities.Formation;
+import entities.Organisation;
 import java.util.Properties;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -170,7 +171,6 @@ properties.setProperty("mail.smtp.port", "587");
         }
         return null;
     }
-    
     
     
 }

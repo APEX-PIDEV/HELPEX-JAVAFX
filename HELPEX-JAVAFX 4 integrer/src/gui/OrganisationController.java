@@ -4,7 +4,7 @@ import de.jensd.fx.glyphs.fontawesome.FontAwesomeIcon;
 import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView;
 import entities.Organisation;
 import entities.User;
-import help.Helpex;
+import help.Help;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.collections.transformation.FilteredList;
@@ -163,13 +163,13 @@ public class OrganisationController implements Initializable {
               
                 if(actionEvent.getSource()==btnSignout)
         {         
-                   Helpex.loggedUser = new User();
+                   Help.loggedUser = new User();
             try {
                 FXMLLoader loader = new FXMLLoader(getClass().getResource("Login.fxml"));
                 Parent root = loader.load();
                 this.title.getScene().setRoot(root);
             } catch (IOException ex) {
-                Logger.getLogger(LoginController.class.getName()).log(Level.SEVERE, null, ex);
+                Logger.getLogger(GUI.LoginController.class.getName()).log(Level.SEVERE, null, ex);
             }
         }
     }
