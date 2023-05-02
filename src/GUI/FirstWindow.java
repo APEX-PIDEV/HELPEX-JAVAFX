@@ -25,8 +25,8 @@ public class FirstWindow extends Application {
     @Override
     public void start(Stage primaryStage)  {
        try{
-      //  Parent root = FXMLLoader.load(getClass().getResource("Login.fxml"));
-           Parent  root = FXMLLoader.load(getClass().getResource("../GUI/gui_Tasks/Gui_taskAdmin.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("Login.fxml"));
+       //   Parent  root = FXMLLoader.load(getClass().getResource("../GUI/gui_Tasks/Gui_taskAdmin.fxml"));
         Scene scene = new Scene(root);
         
         primaryStage.setTitle("Login");

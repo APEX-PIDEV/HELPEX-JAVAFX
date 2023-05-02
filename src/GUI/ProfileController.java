@@ -6,6 +6,8 @@
 package GUI;
 import entities.User;
 
+import javafx.scene.Scene;
+import javafx.stage.Stage;
 import main.Helpex;
 import java.io.IOException;
 import java.net.URL;
@@ -39,6 +41,8 @@ public class ProfileController implements Initializable {
     private Label num;
     @FXML
     private Label adresse;
+    @FXML
+    private Button Accompagnment_button;
 
     /**
      * Initializes the controller class.
@@ -83,5 +87,30 @@ public class ProfileController implements Initializable {
                 Logger.getLogger(LoginController.class.getName()).log(Level.SEVERE, null, ex);
             }
     }
-    
+
+    @FXML
+    public void switchingAccompagnement()  {
+        FXMLLoader loader = null ;
+
+        try {
+
+            if (Helpex.loggedUser.getRoles().equals("[\"ROLE_USER\"]")) {
+               loader  = new FXMLLoader(getClass().getResource("gui_Tasks/GUI_Tasks.fxml"));
+            }
+            else {
+                if (Helpex.loggedUser.getRoles().equals("[\"ROLE_PRO\"]")){
+                    loader  = new FXMLLoader(getClass().getResource("user_Pro/mes_tasks_pro.fxml"));
+                }
+
+            }
+            Parent root = loader.load();
+            Scene newScene = new Scene(root);
+            Stage currentStage = (Stage) Accompagnment_button.getScene().getWindow();
+            currentStage.setScene(newScene);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+
 }

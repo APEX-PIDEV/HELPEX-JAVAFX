@@ -21,9 +21,9 @@
          <children>
             <HBox prefHeight="41.0" prefWidth="600.0">
                <children>
-                  <Pane prefHeight="42.0" prefWidth="862.0" style="-fx-background-color: #05071F;">
+                  <Pane prefHeight="42.0" prefWidth="862.0" style="-fx-background-color: white;">
                      <children>
-                        <Label text="Aujourd'hui" textFill="WHITE">
+                        <Label text="Aujourd'hui">
                            <font>
                               <Font size="27.0" />
                            </font>
@@ -143,7 +143,7 @@
                   </ImageView>
                </children>
             </Pane>
-            <Pane prefHeight="83.0" prefWidth="943.0" style="-fx-background-color: #05071F;">
+            <Pane prefHeight="83.0" prefWidth="943.0" style="-fx-background-color: #435ba1;">
                <children>
                   <HBox layoutX="65.0" layoutY="14.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="67.0" prefWidth="873.0">
                      <children>
