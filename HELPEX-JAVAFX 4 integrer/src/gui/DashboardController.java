@@ -26,7 +26,8 @@ import java.util.logging.Logger;
 import javafx.scene.Parent;
 
 public class DashboardController implements Initializable {
-
+    @FXML
+private Button btnAccomp;
     @FXML
     private VBox pnItems = null;
 
@@ -138,6 +139,21 @@ public class DashboardController implements Initializable {
             } catch (IOException ex) {
                 Logger.getLogger(gui.OrganisationController.class.getName()).log(Level.SEVERE, null, ex);
             }
+
+
+        }
+        if(actionEvent.getSource()==btnAccomp)
+        {
+
+            try {
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("gui_Tasks/Gui_taskAdmin.fxml"));
+                Parent root = loader.load();
+                this.title.getScene().setRoot(root);
+            } catch (IOException ex) {
+                Logger.getLogger(gui.OrganisationController.class.getName()).log(Level.SEVERE, null, ex);
+            }
+
+
         }
                   if(actionEvent.getSource()==btnCentre)
         {
