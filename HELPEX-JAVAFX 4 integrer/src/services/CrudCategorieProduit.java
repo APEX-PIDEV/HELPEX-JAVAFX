@@ -131,6 +131,36 @@ public class CrudCategorieProduit implements InterfaceCatProduit {
         }
     } 
     
+        public CategorieProduit getByNomCategorie(String nomCat) throws SQLException {
+        Connection conn = null;
+        PreparedStatement stmt = null;
+        ResultSet rs = null;
+        CategorieProduit categorieProduit = null;
+        Statement stm;
+
+        try {
+            conn = connection;// get a connection to your database, for example using DriverManager.getConnection()
+            stmt = conn.prepareStatement("SELECT id, nom_cat_produit FROM categorie_produit WHERE nom_cat_produit = ?");
+            stmt.setString(1, nomCat);
+            rs = stmt.executeQuery();
+
+            if (rs.next()) {
+                categorieProduit = new CategorieProduit();
+                categorieProduit.setId(rs.getInt("id"));
+                categorieProduit.setNom_cat_produit(rs.getString("nom_cat_produit"));
+            }
+        }
+        catch (SQLException ex) {
+            Logger.getLogger(CrudCategorieProduit.class.getName()).log(Level.SEVERE, null, ex);
+            return null;
+        }
+
+        return categorieProduit;
+    }
+
+        
+        
+        
     
 }
 

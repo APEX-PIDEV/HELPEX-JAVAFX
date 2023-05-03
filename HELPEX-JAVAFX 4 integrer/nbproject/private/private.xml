@@ -1,30 +1,4 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
-    <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
-        <group>
-            <file>file:/C:/Users/Eya/Documents/GitHub/HELPEX-JAVAFX/HELPEX-JAVAFX%204%20integrer/src/gui/user_Pro/MesTasksPro.java</file>
-            <file>file:/C:/Users/Eya/Documents/GitHub/HELPEX-JAVAFX/HELPEX-JAVAFX%204%20integrer/src/gui/CentreFrontController.java</file>
-            <file>file:/C:/Users/Eya/Documents/GitHub/HELPEX-JAVAFX/HELPEX-JAVAFX%204%20integrer/src/gui/gui_Tasks/GuiTaskAdmin.java</file>
-            <file>file:/C:/Users/Eya/Documents/GitHub/HELPEX-JAVAFX/HELPEX-JAVAFX%204%20integrer/src/gui/Profile.fxml</file>
-            <file>file:/C:/Users/Eya/Documents/GitHub/HELPEX-JAVAFX/HELPEX-JAVAFX%204%20integrer/src/services/UserService.java</file>
-            <file>file:/C:/Users/Eya/Documents/GitHub/HELPEX-JAVAFX/HELPEX-JAVAFX%204%20integrer/src/gui/SocialnetworkController.java</file>
-            <file>file:/C:/Users/Eya/Documents/GitHub/HELPEX-JAVAFX/HELPEX-JAVAFX%204%20integrer/src/gui/CatProdController.java</file>
-            <file>file:/C:/Users/Eya/Documents/GitHub/HELPEX-JAVAFX/HELPEX-JAVAFX%204%20integrer/src/gui/user_normal/user_normal_tasks/MesTasksUserNormal.java</file>
-            <file>file:/C:/Users/Eya/Documents/GitHub/HELPEX-JAVAFX/HELPEX-JAVAFX%204%20integrer/src/gui/ItemUserController.java</file>
-            <file>file:/C:/Users/Eya/Documents/GitHub/HELPEX-JAVAFX/HELPEX-JAVAFX%204%20integrer/src/gui/LoginController.java</file>
-            <file>file:/C:/Users/Eya/Documents/GitHub/HELPEX-JAVAFX/HELPEX-JAVAFX%204%20integrer/src/gui/gui_Tasks/AccompagnementButton.java</file>
-            <file>file:/C:/Users/Eya/Documents/GitHub/HELPEX-JAVAFX/HELPEX-JAVAFX%204%20integrer/src/gui/OrganisationController.java</file>
-            <file>file:/C:/Users/Eya/Documents/GitHub/HELPEX-JAVAFX/HELPEX-JAVAFX%204%20integrer/src/gui/user_Pro/AccompagnementUserPro.java</file>
-            <file>file:/C:/Users/Eya/Documents/GitHub/HELPEX-JAVAFX/HELPEX-JAVAFX%204%20integrer/src/gui/ProUsersFrontController.java</file>
-            <file>file:/C:/Users/Eya/Documents/GitHub/HELPEX-JAVAFX/HELPEX-JAVAFX%204%20integrer/src/gui/ItemUserFrontController.java</file>
-            <file>file:/C:/Users/Eya/Documents/GitHub/HELPEX-JAVAFX/HELPEX-JAVAFX%204%20integrer/src/entities/User.java</file>
-            <file>file:/C:/Users/Eya/Documents/GitHub/HELPEX-JAVAFX/HELPEX-JAVAFX%204%20integrer/src/gui/FilController.java</file>
-            <file>file:/C:/Users/Eya/Documents/GitHub/HELPEX-JAVAFX/HELPEX-JAVAFX%204%20integrer/src/gui/admin/AccompagnmemntsAdmin.java</file>
-            <file>file:/C:/Users/Eya/Documents/GitHub/HELPEX-JAVAFX/HELPEX-JAVAFX%204%20integrer/src/gui/gui_Tasks/Tasks_Controller.java</file>
-            <file>file:/C:/Users/Eya/Documents/GitHub/HELPEX-JAVAFX/HELPEX-JAVAFX%204%20integrer/src/gui/gui_Tasks/TasksGuiInfo.java</file>
-            <file>file:/C:/Users/Eya/Documents/GitHub/HELPEX-JAVAFX/HELPEX-JAVAFX%204%20integrer/src/services/TasksService.java</file>
-            <file>file:/C:/Users/Eya/Documents/GitHub/HELPEX-JAVAFX/HELPEX-JAVAFX%204%20integrer/src/gui/CentreController.java</file>
-        </group>
-    </open-files>
 </project-private>

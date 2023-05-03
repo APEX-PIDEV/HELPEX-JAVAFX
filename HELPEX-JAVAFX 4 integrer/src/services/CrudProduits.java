@@ -13,6 +13,8 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 import utils.MyConnection;
@@ -45,7 +47,9 @@ public List<Produit> getAllProduit() {
         ResultSet rs = null;
 
         try {
-            conn = myConnection.getConn(); // Get database connection from MyConnection class
+            
+            conn = MyConnection.getInstance().getConn(); // Get database connection from MyConnection class
+            System.out.println("hello");
             String sql = "SELECT * FROM produits";
             stmt = conn.prepareStatement(sql);
             rs = stmt.executeQuery();
@@ -56,13 +60,16 @@ public List<Produit> getAllProduit() {
                 CrudCategorieProduit categorieProduitService = new CrudCategorieProduit();
                 CategorieProduit categorieProduit = categorieProduitService.getCategorieById(categoryId);
 
-                //int userId = rs.getInt("user_id");
+                int userId = rs.getInt("id");
                 String nomProduit = rs.getString("nom_produit");
                 String etatProduit = rs.getString("etat_produit");
                 String prixProduit = rs.getString("prix_produit");
                 boolean authorisation = rs.getBoolean("authorisation");
+                LocalDate created_at = rs.getDate("created_at").toLocalDate();
+                LocalDate updated_at = rs.getDate("updated_at").toLocalDate();
 
-                Produit produit = new Produit( categorieProduit, nomProduit, etatProduit, prixProduit, authorisation);
+                //Produit produit = new Produit( id,categorieProduit, nomProduit, etatProduit, prixProduit, authorisation);
+                Produit produit = new Produit(id ,categorieProduit, nomProduit, etatProduit, prixProduit, created_at, updated_at, authorisation);
                 produits.add(produit);
             }
         } catch (SQLException e) {
@@ -81,7 +88,7 @@ public List<Produit> getAllProduit() {
         ResultSet rs = null;
          
     try {
-          conn = myConnection.getConn(); // Get database connection from MyConnection clas
+          conn = connection; // Get database connection from MyConnection clas
         String sql = "SELECT * FROM produits WHERE id = ?";
         stmt = conn.prepareStatement(sql);
         stmt.setInt(1, id);
@@ -119,7 +126,7 @@ public List<Produit> getAllProduit() {
         int rowsAffected = 0 ; 
 
         try {
-            conn = myConnection.getConn(); // Get database connection from MyConnection class
+            conn = connection; // Get database connection from MyConnection class
             conn.setAutoCommit(false); // Set auto-commit to false for transactional operation
 
             // Insert CategorieProduit if not already exists
@@ -136,14 +143,16 @@ public List<Produit> getAllProduit() {
             if (existingCategorieProduit != null)
             {
                 // Insert Produit
-                String sql = "INSERT INTO produits (categorie_produit_id, nom_produit, etat_produit, prix_produit, authorisation) VALUES (?, ?, ?, ?, ?)";
+                String sql = "INSERT INTO produits (categorie_produit_id, nom_produit, etat_produit, prix_produit, authorisation ,created_at , updated_at) VALUES (?, ?, ?, ?, ? , ? , ?)";
                 stmt = conn.prepareStatement(sql);
                 stmt.setInt(1, Cat.getId());
                 stmt.setString(2, produit.getNomProduit());
                 stmt.setString(3, produit.getEtatproduit());
                 stmt.setString(4, produit.getPrixProduit());
-                stmt.setBoolean(5, produit.isAuthorization());
-                
+                stmt.setBoolean(5, false);
+                LocalDate currentDate = LocalDate.now();
+                stmt.setDate(6, java.sql.Date.valueOf(currentDate)); 
+                stmt.setDate(7, java.sql.Date.valueOf(currentDate)); 
                 rowsAffected = stmt.executeUpdate();
                 
             }
@@ -213,7 +222,7 @@ int rowsAffected = 0;
         boolean deleted = false;
         Connection conn = null;
     try {
-        conn = myConnection.getConn(); // Get database connection from MyConnection class
+        conn = connection; // Get database connection from MyConnection class
         String sql = "DELETE FROM produits WHERE id = ?";
         PreparedStatement stmt = conn.prepareStatement(sql);
         stmt.setInt(1, id);
@@ -257,22 +266,7 @@ int rowsAffected = 0;
         }
     } catch (SQLException e) {
         e.printStackTrace();
-    } finally {
-        // Close the database resources
-        try {
-            if (rs != null) {
-                rs.close();
-            }
-            if (stmt != null) {
-                stmt.close();
-            }
-            if (conn != null) {
-                conn.close();
-            }
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-    }
+    } 
 
     return produits;
 }
