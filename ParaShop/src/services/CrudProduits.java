@@ -45,7 +45,9 @@ public List<Produit> getAllProduit() {
         ResultSet rs = null;
 
         try {
-            conn = myConnection.getConn(); // Get database connection from MyConnection class
+            
+            conn = MyConnection.getInstance().getConn(); // Get database connection from MyConnection class
+            System.out.println("hello");
             String sql = "SELECT * FROM produits";
             stmt = conn.prepareStatement(sql);
             rs = stmt.executeQuery();
@@ -62,7 +64,7 @@ public List<Produit> getAllProduit() {
                 String prixProduit = rs.getString("prix_produit");
                 boolean authorisation = rs.getBoolean("authorisation");
 
-                Produit produit = new Produit( categorieProduit, nomProduit, etatProduit, prixProduit, authorisation);
+                Produit produit = new Produit( id,categorieProduit, nomProduit, etatProduit, prixProduit, authorisation);
                 produits.add(produit);
             }
         } catch (SQLException e) {
@@ -81,7 +83,7 @@ public List<Produit> getAllProduit() {
         ResultSet rs = null;
          
     try {
-          conn = myConnection.getConn(); // Get database connection from MyConnection clas
+          conn = connection; // Get database connection from MyConnection clas
         String sql = "SELECT * FROM produits WHERE id = ?";
         stmt = conn.prepareStatement(sql);
         stmt.setInt(1, id);
@@ -119,8 +121,8 @@ public List<Produit> getAllProduit() {
         int rowsAffected = 0 ; 
 
         try {
-            conn = myConnection.getConn(); // Get database connection from MyConnection class
-            conn.setAutoCommit(false); // Set auto-commit to false for transactional operation
+            conn = connection; // Get database connection from MyConnection class
+            //conn.setAutoCommit(false); // Set auto-commit to false for transactional operation
 
             // Insert CategorieProduit if not already exists
             CrudCategorieProduit categorieProduitService = new CrudCategorieProduit();
@@ -142,7 +144,7 @@ public List<Produit> getAllProduit() {
                 stmt.setString(2, produit.getNomProduit());
                 stmt.setString(3, produit.getEtatproduit());
                 stmt.setString(4, produit.getPrixProduit());
-                stmt.setBoolean(5, produit.isAuthorization());
+                stmt.setBoolean(5, false);
                 
                 rowsAffected = stmt.executeUpdate();
                 
@@ -257,22 +259,7 @@ int rowsAffected = 0;
         }
     } catch (SQLException e) {
         e.printStackTrace();
-    } finally {
-        // Close the database resources
-        try {
-            if (rs != null) {
-                rs.close();
-            }
-            if (stmt != null) {
-                stmt.close();
-            }
-            if (conn != null) {
-                conn.close();
-            }
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-    }
+    } 
 
     return produits;
 }

@@ -11,19 +11,26 @@ package home;
  */
 
 
+import entities.Produit;
+import java.util.List;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
+import services.CrudProduits;
 
 public class Main extends Application {
     private double x, y;
 
     @Override
     public void start(Stage primaryStage) throws Exception {
-        Parent root = FXMLLoader.load(getClass().getResource("CatProduit.fxml"));
+        /*List<Produit> produitList;
+        CrudProduits productCrud = new CrudProduits();
+        produitList = productCrud.getAllProduit();
+        System.out.println(produitList);*/
+        Parent root = FXMLLoader.load(getClass().getResource("ProduitFront.fxml"));
         primaryStage.setScene(new Scene(root));
         //set stage borderless
        // primaryStage.initStyle(StageStyle.UNDECORATED);
