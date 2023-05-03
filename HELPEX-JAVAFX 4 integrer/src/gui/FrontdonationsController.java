@@ -39,6 +39,8 @@ public class FrontdonationsController implements Initializable {
 
     @FXML
     private VBox caisseContainerFront;
+    @FXML
+    private Label hello;
 
     /**
      * Initializes the controller class.
@@ -81,5 +83,58 @@ public void LoadItem(CaisseOrganisation caisseOrganisation){
         
         caisseContainerFront.getChildren().add(itemPane);
     }    
+
+    @FXML
+    private void accompagnement(ActionEvent event) {
+           FXMLLoader loader= null ;
+
+        try {
+            if (Help.loggedUser.getRoles().equals("[\"ROLE_PRO\"]"))
+            {  loader = new FXMLLoader(getClass().getResource("user_Pro/mes_tasks_pro.fxml"));
+
+            }
+            else if (Help.loggedUser.getRoles().equals("[\"ROLE_USER\"]")){
+                loader = new FXMLLoader(getClass().getResource("gui_Tasks/GUI_Tasks.fxml"));
+            }
+
+            Parent root = loader.load();
+            this.hello.getScene().setRoot(root);
+        } catch (IOException ex) {
+            Logger.getLogger(LoginController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+
+    @FXML
+    private void formation(ActionEvent event) {
+         try {
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("CentreFront.fxml"));
+                Parent root = loader.load();
+                this.hello.getScene().setRoot(root);
+            } catch (IOException ex) {
+                Logger.getLogger(LoginController.class.getName()).log(Level.SEVERE, null, ex);
+            }
+    }
+
+    @FXML
+    private void blog(ActionEvent event) {
+         try {
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("Socialnetworkfront.fxml"));
+                Parent root = loader.load();
+                this.hello.getScene().setRoot(root);
+            } catch (IOException ex) {
+                Logger.getLogger(Socialnetworkfront.class.getName()).log(Level.SEVERE, null, ex);
+            }
+    }
+
+    @FXML
+    private void profile(ActionEvent event) {
+            try {
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("ProfileUpdate.fxml"));
+                Parent root = loader.load();
+                this.hello.getScene().setRoot(root);
+            } catch (IOException ex) {
+                Logger.getLogger(ProfileUpdateController.class.getName()).log(Level.SEVERE, null, ex);
+            }
+    }
     
 }

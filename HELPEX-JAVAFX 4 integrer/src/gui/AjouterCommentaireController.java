@@ -72,9 +72,11 @@ public class AjouterCommentaireController implements Initializable {
     public TableColumn<Commentaire, String> DESCRIPTIONcolumn;
     private Poste p;
     @FXML
-    private Pane pnlOverview;
+    public Pane pnlOverview;
     @FXML
-    private Label NumPostes;
+    public Label Comments;
+    @FXML
+    public Label Descriptioncommentaire;
 
     public Poste getP() {
         return p;

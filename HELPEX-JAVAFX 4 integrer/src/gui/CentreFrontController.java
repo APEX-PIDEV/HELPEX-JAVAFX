@@ -106,6 +106,58 @@ public class CentreFrontController implements Initializable {
 
     @FXML
     private void signout(ActionEvent event) {
+           Help.loggedUser = new User();
+            try {
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("Login.fxml"));
+                Parent root = loader.load();
+                this.title.getScene().setRoot(root);
+            } catch (IOException ex) {
+                Logger.getLogger(LoginController.class.getName()).log(Level.SEVERE, null, ex);
+            }
+    }
+
+    @FXML
+    private void donations(ActionEvent event) {
+         FXMLLoader loader = new FXMLLoader(getClass().getResource("frontdonations.fxml"));
+        try {
+            Parent root = loader.load();
+            this.title.getScene().setRoot(root);
+
+        } catch (IOException ex) {
+            System.out.println("Error: " + ex.getMessage());
+        }
+    }
+
+    @FXML
+    private void accompagnement(ActionEvent event) {
+           FXMLLoader loader= null ;
+
+        try {
+            if (Help.loggedUser.getRoles().equals("[\"ROLE_PRO\"]"))
+            {  loader = new FXMLLoader(getClass().getResource("user_Pro/mes_tasks_pro.fxml"));
+
+            }
+            else if (Help.loggedUser.getRoles().equals("[\"ROLE_USER\"]")){
+                loader = new FXMLLoader(getClass().getResource("gui_Tasks/GUI_Tasks.fxml"));
+            }
+
+            Parent root = loader.load();
+            this.title.getScene().setRoot(root);
+        } catch (IOException ex) {
+            Logger.getLogger(LoginController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+
+    @FXML
+    private void blog(ActionEvent event) {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("Socialnetworkfront.fxml"));
+        try {
+            Parent root = loader.load();
+            this.title.getScene().setRoot(root);
+
+        } catch (IOException ex) {
+            System.out.println("Error: " + ex.getMessage());
+        }
     }
 
    

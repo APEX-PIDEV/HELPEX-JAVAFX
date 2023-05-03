@@ -28,6 +28,6 @@
          </HBox.margin>
       </Label>
       <Label fx:id="tarif_pro" prefHeight="18.0" prefWidth="146.0" text="tarif" textFill="#b7c3d7" />
-      <MenuButton fx:id="accompagnment_button" mnemonicParsing="false" text="MenuButton" />
+      <MenuButton fx:id="accompagnment_button" mnemonicParsing="false" onAction="#setAccompagnment_button" text="consulter" />
    </children>
 </HBox>

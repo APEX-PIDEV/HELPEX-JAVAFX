@@ -17,9 +17,9 @@
    <top>
       <HBox prefHeight="89.0" prefWidth="1100.0" BorderPane.alignment="CENTER">
          <children>
-            <Pane prefHeight="79.0" prefWidth="210.0" style="-fx-background-color: #435ba1;">
+            <Pane prefHeight="90.0" prefWidth="254.0" style="-fx-background-color: #def8f6;">
                <children>
-                  <Label prefHeight="77.0" prefWidth="180.0" textFill="#dc2e59">
+                  <Label prefHeight="77.0" prefWidth="102.0" textFill="#dc2e59">
                      <graphic>
                         <ImageView fitHeight="76.0" fitWidth="155.0" pickOnBounds="true" preserveRatio="true">
                            <image>
@@ -35,9 +35,9 @@
             </Pane>
             <Pane prefHeight="58.0" prefWidth="983.0">
                <children>
-                  <HBox maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="58.0" prefWidth="982.0" style="-fx-background-color: #def8f6;">
+                  <HBox maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="90.0" prefWidth="982.0" style="-fx-background-color: #def8f6;">
                      <children>
-                        <Button mnemonicParsing="false" prefHeight="58.0" prefWidth="102.0" style="-fx-background-radius: 50; -fx-background-color: #21cdc0;" text="profil" />
+                        <Button mnemonicParsing="false" onMouseClicked="#switchingAccompagnemment" prefHeight="58.0" prefWidth="102.0" style="-fx-background-radius: 50; -fx-background-color: #21cdc0;" text="profil" />
                      </children>
                   </HBox>
                </children>
@@ -75,7 +75,7 @@
       </VBox>
    </center>
    <left>
-      <VBox prefHeight="510.0" prefWidth="164.0" style="-fx-background-color: #435ba1;" BorderPane.alignment="CENTER">
+      <VBox prefHeight="510.0" prefWidth="184.0" style="-fx-background-color: #435ba1;" BorderPane.alignment="CENTER">
          <children>
             <Label fx:id="tasklabel" prefHeight="42.0" prefWidth="105.0" text="Tasks">
                <graphic>

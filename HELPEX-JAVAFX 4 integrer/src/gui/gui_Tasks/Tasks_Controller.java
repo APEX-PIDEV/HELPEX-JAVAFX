@@ -15,6 +15,8 @@ import com.itextpdf.text.pdf.PdfWriter;
 import entities.Accompagnement;
 import entities.Item;
 import entities.Tasks;
+import entities.User;
+import gui.LoginController;
 import help.Help;
 import javafx.beans.property.SimpleBooleanProperty;
 import javafx.collections.FXCollections;
@@ -51,6 +53,8 @@ import java.sql.Time;
 import java.text.SimpleDateFormat;
 import java.time.LocalDate;
 import java.util.*;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -111,28 +115,25 @@ public class Tasks_Controller implements Initializable {
     @FXML
     public void switchingAcceuil() {
 
-        try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("../Profile.fxml"));
-            Parent root = loader.load();
-            Scene newScene = new Scene(root);
-            Stage currentStage = (Stage) tasksSideNav.getScene().getWindow();
-            currentStage.setScene(newScene);
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+         try {
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("../Profile.fxml"));
+                Parent root = loader.load();
+                this.taskmenuItemLabel.getScene().setRoot(root);
+            } catch (IOException ex) {
+                Logger.getLogger(LoginController.class.getName()).log(Level.SEVERE, null, ex);
+            }
     }
     @FXML
     public void Decconexion() {
 
-        try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("../Login.fxml"));
-            Parent root = loader.load();
-            Scene newScene = new Scene(root);
-            Stage currentStage = (Stage) tasksSideNav.getScene().getWindow();
-            currentStage.setScene(newScene);
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+        Help.loggedUser = new User();
+            try {
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("../Login.fxml"));
+                Parent root = loader.load();
+                this.taskmenuItemLabel.getScene().setRoot(root);
+            } catch (IOException ex) {
+                Logger.getLogger(LoginController.class.getName()).log(Level.SEVERE, null, ex);
+            }
     }
 
 
