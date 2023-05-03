@@ -106,5 +106,16 @@ public class ProfileController implements Initializable {
                 Logger.getLogger(LoginController.class.getName()).log(Level.SEVERE, null, ex);
             }
     }
+
+    @FXML
+    private void pro(ActionEvent event) {
+         try {
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("ProUsersFront.fxml"));
+                Parent root = loader.load();
+                this.email.getScene().setRoot(root);
+            } catch (IOException ex) {
+                Logger.getLogger(LoginController.class.getName()).log(Level.SEVERE, null, ex);
+            }
+    }
     
 }
