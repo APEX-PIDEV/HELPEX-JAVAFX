@@ -100,7 +100,7 @@ public class CentreFrontController implements Initializable {
                 Parent root = loader.load();
                 this.title.getScene().setRoot(root);
             } catch (IOException ex) {
-                Logger.getLogger(GUI.LoginController.class.getName()).log(Level.SEVERE, null, ex);
+                Logger.getLogger(LoginController.class.getName()).log(Level.SEVERE, null, ex);
             }
     }
 

@@ -10,7 +10,7 @@
 <?import javafx.scene.shape.Circle?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" prefHeight="670.0" prefWidth="1203.0" style="-fx-background-color: #435ba1;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.ProfileController">
+<AnchorPane id="AnchorPane" prefHeight="670.0" prefWidth="1203.0" style="-fx-background-color: #435ba1;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.ProfileController">
    <children>
       <Pane prefHeight="111.0" prefWidth="1374.0" style="-fx-background-color: #def8f6;">
          <children>
@@ -20,7 +20,7 @@
                      <font>
                         <Font size="16.0" />
                      </font></Button>
-                  <Button layoutX="10.0" layoutY="10.0" mnemonicParsing="false" prefHeight="58.0" prefWidth="102.0" style="-fx-background-radius: 50; -fx-background-color: #435ba1;" text="Accompagnement" />
+                  <Button layoutX="10.0" layoutY="10.0" mnemonicParsing="false" onAction="#switchAcc" prefHeight="58.0" prefWidth="102.0" style="-fx-background-radius: 50; -fx-background-color: #435ba1;" text="Accompagnement" />
                   <Button layoutX="10.0" layoutY="10.0" mnemonicParsing="false" onAction="#formationNavBar" prefHeight="58.0" prefWidth="102.0" style="-fx-background-radius: 50; -fx-background-color: #21cdc0;" text="formations" />
                   <Button layoutX="10.0" layoutY="10.0" mnemonicParsing="false" prefHeight="58.0" prefWidth="102.0" style="-fx-background-radius: 50; -fx-background-color: #435ba1;" text="blog" />
                   <Button layoutX="10.0" layoutY="10.0" mnemonicParsing="false" prefHeight="58.0" prefWidth="102.0" style="-fx-background-radius: 50; -fx-background-color: #21cdc0;" text="shop" />

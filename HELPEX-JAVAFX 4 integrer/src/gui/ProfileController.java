@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package GUI;
+package gui;
 import entities.User;
 
 import help.Help;
@@ -116,6 +116,27 @@ public class ProfileController implements Initializable {
             } catch (IOException ex) {
                 Logger.getLogger(LoginController.class.getName()).log(Level.SEVERE, null, ex);
             }
+    }
+    @FXML
+    private void switchAcc( ActionEvent event) {
+
+        System.out.println(Help.loggedUser);
+        FXMLLoader loader= null ;
+
+        try {
+            if (Help.loggedUser.getRoles().equals("[\"ROLE_PRO\"]"))
+            {  loader = new FXMLLoader(getClass().getResource("user_Pro/mes_tasks_pro.fxml"));
+
+            }
+            else if (Help.loggedUser.getRoles().equals("[\"ROLE_USER\"]")){
+                loader = new FXMLLoader(getClass().getResource("gui_Tasks/GUI_Tasks.fxml"));
+            }
+
+            Parent root = loader.load();
+            this.email.getScene().setRoot(root);
+        } catch (IOException ex) {
+            Logger.getLogger(LoginController.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
     
 }

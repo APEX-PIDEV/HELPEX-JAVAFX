@@ -3,8 +3,10 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package GUI;
+package gui;
 
+import entities.Accompagnement;
+import entities.Tasks;
 import entities.User;
 import java.io.IOException;
 import java.net.URL;
@@ -17,12 +19,11 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
-import javafx.scene.control.Button;
-import javafx.scene.control.Label;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
-import help.Helpex;
+import help.Help;
+import services.AccompagnementService;
 import services.UserService;
 
 /**
@@ -44,6 +45,12 @@ public class ProUsersFrontController implements Initializable {
     private Label label;
     @FXML
     private Button signoutBtn;
+    @FXML
+    MenuButton accompagnment_button  ;
+    private User myUser= Help.loggedUser;
+    private User thisUser =new User(8);
+
+
 
     /**
      * Initializes the controller class.
@@ -56,7 +63,7 @@ public class ProUsersFrontController implements Initializable {
         
         for (User user : usersList)
             LoadItem(user);
-    }    
+    }
 
     public void LoadItem(User user){
      FXMLLoader loader = new FXMLLoader(getClass().getResource("ItemUserFront.fxml"));
@@ -74,6 +81,7 @@ public class ProUsersFrontController implements Initializable {
                 Label adresseLabel = (Label) itemPane.lookup("#adresse_pro");
                         Label numLabel = (Label) itemPane.lookup("#num_pro");
         Label tarifLabel = (Label) itemPane.lookup("#tarif_pro");
+            MenuButton button =(MenuButton)itemPane.lookup("#accompagnment_button");
 
 
         
@@ -82,11 +90,36 @@ public class ProUsersFrontController implements Initializable {
         adresseLabel.setText(user.getAdresse());
          numLabel.setText(user.getNum_tel());
                  tarifLabel.setText(String.valueOf(user.getNum_tel()));
-        pnItems.getChildren().add(itemPane);
-    }
-    
-   
 
+        pnItems.getChildren().add(itemPane);
+
+
+    }
+
+
+    public void setAccompagnment_button(){
+        AccompagnementService accompagnementService = new AccompagnementService();
+        List<Tasks> myTasks = accompagnementService.lister_tasks_for_user(myUser.getId()) ;
+        //    accompagnment_button.
+        for(Tasks task :myTasks){
+            int idTask = task.getId();
+
+            MenuItem menuItem = new MenuItem(task.getTitre());
+            menuItem.setOnAction(e->{
+                //sendSms();
+
+                accompagnementService.EnvoierAccompagnementPartie3(new Accompagnement(new Tasks(idTask),false,myUser,thisUser)) ;
+                Alert a = new Alert(Alert.AlertType.CONFIRMATION, "ACCOMPAGNEMENT ENVOYER !!", ButtonType.OK);
+                a.showAndWait();
+                accompagnment_button.getItems().remove(menuItem);
+                System.out.println("the idddddddddds"+idTask);
+
+            });
+
+            accompagnment_button.getItems().add(menuItem);
+        }
+
+    }
     @FXML
     private void pro(ActionEvent event) {
         try {
@@ -102,7 +135,7 @@ public class ProUsersFrontController implements Initializable {
 
     @FXML
     private void signout(ActionEvent event) {
-        Helpex.loggedUser = new User();
+        Help.loggedUser = new User();
             try {
                 FXMLLoader loader = new FXMLLoader(getClass().getResource("Login.fxml"));
                 Parent root = loader.load();
@@ -112,6 +145,27 @@ public class ProUsersFrontController implements Initializable {
             }
     }
 
+
+    @FXML
+    private void accompButton(ActionEvent event) {
+        Help.loggedUser = new User();
+        FXMLLoader loader= null ;
+
+        try {
+
+            if (Help.loggedUser.getRoles().equals("[\"ROLE_PRO\"]"))
+            {  loader = new FXMLLoader(getClass().getResource("user_Pro/mes_tasks_pro.fxml"));
+
+            }
+            else if (Help.loggedUser.getRoles().equals("[\"ROLE_USER\"]")){
+                loader = new FXMLLoader(getClass().getResource("gui_Tasks/GUI_Tasks.fxml"));
+            }
+            Parent root = loader.load();
+            this.search.getScene().setRoot(root);
+        } catch (IOException ex) {
+            Logger.getLogger(LoginController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
     @FXML
     private void profile(ActionEvent event) {
           try {

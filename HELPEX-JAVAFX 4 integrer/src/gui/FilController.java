@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package GUI;
+package gui;
 
 import entities.Filiere;
 import entities.User;
@@ -185,7 +185,7 @@ public class FilController implements Initializable {
                 Parent root = loader.load();
                 this.title.getScene().setRoot(root);
             } catch (IOException ex) {
-                Logger.getLogger(GUI.LoginController.class.getName()).log(Level.SEVERE, null, ex);
+                Logger.getLogger(LoginController.class.getName()).log(Level.SEVERE, null, ex);
             }
         }
     }

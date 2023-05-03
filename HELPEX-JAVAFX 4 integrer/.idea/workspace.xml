@@ -4,20 +4,83 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4b177485-7fc6-435d-9e99-2bd240365343" name="Changes" comment="">
+    <list default="true" id="969e08b1-da13-4644-ae37-d1c76c8e78a2" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/entities/User.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/entities/User.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/gui/AddFController.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/gui/AddFController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/gui/CatProdController.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/gui/CatProdController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/gui/CentreController.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/gui/CentreController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/gui/CentreFrontController.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/gui/CentreFrontController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/gui/Dashboard.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/gui/Dashboard.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/gui/DashboardController.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/gui/DashboardController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/gui/FilController.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/gui/FilController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/gui/Front.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/gui/Front.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/gui/FrontController.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/gui/FrontController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/gui/ItemFController.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/gui/ItemFController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/gui/ItemUserController.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/gui/ItemUserController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/gui/ItemUserFront.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/gui/ItemUserFront.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/gui/ItemUserFrontController.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/gui/ItemUserFrontController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/gui/Login.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/gui/Login.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/gui/LoginController.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/gui/LoginController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/gui/OrganisationController.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/gui/OrganisationController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/gui/ProUsersFront.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/gui/ProUsersFront.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/gui/ProUsersFrontController.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/gui/ProUsersFrontController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/gui/Profile.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/gui/Profile.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/gui/ProfileController.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/gui/ProfileController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/gui/ProfileUpdate.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/gui/ProfileUpdate.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/gui/ProfileUpdateController.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/gui/ProfileUpdateController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/gui/ResetPassword.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/gui/ResetPassword.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/gui/ResetPasswordController.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/gui/ResetPasswordController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/gui/SignUpChoose.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/gui/SignUpChoose.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/gui/SignUpChooseController.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/gui/SignUpChooseController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/gui/SignUpCli.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/gui/SignUpCli.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/gui/SignUpCliController.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/gui/SignUpCliController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/gui/SignUpPro.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/gui/SignUpPro.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/gui/SignUpProController.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/gui/SignUpProController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/gui/SocialnetworkController.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/gui/SocialnetworkController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/gui/addF.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/gui/addF.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/gui/fil.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/gui/fil.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/gui/itemF.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/gui/itemF.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/gui/itemUser.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/gui/itemUser.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/nbproject/private/private.properties" beforeDir="false" afterPath="$PROJECT_DIR$/nbproject/private/private.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/nbproject/private/private.xml" beforeDir="false" afterPath="$PROJECT_DIR$/nbproject/private/private.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/nbproject/project.properties" beforeDir="false" afterPath="$PROJECT_DIR$/nbproject/project.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/entities/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/entities/User.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/gui/AddFController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/AddFController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/gui/CatProdController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/CatProdController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/gui/CentreController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/CentreController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/gui/CentreFrontController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/CentreFrontController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/gui/Dashboard.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/Dashboard.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/gui/DashboardController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/DashboardController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/gui/FilController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/FilController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/gui/FirstWindow.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/FirstWindow.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/gui/Front.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/Front.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/gui/FrontController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/FrontController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/gui/ItemFController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/ItemFController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/gui/ItemUserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/ItemUserController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/gui/ItemUserFront.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/ItemUserFront.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/gui/ItemUserFrontController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/ItemUserFrontController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/gui/Login.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/Login.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/gui/LoginController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/LoginController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/gui/OrganisationController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/OrganisationController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/gui/ProUsersFront.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/ProUsersFront.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/gui/ProUsersFrontController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/ProUsersFrontController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/gui/Profile.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/Profile.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/gui/ProfileController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/ProfileController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/gui/ProfileUpdate.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/ProfileUpdate.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/gui/ProfileUpdateController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/ProfileUpdateController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/gui/ResetPassword.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/ResetPassword.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/gui/ResetPasswordController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/ResetPasswordController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/gui/SignUpChoose.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/SignUpChoose.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/gui/SignUpChooseController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/SignUpChooseController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/gui/SignUpCliController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/SignUpCliController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/gui/SignUpPro.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/SignUpPro.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/gui/SignUpProController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/SignUpProController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/gui/SocialnetworkController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/SocialnetworkController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/gui/fil.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/fil.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/gui/itemF.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/itemF.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/gui/itemUser.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/itemUser.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/services/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/services/UserService.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -27,10 +90,7 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
   </component>
-  <component name="MarkdownSettingsMigration">
-    <option name="stateVersion" value="1" />
-  </component>
-  <component name="ProjectId" id="2PCOwVlfeiVE7yGYOa4YcpqNVLR" />
+  <component name="ProjectId" id="2PIHSNtzb8GqsdaljslXATIFN5U" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
@@ -40,19 +100,33 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "WebServerToolWindowFactoryState": "false",
-    "last_opened_file_path": "C:/Users/MSI/Desktop/mysql-connector-java-5.1.42-bin.jar",
+    "last_opened_file_path": "C:/Users/Eya/Desktop/javaFX/jar_files/mail/javax.mail-1.6.1.jar",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
-    "project.structure.last.edited": "Modules",
-    "project.structure.proportion": "0.15",
-    "project.structure.side.proportion": "0.2",
+    "nodejs_package_manager_path": "npm",
+    "project.structure.last.edited": "Libraries",
+    "project.structure.proportion": "0.0",
+    "project.structure.side.proportion": "0.0",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
-  <component name="RunManager">
+  <component name="RunManager" selected="Application.gui.FirstWindow">
     <configuration name="FirstWindow" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="GUI.FirstWindow" />
+      <module name="HELPEX-JAVAFX 4 integrer" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="GUI.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="gui.FirstWindow" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="gui.FirstWindow" />
       <module name="HELPEX-JAVAFX 4 integrer" />
       <extension name="coverage">
@@ -67,6 +141,7 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.gui.FirstWindow" />
         <item itemvalue="Application.FirstWindow" />
       </list>
     </recent_temporary>
@@ -74,12 +149,12 @@
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="4b177485-7fc6-435d-9e99-2bd240365343" name="Changes" comment="" />
-      <created>1682957838116</created>
+      <changelist id="969e08b1-da13-4644-ae37-d1c76c8e78a2" name="Changes" comment="" />
+      <created>1683137677540</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1682957838116</updated>
-      <workItem from="1682957839355" duration="1805000" />
+      <updated>1683137677540</updated>
+      <workItem from="1683137677848" duration="10424000" />
     </task>
     <servers />
   </component>
