@@ -14,6 +14,7 @@ import javafx.scene.layout.VBox;
 import services.CrudProduits;
 import entities.Produit;
 import java.io.IOException;
+import java.time.format.DateTimeFormatter;
 import java.util.List;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
@@ -78,8 +79,8 @@ public class ProduitFrontController implements Initializable {
         id.setText(String.valueOf(Produit.getId()));
         etat_produit.setText(Produit.getEtatproduit());
         PrixProduit.setText(Produit.getPrixProduit());
-        Created_At.setText("11/11/2011");
-        Updated_At.setText("12/12/2012");
+        Created_At.setText(Produit.getCreatedAt().format(DateTimeFormatter.ofPattern("dd/MM/yyyy")));
+        Updated_At.setText(Produit.getUpdatedAt().format(DateTimeFormatter.ofPattern("dd/MM/yyyy")));
         Authorisation.setText(String.valueOf(Produit.isAuthorization()));
         pnItems.getChildren().add(itemPane);
     }

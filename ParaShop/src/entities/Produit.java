@@ -5,6 +5,7 @@
  */
 package entities;
 
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 
 /**
@@ -19,8 +20,34 @@ public class Produit {
     private String NomProduit;
     private String Etatproduit;
     private String PrixProduit;
-    /*private LocalDateTime createdAt;
-    private LocalDateTime updatedAt;*/
+    private LocalDate createdAt;
+    private LocalDate updatedAt;
+
+    public Produit(CategorieProduit categoryProduit, String NomProduit, String Etatproduit, String PrixProduit, LocalDate createdAt, LocalDate updatedAt, boolean authorization) {
+        this.categoryProduit = categoryProduit;
+        this.NomProduit = NomProduit;
+        this.Etatproduit = Etatproduit;
+        this.PrixProduit = PrixProduit;
+        this.createdAt = createdAt;
+        this.updatedAt = updatedAt;
+        this.authorization = authorization;
+    }
+
+    public LocalDate getCreatedAt() {
+        return createdAt;
+    }
+
+    public void setCreatedAt(LocalDate createdAt) {
+        this.createdAt = createdAt;
+    }
+
+    public LocalDate getUpdatedAt() {
+        return updatedAt;
+    }
+
+    public void setUpdatedAt(LocalDate updatedAt) {
+        this.updatedAt = updatedAt;
+    }
     private boolean authorization;
 
     public Produit() {

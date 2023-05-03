@@ -95,9 +95,9 @@
                      </HBox.margin>
                   </Label>
                   <Label prefHeight="18.0" prefWidth="76.0" text="Created At" textFill="#e7e5e5" />
-                  <Label prefHeight="18.0" prefWidth="92.0" text="Updated At" textFill="#e7e5e5" />
-                  <Label prefHeight="18.0" prefWidth="86.0" text="Authorisation" textFill="#e7e5e5" />
-                  <Label prefHeight="18.0" prefWidth="187.0" text="Actions" textFill="#e7e5e5" />
+                  <Label prefHeight="18.0" prefWidth="80.0" text="Updated At" textFill="#e7e5e5" />
+                  <Label prefHeight="18.0" prefWidth="81.0" text="Authorisation" textFill="#e7e5e5" />
+                  <Label prefHeight="18.0" prefWidth="154.0" text="Actions" textFill="#e7e5e5" />
                   <Button contentDisplay="CENTER" defaultButton="true" mnemonicParsing="false" onAction="#AjouterInterface" prefHeight="30.0" prefWidth="33.0" text="+" wrapText="true" />
                </children>
             </HBox>

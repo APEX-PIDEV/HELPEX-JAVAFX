@@ -13,6 +13,8 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 import utils.MyConnection;
@@ -63,8 +65,11 @@ public List<Produit> getAllProduit() {
                 String etatProduit = rs.getString("etat_produit");
                 String prixProduit = rs.getString("prix_produit");
                 boolean authorisation = rs.getBoolean("authorisation");
+                LocalDate created_at = rs.getDate("created_at").toLocalDate();
+                LocalDate updated_at = rs.getDate("updated_at").toLocalDate();
 
-                Produit produit = new Produit( id,categorieProduit, nomProduit, etatProduit, prixProduit, authorisation);
+                //Produit produit = new Produit( id,categorieProduit, nomProduit, etatProduit, prixProduit, authorisation);
+                Produit produit = new Produit(categorieProduit, nomProduit, etatProduit, prixProduit, created_at, updated_at, authorisation);
                 produits.add(produit);
             }
         } catch (SQLException e) {
@@ -122,7 +127,7 @@ public List<Produit> getAllProduit() {
 
         try {
             conn = connection; // Get database connection from MyConnection class
-            //conn.setAutoCommit(false); // Set auto-commit to false for transactional operation
+            conn.setAutoCommit(false); // Set auto-commit to false for transactional operation
 
             // Insert CategorieProduit if not already exists
             CrudCategorieProduit categorieProduitService = new CrudCategorieProduit();
@@ -138,14 +143,16 @@ public List<Produit> getAllProduit() {
             if (existingCategorieProduit != null)
             {
                 // Insert Produit
-                String sql = "INSERT INTO produits (categorie_produit_id, nom_produit, etat_produit, prix_produit, authorisation) VALUES (?, ?, ?, ?, ?)";
+                String sql = "INSERT INTO produits (categorie_produit_id, nom_produit, etat_produit, prix_produit, authorisation ,created_at , updated_at) VALUES (?, ?, ?, ?, ? , ? , ?)";
                 stmt = conn.prepareStatement(sql);
                 stmt.setInt(1, Cat.getId());
                 stmt.setString(2, produit.getNomProduit());
                 stmt.setString(3, produit.getEtatproduit());
                 stmt.setString(4, produit.getPrixProduit());
                 stmt.setBoolean(5, false);
-                
+                LocalDate currentDate = LocalDate.now();
+                stmt.setDate(6, java.sql.Date.valueOf(currentDate)); 
+                stmt.setDate(7, java.sql.Date.valueOf(currentDate)); 
                 rowsAffected = stmt.executeUpdate();
                 
             }
