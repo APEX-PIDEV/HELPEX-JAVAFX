@@ -39,6 +39,9 @@ public class ProfileController implements Initializable {
     @FXML
     private Label adresse;
 
+    @FXML
+    private Button accomp ;
+
     /**
      * Initializes the controller class.
      */
@@ -83,5 +86,28 @@ public class ProfileController implements Initializable {
                 Logger.getLogger(LoginController.class.getName()).log(Level.SEVERE, null, ex);
             }
     }
-    
+
+
+    @FXML
+    private void switchAcc( ActionEvent event) {
+        Helpex.loggedUser = new User();
+        FXMLLoader loader= null ;
+
+        try {
+            if (Helpex.loggedUser.getRoles().equals("[\"ROLE_PRO\"]"))
+            {  loader = new FXMLLoader(getClass().getResource("user_Pro/mes_tasks_pro.fxml"));
+
+            }
+            else if (Helpex.loggedUser.getRoles().equals("[\"ROLE_USER\"]")){
+                loader = new FXMLLoader(getClass().getResource("gui_Tasks/GUI_Tasks.fxml"));
+            }
+
+            Parent root = loader.load();
+            this.email.getScene().setRoot(root);
+        } catch (IOException ex) {
+            Logger.getLogger(LoginController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+
+
 }

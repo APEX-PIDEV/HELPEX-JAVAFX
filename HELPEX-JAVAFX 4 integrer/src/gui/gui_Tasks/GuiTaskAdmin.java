@@ -2,6 +2,9 @@ package gui.gui_Tasks;
 
 import entities.Item;
 import entities.Tasks;
+import entities.User;
+import gui.LoginController;
+import help.Helpex;
 import javafx.beans.property.SimpleBooleanProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -18,6 +21,7 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseButton;
+import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Text;
@@ -28,12 +32,17 @@ import java.io.IOException;
 import java.net.URL;
 import java.sql.Time;
 import java.util.*;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 public class GuiTaskAdmin implements Initializable {
     @FXML
     private Button bilan;
     @FXML
     private Label AccompagnementLabel;
+
+    @FXML
+    private Label stat;
 
     @FXML
     private Label ExpiredLabel;
@@ -49,6 +58,35 @@ public class GuiTaskAdmin implements Initializable {
 
     @FXML
     private Label tasksSideNav;
+
+
+
+    @FXML
+    private Button btnAccomp;
+    @FXML
+    private VBox pnItems = null;
+
+    @FXML
+    private Button btnSignout;
+
+
+
+    @FXML
+    private Label title;
+    @FXML
+    private Label currentUser;
+    @FXML
+    private Button btnUser;
+    @FXML
+    private Button btnSocial;
+    @FXML
+    private Button btnShop;
+    @FXML
+    private Button btnCentre;
+    @FXML
+    private Button btnCaisse;
+
+
 
 
 
@@ -267,11 +305,15 @@ public class GuiTaskAdmin implements Initializable {
     @FXML
     public void switchingStat() {
 
+
+
+
+
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("chart.fxml"));
             Parent root = loader.load();
             Scene newScene = new Scene(root);
-            Stage currentStage = (Stage) tasksSideNav.getScene().getWindow();
+            Stage currentStage = (Stage) stat.getScene().getWindow();
             currentStage.setScene(newScene);
         } catch (IOException e) {
             e.printStackTrace();
@@ -311,5 +353,98 @@ public class GuiTaskAdmin implements Initializable {
                 System.out.println("Printer job could not be created.");
             }
         });
+    }
+
+
+    @FXML
+    public void handleClicks(ActionEvent actionEvent) {
+
+
+
+
+        if(actionEvent.getSource()==btnUser)
+        {
+            try {
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("../Dashboard.fxml"));
+                Parent root = loader.load();
+                this.title.getScene().setRoot(root);
+            } catch (IOException ex) {
+                Logger.getLogger(gui.CatProdController.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+
+        if(actionEvent.getSource()==btnSignout){
+
+            Helpex.loggedUser = new User();
+            try {
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("../Login.fxml"));
+                Parent root = loader.load();
+                this.title.getScene().setRoot(root);
+            } catch (IOException ex) {
+                Logger.getLogger(LoginController.class.getName()).log(Level.SEVERE, null, ex);
+            }
+
+        }
+        if(actionEvent.getSource()==btnSocial)
+        {
+
+            try {
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("../Socialnetwork.fxml"));
+                Parent root = loader.load();
+                this.title.getScene().setRoot(root);
+            } catch (IOException ex) {
+                Logger.getLogger(gui.CentreController.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+        if(actionEvent.getSource()==btnShop)
+        {
+
+            try {
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("../CatProduit.fxml"));
+                Parent root = loader.load();
+                this.title.getScene().setRoot(root);
+            } catch (IOException ex) {
+                Logger.getLogger(gui.CatProdController.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+        if(actionEvent.getSource()==btnCaisse)
+        {
+
+            try {
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("../Organisation.fxml"));
+                Parent root = loader.load();
+                this.title.getScene().setRoot(root);
+            } catch (IOException ex) {
+                Logger.getLogger(gui.OrganisationController.class.getName()).log(Level.SEVERE, null, ex);
+            }
+
+
+        }
+        if(actionEvent.getSource()==btnAccomp)
+        {
+
+            try {
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("Gui_taskAdmin.fxml"));
+                Parent root = loader.load();
+                this.title.getScene().setRoot(root);
+            } catch (IOException ex) {
+                Logger.getLogger(gui.OrganisationController.class.getName()).log(Level.SEVERE, null, ex);
+            }
+
+
+        }
+        if(actionEvent.getSource()==btnCentre)
+        {
+
+            try {
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("../Centre.fxml"));
+                Parent root = loader.load();
+                this.title.getScene().setRoot(root);
+            } catch (IOException ex) {
+                Logger.getLogger(gui.CentreController.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+
+
     }
 }
