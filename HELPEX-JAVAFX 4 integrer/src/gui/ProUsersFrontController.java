@@ -148,7 +148,7 @@ public class ProUsersFrontController implements Initializable {
 
     @FXML
     private void accompButton(ActionEvent event) {
-        Help.loggedUser = new User();
+
         FXMLLoader loader= null ;
 
         try {
@@ -167,15 +167,28 @@ public class ProUsersFrontController implements Initializable {
         }
     }
     @FXML
-    private void profile(ActionEvent event) {
+    private void profileNavBar(ActionEvent event) {
           try {
                 FXMLLoader loader = new FXMLLoader(getClass().getResource("Profile.fxml"));
                 Parent root = loader.load();
-                this.signoutBtn.getScene().setRoot(root);
+                this.search.getScene().setRoot(root);
             } catch (IOException ex) {
                 Logger.getLogger(LoginController.class.getName()).log(Level.SEVERE, null, ex);
             }
     }
+
+    @FXML
+    private void shop(ActionEvent event) {
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("Profile.fxml"));
+            Parent root = loader.load();
+            this.search.getScene().setRoot(root);
+        } catch (IOException ex) {
+            Logger.getLogger(LoginController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+
+
 
     
 }

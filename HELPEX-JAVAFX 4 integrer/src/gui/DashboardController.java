@@ -159,6 +159,18 @@ public class DashboardController implements Initializable {
             }
         }
                   
+                  if(actionEvent.getSource()==btnShifts)
+        {
+        
+            try {
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("gui_Tasks/Gui_taskAdmin.fxml"));
+                Parent root = loader.load();
+                               this.title.getScene().setRoot(root);
+            } catch (IOException ex) {
+               // Logger.getLogger(gui.guiTasks.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+                  
             
     }
     public void LoadItem(User user){

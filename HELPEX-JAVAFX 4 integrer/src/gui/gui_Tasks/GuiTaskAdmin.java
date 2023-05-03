@@ -368,7 +368,7 @@ public class GuiTaskAdmin implements Initializable {
             try {
                 FXMLLoader loader = new FXMLLoader(getClass().getResource("../Dashboard.fxml"));
                 Parent root = loader.load();
-                this.title.getScene().setRoot(root);
+                this.stat.getScene().setRoot(root);
             } catch (IOException ex) {
                 Logger.getLogger(gui.CatProdController.class.getName()).log(Level.SEVERE, null, ex);
             }
@@ -376,11 +376,10 @@ public class GuiTaskAdmin implements Initializable {
 
         if(actionEvent.getSource()==btnSignout){
 
-            Help.loggedUser = new User();
             try {
                 FXMLLoader loader = new FXMLLoader(getClass().getResource("../Login.fxml"));
                 Parent root = loader.load();
-                this.title.getScene().setRoot(root);
+                this.stat.getScene().setRoot(root);
             } catch (IOException ex) {
                 Logger.getLogger(LoginController.class.getName()).log(Level.SEVERE, null, ex);
             }
@@ -392,7 +391,7 @@ public class GuiTaskAdmin implements Initializable {
             try {
                 FXMLLoader loader = new FXMLLoader(getClass().getResource("../Socialnetwork.fxml"));
                 Parent root = loader.load();
-                this.title.getScene().setRoot(root);
+                this.stat.getScene().setRoot(root);
             } catch (IOException ex) {
                 Logger.getLogger(gui.CentreController.class.getName()).log(Level.SEVERE, null, ex);
             }
@@ -403,7 +402,7 @@ public class GuiTaskAdmin implements Initializable {
             try {
                 FXMLLoader loader = new FXMLLoader(getClass().getResource("../CatProduit.fxml"));
                 Parent root = loader.load();
-                this.title.getScene().setRoot(root);
+                this.stat.getScene().setRoot(root);
             } catch (IOException ex) {
                 Logger.getLogger(gui.CatProdController.class.getName()).log(Level.SEVERE, null, ex);
             }
@@ -414,7 +413,7 @@ public class GuiTaskAdmin implements Initializable {
             try {
                 FXMLLoader loader = new FXMLLoader(getClass().getResource("../Organisation.fxml"));
                 Parent root = loader.load();
-                this.title.getScene().setRoot(root);
+                this.stat.getScene().setRoot(root);
             } catch (IOException ex) {
                 Logger.getLogger(gui.OrganisationController.class.getName()).log(Level.SEVERE, null, ex);
             }
@@ -427,7 +426,7 @@ public class GuiTaskAdmin implements Initializable {
             try {
                 FXMLLoader loader = new FXMLLoader(getClass().getResource("Gui_taskAdmin.fxml"));
                 Parent root = loader.load();
-                this.title.getScene().setRoot(root);
+                this.stat.getScene().setRoot(root);
             } catch (IOException ex) {
                 Logger.getLogger(gui.OrganisationController.class.getName()).log(Level.SEVERE, null, ex);
             }
@@ -440,7 +439,7 @@ public class GuiTaskAdmin implements Initializable {
             try {
                 FXMLLoader loader = new FXMLLoader(getClass().getResource("../Centre.fxml"));
                 Parent root = loader.load();
-                this.title.getScene().setRoot(root);
+                this.stat.getScene().setRoot(root);
             } catch (IOException ex) {
                 Logger.getLogger(gui.CentreController.class.getName()).log(Level.SEVERE, null, ex);
             }
