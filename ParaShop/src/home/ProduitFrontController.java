@@ -23,6 +23,7 @@ import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
+import services.CrudCategorieProduit;
 
 /**
  * FXML Controller class
@@ -35,6 +36,8 @@ public class ProduitFrontController implements Initializable {
     private VBox pnItems;
     @FXML
     private TextField searchfield;
+    
+    //public static int refresh =0; 
 
     /**
      * Initializes the controller class.
@@ -61,10 +64,10 @@ public class ProduitFrontController implements Initializable {
             System.out.println(e.getMessage());
             throw new RuntimeException(e);
         }
-
+ Label id_produit = (Label) itemPane.lookup("#id_produit");
      Label nom = (Label) itemPane.lookup("#nom_produit");
      
-                Label id = (Label) itemPane.lookup("#id_categorie_produit");
+                Label categorie = (Label) itemPane.lookup("#categorie_produit");
                 
                 Label etat_produit = (Label) itemPane.lookup("#etat_produit");
                 Label PrixProduit = (Label) itemPane.lookup("#PrixProduit");
@@ -73,10 +76,10 @@ public class ProduitFrontController implements Initializable {
                 Label Authorisation = (Label) itemPane.lookup("#Authorisation");
 
 
-
-
+            
+id_produit.setText(String.valueOf(Produit.getId()));
         nom.setText(Produit.getNomProduit());
-        id.setText(String.valueOf(Produit.getId()));
+        categorie.setText(Produit.getCategoryProduit().getNom_cat_produit());
         etat_produit.setText(Produit.getEtatproduit());
         PrixProduit.setText(Produit.getPrixProduit());
         Created_At.setText(Produit.getCreatedAt().format(DateTimeFormatter.ofPattern("dd/MM/yyyy")));
@@ -101,7 +104,7 @@ public class ProduitFrontController implements Initializable {
         stage.show();
     }
     
-        private void refresh() {
+        public void refresh() {
 
         pnItems.getChildren().clear();
        CrudProduits CRUDCentre=new CrudProduits();
@@ -110,7 +113,9 @@ public class ProduitFrontController implements Initializable {
         for (Produit P : ProduitsList)
             LoadItem(P);
     }
-    
+     private void Refresh(ActionEvent event) {
+        refresh();
+    }
     
     
     private void search() {

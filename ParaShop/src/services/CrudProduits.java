@@ -60,7 +60,7 @@ public List<Produit> getAllProduit() {
                 CrudCategorieProduit categorieProduitService = new CrudCategorieProduit();
                 CategorieProduit categorieProduit = categorieProduitService.getCategorieById(categoryId);
 
-                //int userId = rs.getInt("user_id");
+                int userId = rs.getInt("id");
                 String nomProduit = rs.getString("nom_produit");
                 String etatProduit = rs.getString("etat_produit");
                 String prixProduit = rs.getString("prix_produit");
@@ -69,7 +69,7 @@ public List<Produit> getAllProduit() {
                 LocalDate updated_at = rs.getDate("updated_at").toLocalDate();
 
                 //Produit produit = new Produit( id,categorieProduit, nomProduit, etatProduit, prixProduit, authorisation);
-                Produit produit = new Produit(categorieProduit, nomProduit, etatProduit, prixProduit, created_at, updated_at, authorisation);
+                Produit produit = new Produit(id ,categorieProduit, nomProduit, etatProduit, prixProduit, created_at, updated_at, authorisation);
                 produits.add(produit);
             }
         } catch (SQLException e) {
@@ -222,7 +222,7 @@ int rowsAffected = 0;
         boolean deleted = false;
         Connection conn = null;
     try {
-        conn = myConnection.getConn(); // Get database connection from MyConnection class
+        conn = connection; // Get database connection from MyConnection class
         String sql = "DELETE FROM produits WHERE id = ?";
         PreparedStatement stmt = conn.prepareStatement(sql);
         stmt.setInt(1, id);

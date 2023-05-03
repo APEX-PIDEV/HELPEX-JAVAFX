@@ -23,7 +23,8 @@ public class Produit {
     private LocalDate createdAt;
     private LocalDate updatedAt;
 
-    public Produit(CategorieProduit categoryProduit, String NomProduit, String Etatproduit, String PrixProduit, LocalDate createdAt, LocalDate updatedAt, boolean authorization) {
+    public Produit(int id ,CategorieProduit categoryProduit, String NomProduit, String Etatproduit, String PrixProduit, LocalDate createdAt, LocalDate updatedAt, boolean authorization) {
+        this.id = id ;
         this.categoryProduit = categoryProduit;
         this.NomProduit = NomProduit;
         this.Etatproduit = Etatproduit;

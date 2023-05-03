@@ -79,37 +79,27 @@
             </VBox>
          </children>
       </HBox>
-      <Pane layoutX="114.0" layoutY="252.0" prefHeight="403.0" prefWidth="996.0" style="-fx-background-color: #40B5AD; -fx-background-radius: 50;">
+      <Pane layoutX="114.0" layoutY="242.0" prefHeight="413.0" prefWidth="1123.0" style="-fx-background-color: #40B5AD; -fx-background-radius: 50;">
          <children>
-            <HBox alignment="CENTER_LEFT" layoutX="40.0" layoutY="7.0" prefHeight="42.0" prefWidth="895.0" style="-fx-background-color: #40B5AD;">
-               <children>
-                  <Label prefHeight="18.0" prefWidth="127.0" text="Nom Produit" textFill="#e7e5e5">
-                     <HBox.margin>
-                        <Insets left="50.0" />
-                     </HBox.margin>
-                  </Label>
-                  <Label prefHeight="18.0" prefWidth="106.0" text="Etat Produit" textFill="#e7e5e5" />
-                  <Label prefHeight="18.0" prefWidth="111.0" text="PrixProduit" textFill="#e7e5e5">
-                     <HBox.margin>
-                        <Insets />
-                     </HBox.margin>
-                  </Label>
-                  <Label prefHeight="18.0" prefWidth="76.0" text="Created At" textFill="#e7e5e5" />
-                  <Label prefHeight="18.0" prefWidth="80.0" text="Updated At" textFill="#e7e5e5" />
-                  <Label prefHeight="18.0" prefWidth="81.0" text="Authorisation" textFill="#e7e5e5" />
-                  <Label prefHeight="18.0" prefWidth="154.0" text="Actions" textFill="#e7e5e5" />
-                  <Button contentDisplay="CENTER" defaultButton="true" mnemonicParsing="false" onAction="#AjouterInterface" prefHeight="30.0" prefWidth="33.0" text="+" wrapText="true" />
-               </children>
-            </HBox>
-            <ScrollPane layoutX="14.0" layoutY="49.0" prefHeight="331.0" prefWidth="946.0" stylesheets="@../../../ParaShop/src/home/style.css">
+            <Label layoutX="27.0" layoutY="24.0" prefHeight="18.0" prefWidth="127.0" text="Nom Produit" textFill="#e7e5e5" />
+            <Label layoutX="136.0" layoutY="24.0" prefHeight="18.0" prefWidth="111.0" text="Categorie Produit" textFill="#e7e5e5" />
+            <Label layoutX="311.0" layoutY="24.0" prefHeight="18.0" prefWidth="106.0" text="Etat Produit" textFill="#e7e5e5" />
+            <Label layoutX="434.0" layoutY="24.0" prefHeight="18.0" prefWidth="111.0" text="PrixProduit" textFill="#e7e5e5" />
+            <Label layoutX="558.0" layoutY="24.0" prefHeight="18.0" prefWidth="76.0" text="Created At" textFill="#e7e5e5" />
+            <Label layoutX="640.0" layoutY="24.0" prefHeight="18.0" prefWidth="80.0" text="Updated At" textFill="#e7e5e5" />
+            <Label layoutX="736.0" layoutY="24.0" prefHeight="18.0" prefWidth="81.0" text="Authorisation" textFill="#e7e5e5" />
+            <Label layoutX="878.0" layoutY="24.0" prefHeight="18.0" prefWidth="154.0" text="Actions" textFill="#e7e5e5" />
+            <Button contentDisplay="CENTER" defaultButton="true" layoutX="1055.0" layoutY="18.0" mnemonicParsing="false" onAction="#AjouterInterface" prefHeight="30.0" prefWidth="33.0" text="+" wrapText="true" />
+            <ScrollPane layoutX="14.0" layoutY="49.0" prefHeight="340.0" prefWidth="1087.0" style="-fx-border-radius: 50;" stylesheets="@../../../ParaShop/src/home/style.css">
                <content>
-                  <VBox fx:id="pnItems" prefHeight="306.0" prefWidth="968.0" spacing="5.0" style="-fx-background-color: #40B5AD;">
+                  <VBox fx:id="pnItems" prefHeight="340.0" prefWidth="1201.0" spacing="5.0" style="-fx-background-color: #40B5AD;">
                      <padding>
                         <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                      </padding>
                   </VBox>
                </content>
             </ScrollPane>
+            <Button layoutX="990.0" layoutY="21.0" mnemonicParsing="false" onAction="#refresh" text="Refresh" />
          </children>
       </Pane>
       <TextField fx:id="searchfield" layoutX="911.0" layoutY="191.0" prefHeight="27.0" prefWidth="183.0" promptText="search" style="-fx-background-color: #40B5AD; -fx-border-color: #F33A6A; -fx-border-radius: 2em;" />

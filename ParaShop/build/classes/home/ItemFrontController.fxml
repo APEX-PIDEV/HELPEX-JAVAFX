@@ -10,8 +10,9 @@
     <effect>
         <DropShadow blurType="GAUSSIAN" height="5.0" radius="2.0" width="5.0" />
     </effect>
+   <Label fx:id="id_produit" prefHeight="18.0" prefWidth="28.0" text="id" textFill="#435ba1" />
     <Label fx:id="nom_produit" prefHeight="18.0" prefWidth="178.0" text="Nom" textFill="#b7c3d7" />
-   <Label fx:id="id_categorie_produit" prefHeight="18.0" prefWidth="134.0" text="id" textFill="#b7c3d7" />
+   <Label fx:id="categorie_produit" prefHeight="18.0" prefWidth="134.0" text="Categorie" textFill="#b7c3d7" />
    <Label fx:id="etat_produit" prefHeight="18.0" prefWidth="178.0" text="etat_produit" textFill="#b7c3d7" />
    <Label fx:id="PrixProduit" prefHeight="18.0" prefWidth="178.0" text="PrixProduit" textFill="#b7c3d7" />
    <Label fx:id="Created_At" prefHeight="18.0" prefWidth="178.0" text="Created_At" textFill="#b7c3d7" />

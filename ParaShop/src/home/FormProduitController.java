@@ -34,13 +34,13 @@ import tray.notification.TrayNotification;
  */
 public class FormProduitController implements Initializable {
 
-    private TextField nom_cat_produit;
+    public TextField nom_cat_produit;
     @FXML
-    private ChoiceBox<String> CatProduitChoice;
+    public ChoiceBox<String> CatProduitChoice;
     @FXML
-    private ChoiceBox<String> EtatProdChoices;
+    public ChoiceBox<String> EtatProdChoices;
     @FXML
-    private Button SaveProduit;
+    public Button SaveProduit;
 
     ObservableList<String> CategorieListObservable = FXCollections.observableArrayList();
     
@@ -52,9 +52,9 @@ public class FormProduitController implements Initializable {
     CategorieProduit Categorie = new CategorieProduit();
     String CategorieName ,Etat; 
     @FXML
-    private TextField nom_produit;
+    public TextField nom_produit;
     @FXML
-    private TextField prix_produit;
+    public TextField prix_produit;
     
     @Override
     public void initialize(URL url, ResourceBundle rb) {
