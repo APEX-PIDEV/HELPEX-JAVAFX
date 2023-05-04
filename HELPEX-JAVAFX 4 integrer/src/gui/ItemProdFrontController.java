@@ -16,6 +16,7 @@ import javafx.scene.layout.HBox;
 import entities.Produit;
 import java.io.IOException;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.Scene;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 import services.CrudProduits;
@@ -75,7 +76,7 @@ public class ItemProdFrontController implements Initializable {
 
     @FXML
     private void modifierProduitBtn(ActionEvent event) throws IOException {
-       /* FXMLLoader loader = new FXMLLoader(getClass().getResource("FormProduit.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("FormProduit.fxml"));
         AnchorPane newInterface = loader.load();
         FormProduitController newInterfaceController = loader.getController();
         
@@ -92,17 +93,18 @@ public class ItemProdFrontController implements Initializable {
         
         newInterfaceController.nom_produit.setText(nom_prod);
         newInterfaceController.prix_produit.setText(PrixProd);
-        newInterfaceController.nom_cat_produit.setText(categorie_prod);
-        newInterfaceController.prix_produit.setText(PrixProd);
+        newInterfaceController.CatProduitChoice.setValue(categorie_prod);
+        newInterfaceController.EtatProdChoices.setValue(etat_prod);
         
+        newInterfaceController.id_prod.setText(id_produit.getText());
         
-        CatProduit.setId(Integer.parseInt(id_categorie_produit.getText()));
-        System.out.println(CatProduit.getId());
-            newInterfaceController.setC(CatProduit);
+        Produit.setId(Integer.parseInt(id_produit.getText()));
+        System.out.println(Produit.getId());
+            //newInterfaceController.set(Produit);
             stage.setScene(new Scene(newInterface));
-            stage.setOnHidden((event1) -> refresh());
+            //stage.setOnHidden((event1) -> refresh());
             stage.show();
-        */
+        
     }
 
     @FXML

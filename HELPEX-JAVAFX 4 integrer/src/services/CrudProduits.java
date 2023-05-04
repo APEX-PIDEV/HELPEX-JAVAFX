@@ -7,6 +7,7 @@ package services;
 
 import entities.CategorieProduit;
 import entities.Produit;
+import help.Help;
 import interfaces.InterfaceProduit;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -41,6 +42,77 @@ public class CrudProduits implements InterfaceProduit{
 
     @Override
 public List<Produit> getAllProduit() {
+        List<Produit> produits = new ArrayList<>();
+    Connection conn = null;
+    PreparedStatement stmt = null;
+    ResultSet rs = null;
+    Produit produit = null;
+
+        
+          try {
+        conn = connection; // Get database connection from MyConnection class
+        String sql = "SELECT * FROM produits WHERE user_id  = ?";
+        stmt = conn.prepareStatement(sql);
+        stmt.setInt(1, Help.loggedUser.getId()); 
+
+        rs = stmt.executeQuery();
+
+        while (rs.next()) {
+                int id = rs.getInt("id");
+                int categoryId = rs.getInt("categorie_produit_id");
+                CrudCategorieProduit categorieProduitService = new CrudCategorieProduit();
+                CategorieProduit categorieProduit = categorieProduitService.getCategorieById(categoryId);
+
+                int userId = rs.getInt("id");
+                String nomProduit = rs.getString("nom_produit");
+                String etatProduit = rs.getString("etat_produit");
+                String prixProduit = rs.getString("prix_produit");
+                boolean authorisation = rs.getBoolean("authorisation");
+                LocalDate created_at = rs.getDate("created_at").toLocalDate();
+                LocalDate updated_at = rs.getDate("updated_at").toLocalDate();
+
+                //Produit produit = new Produit( id,categorieProduit, nomProduit, etatProduit, prixProduit, authorisation);
+                 produit = new Produit(id ,categorieProduit, nomProduit, etatProduit, prixProduit, created_at, updated_at, authorisation);
+                produits.add(produit);
+            }
+    } catch (SQLException e) {
+        e.printStackTrace();
+    } 
+          
+       /* try {
+            
+            conn = MyConnection.getInstance().getConn(); // Get database connection from MyConnection class
+            System.out.println("hello");
+            String sql = "SELECT * FROM produits";
+            stmt = conn.prepareStatement(sql);
+            rs = stmt.executeQuery();
+
+            while (rs.next()) {
+                int id = rs.getInt("id");
+                int categoryId = rs.getInt("categorie_produit_id");
+                CrudCategorieProduit categorieProduitService = new CrudCategorieProduit();
+                CategorieProduit categorieProduit = categorieProduitService.getCategorieById(categoryId);
+
+                int userId = rs.getInt("id");
+                String nomProduit = rs.getString("nom_produit");
+                String etatProduit = rs.getString("etat_produit");
+                String prixProduit = rs.getString("prix_produit");
+                boolean authorisation = rs.getBoolean("authorisation");
+                LocalDate created_at = rs.getDate("created_at").toLocalDate();
+                LocalDate updated_at = rs.getDate("updated_at").toLocalDate();
+
+                //Produit produit = new Produit( id,categorieProduit, nomProduit, etatProduit, prixProduit, authorisation);
+                Produit produit = new Produit(id ,categorieProduit, nomProduit, etatProduit, prixProduit, created_at, updated_at, authorisation);
+                produits.add(produit);
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } */
+
+        return produits;
+    }
+
+public List<Produit> getAllProduitParaShop() {
         List<Produit> produits = new ArrayList<>();
         Connection conn = null;
         PreparedStatement stmt = null;
@@ -143,7 +215,7 @@ public List<Produit> getAllProduit() {
             if (existingCategorieProduit != null)
             {
                 // Insert Produit
-                String sql = "INSERT INTO produits (categorie_produit_id, nom_produit, etat_produit, prix_produit, authorisation ,created_at , updated_at) VALUES (?, ?, ?, ?, ? , ? , ?)";
+                String sql = "INSERT INTO produits (categorie_produit_id, nom_produit, etat_produit, prix_produit, authorisation ,created_at , updated_at,user_id ) VALUES (?, ?, ?, ?, ?, ? , ? , ?)";
                 stmt = conn.prepareStatement(sql);
                 stmt.setInt(1, Cat.getId());
                 stmt.setString(2, produit.getNomProduit());
@@ -153,6 +225,7 @@ public List<Produit> getAllProduit() {
                 LocalDate currentDate = LocalDate.now();
                 stmt.setDate(6, java.sql.Date.valueOf(currentDate)); 
                 stmt.setDate(7, java.sql.Date.valueOf(currentDate)); 
+                stmt.setInt(8,Help.loggedUser.getId());
                 rowsAffected = stmt.executeUpdate();
                 
             }
@@ -198,6 +271,46 @@ int rowsAffected = 0;
             stmt.setBoolean(4, produit.isAuthorization());
 
             stmt.setInt(5, produit.getId());
+            //System.out.println(produit);
+             rowsAffected = stmt.executeUpdate();
+            if (rowsAffected > 0) {
+                {
+                    System.out.println("AfterUpdate="+produit);
+                    result = true;
+                    System.out.println("produit modifié !"+rowsAffected);
+                }
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } 
+    }
+        
+
+        return result;
+    
+    }
+    
+    
+        public boolean updateProduitFront(Produit produit) {
+        Connection conn = MyConnection.getInstance().getConn() ;
+        PreparedStatement stmt = null;
+        ResultSet rs = null;
+        boolean result = false;
+int rowsAffected = 0;
+    if (produit != null){
+        try {
+            // Get database connection from MyConnection class
+            
+            String sql = "UPDATE produits SET nom_produit = ?,  categorie_produit_id = ? ,etat_produit = ?, prix_produit = ? , updated_at = ? WHERE id = ?";
+            stmt = conn.prepareStatement(sql);
+            stmt.setString(1, produit.getNomProduit());
+            stmt.setString(3, produit.getEtatproduit());
+            stmt.setString(2,  Integer.toString(produit.getCategoryProduit().getId()));
+            stmt.setString(4, produit.getPrixProduit());
+            LocalDate currentDate = LocalDate.now();
+                stmt.setDate(5, java.sql.Date.valueOf(currentDate));
+
+            stmt.setInt(6, produit.getId());
             //System.out.println(produit);
              rowsAffected = stmt.executeUpdate();
             if (rowsAffected > 0) {

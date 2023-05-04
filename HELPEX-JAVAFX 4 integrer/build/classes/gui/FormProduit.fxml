@@ -44,6 +44,7 @@
             <ChoiceBox fx:id="CatProduitChoice" layoutX="176.0" layoutY="257.0" prefWidth="150.0" />
             <ChoiceBox fx:id="EtatProdChoices" layoutX="175.0" layoutY="317.0" prefWidth="150.0" />
             <Button fx:id="SaveProduit" layoutX="175.0" layoutY="381.0" mnemonicParsing="false" onAction="#AddProduit" prefHeight="47.0" prefWidth="135.0" text="Save" />
+            <Label fx:id="id_prod" layoutX="176.0" layoutY="91.0" opacity="0.53" text="-1" />
          </children>
       </Pane>
    </children>

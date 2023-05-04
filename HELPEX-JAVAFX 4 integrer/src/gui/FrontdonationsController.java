@@ -137,4 +137,16 @@ public void LoadItem(CaisseOrganisation caisseOrganisation){
             }
     }
     
+           @FXML
+    private void parashop(ActionEvent event) {
+        try {
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("ProduitFront.fxml"));
+                Parent root = loader.load();
+                this.hello.getScene().setRoot(root);
+            } catch (IOException ex) {
+                Logger.getLogger(Socialnetworkfront.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        System.out.println("Hello");
+    }
+    
 }

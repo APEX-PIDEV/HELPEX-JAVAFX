@@ -20,6 +20,7 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
 import javafx.scene.control.ChoiceBox;
+import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.util.Duration;
 import services.CrudCategorieProduit;
@@ -55,6 +56,8 @@ public class FormProduitController implements Initializable {
     public TextField nom_produit;
     @FXML
     public TextField prix_produit;
+    @FXML
+    public Label id_prod;
     
     @Override
     public void initialize(URL url, ResourceBundle rb) {
@@ -166,8 +169,25 @@ public class FormProduitController implements Initializable {
         if (ControlSaisie == true ){
                     String NomProduit = nom_produit.getText();
         String PrixProduit = prix_produit.getText();
+        if (Integer.parseInt(id_prod.getText())>0)
+        {
+            System.out.println(Integer.parseInt(id_prod.getText()));
+            Produit Product = new Produit(Integer.parseInt(id_prod.getText()),C.getByNomCategorie(CategorieName), NomProduit, Etat, PrixProduit, true);
+            if (P.updateProduitFront(Product))
+            {
+                //Notifier Modifier
+        String title = "Product  Updated";
+        String message = "The Product "+nom_produit.getText()+" has been Updated successfully.";
+            NotificationType notificationType = NotificationType.SUCCESS;
+            TrayNotification trayNotification = new TrayNotification(title, message, notificationType);
+        trayNotification.showAndDismiss(Duration.seconds(5));
+            }
+            
+            
         
-        Produit Product = new Produit(C.getByNomCategorie(CategorieName), NomProduit, Etat, PrixProduit, true);
+        }
+        else {
+             Produit Product = new Produit(C.getByNomCategorie(CategorieName), NomProduit, Etat, PrixProduit, true);
         System.out.println(C.getByNomCategorie(CategorieName));
         P.addProduit(Product, C.getByNomCategorie(CategorieName));
         
@@ -178,6 +198,9 @@ public class FormProduitController implements Initializable {
             NotificationType notificationType = NotificationType.SUCCESS;
             TrayNotification trayNotification = new TrayNotification(title, message, notificationType);
         trayNotification.showAndDismiss(Duration.seconds(5));
+        }
+            
+       
         }
 
         

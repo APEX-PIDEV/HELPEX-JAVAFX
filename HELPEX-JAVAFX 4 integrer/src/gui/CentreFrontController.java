@@ -159,6 +159,18 @@ public class CentreFrontController implements Initializable {
             System.out.println("Error: " + ex.getMessage());
         }
     }
+    
+       @FXML
+    private void parashop(ActionEvent event) {
+        try {
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("ProduitFront.fxml"));
+                Parent root = loader.load();
+                this.title.getScene().setRoot(root);
+            } catch (IOException ex) {
+                Logger.getLogger(Socialnetworkfront.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        System.out.println("Hello");
+    }
 
    
   

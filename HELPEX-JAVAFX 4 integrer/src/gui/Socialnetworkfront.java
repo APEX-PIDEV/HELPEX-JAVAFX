@@ -200,7 +200,15 @@ public class Socialnetworkfront implements Initializable {
             }
     }
 
-    @FXML
-    private void shop(ActionEvent event) {
+           @FXML
+    private void parashop(ActionEvent event) {
+        try {
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("ProduitFront.fxml"));
+                Parent root = loader.load();
+                this.NumPostes.getScene().setRoot(root);
+            } catch (IOException ex) {
+                Logger.getLogger(Socialnetworkfront.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        System.out.println("Hello");
     }
 }
