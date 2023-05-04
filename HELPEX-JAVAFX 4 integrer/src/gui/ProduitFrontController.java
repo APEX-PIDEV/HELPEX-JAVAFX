@@ -13,11 +13,18 @@ import javafx.fxml.Initializable;
 import javafx.scene.layout.VBox;
 import services.CrudProduits;
 import entities.Produit;
+import entities.User;
+import help.Help;
 import java.io.IOException;
 import java.time.format.DateTimeFormatter;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
+import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
@@ -36,6 +43,9 @@ public class ProduitFrontController implements Initializable {
     private VBox pnItems;
     @FXML
     private TextField searchfield;
+        @FXML
+    private Label title;
+
     
     //public static int refresh =0; 
 
@@ -88,22 +98,34 @@ id_produit.setText(String.valueOf(Produit.getId()));
         pnItems.getChildren().add(itemPane);
     }
 
-    @FXML
-    private void signout(ActionEvent event) {
-    }
+   
 
     @FXML
     private void AjouterInterface(ActionEvent event) throws IOException {
-         FXMLLoader loader = new FXMLLoader(getClass().getResource("FormProduit.fxml"));
+        CrudCategorieProduit C = new CrudCategorieProduit();
+        if (C.getAllCategories().isEmpty())
+        {
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+        alert.setTitle("Error");
+        alert.setHeaderText("You can't Add Products ");
+        alert.setContentText("ParaShop doesn't Containt any Categorie Produit Please Contact Support apex.helpex@gmail.com.");
+        alert.showAndWait();
+        }
+        else {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("FormProduit.fxml"));
         AnchorPane newInterface = loader.load();
         FormProduitController newInterfaceController = loader.getController();
+        
 
         Stage stage = new Stage();
         stage.setScene(new Scene(newInterface));
         stage.setOnHidden((event1) -> refresh());
         stage.show();
+        }
+         
     }
     
+    @FXML
         public void refresh() {
 
         pnItems.getChildren().clear();
@@ -136,4 +158,86 @@ id_produit.setText(String.valueOf(Produit.getId()));
 
 
     }
+    
+        @FXML
+    private void donations(ActionEvent event) {
+         FXMLLoader loader = new FXMLLoader(getClass().getResource("frontdonations.fxml"));
+        try {
+            Parent root = loader.load();
+            this.title.getScene().setRoot(root);
+
+        } catch (IOException ex) {
+            System.out.println("Error: " + ex.getMessage());
+        }
+    }
+
+    @FXML
+    private void shifts(ActionEvent event) {
+         
+        FXMLLoader loader= null ;
+
+        try {
+            if (Help.loggedUser.getRoles().equals("[\"ROLE_PRO\"]"))
+            {  loader = new FXMLLoader(getClass().getResource("user_Pro/mes_tasks_pro.fxml"));
+
+            }
+            else if (Help.loggedUser.getRoles().equals("[\"ROLE_USER\"]")){
+                loader = new FXMLLoader(getClass().getResource("gui_Tasks/GUI_Tasks.fxml"));
+            }
+
+            Parent root = loader.load();
+            this.title.getScene().setRoot(root);
+        } catch (IOException ex) {
+            Logger.getLogger(LoginController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+
+    @FXML
+    private void formation(ActionEvent event) {
+         try {
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("CentreFront.fxml"));
+                Parent root = loader.load();
+                this.title.getScene().setRoot(root);
+            } catch (IOException ex) {
+                Logger.getLogger(LoginController.class.getName()).log(Level.SEVERE, null, ex);
+            }
+    }
+    
+        @FXML
+    private void profile(ActionEvent event) {
+        
+            try {
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("ProfileUpdate.fxml"));
+                Parent root = loader.load();
+                this.title.getScene().setRoot(root);
+            } catch (IOException ex) {
+                Logger.getLogger(ProfileUpdateController.class.getName()).log(Level.SEVERE, null, ex);
+            }
+    }
+
+    @FXML
+    private void signout(ActionEvent event) {
+        
+            try {
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("Login.fxml"));
+                Parent root = loader.load();
+                this.title.getScene().setRoot(root);
+            } catch (IOException ex) {
+                Logger.getLogger(LoginController.class.getName()).log(Level.SEVERE, null, ex);
+            }
+    }
+    
+    
+    @FXML
+    private void blog(ActionEvent event) {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("Socialnetworkfront.fxml"));
+        try {
+            Parent root = loader.load();
+            this.title.getScene().setRoot(root);
+
+        } catch (IOException ex) {
+            System.out.println("Error: " + ex.getMessage());
+        }
+    }
+    
 }
