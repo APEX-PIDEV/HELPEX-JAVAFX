@@ -37,7 +37,7 @@ public class CRUDPoste implements InterfacePoste{
 
             System.out.println("poste ajouter avec succes");
         } catch (SQLException ex) {
-            System.out.println("poste non ajouter");        }
+            System.out.println(ex.getMessage());        }
     }
 
     @Override

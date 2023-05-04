@@ -98,7 +98,7 @@ public void processPayment() throws StripeException {
 
         try {
             Charge charge = Charge.create(chargeParams);
-            //sendSMS(montant,numeroTel.getText());
+            sendSMS(montant,numeroTel.getText());
             JavaMail.sendMail("oussema.ayari2001@gmail.com");
             System.out.println("Paiement réussi : " );
             CaisseOrganisationCRUD caisseCRUD=new CaisseOrganisationCRUD();

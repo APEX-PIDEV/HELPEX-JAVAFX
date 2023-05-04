@@ -6,40 +6,15 @@
   <component name="ChangeListManager">
     <list default="true" id="969e08b1-da13-4644-ae37-d1c76c8e78a2" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Formation-aaaa.pdf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Formation-hello.pdf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/HELPEX-JAVAFX 4 integrer/entities/Produit.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/HELPEX-JAVAFX 4 integrer/entities/Produit.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/HELPEX-JAVAFX 4 integrer/gui/AjoutFFrontController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/HELPEX-JAVAFX 4 integrer/gui/AjoutFFrontController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/HELPEX-JAVAFX 4 integrer/gui/AjouterCommentaire.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/HELPEX-JAVAFX 4 integrer/gui/AjouterCommentaire.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/HELPEX-JAVAFX 4 integrer/gui/AjouterCommentaireController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/HELPEX-JAVAFX 4 integrer/gui/AjouterCommentaireController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/HELPEX-JAVAFX 4 integrer/gui/AjouterF.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/HELPEX-JAVAFX 4 integrer/gui/AjouterF.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/HELPEX-JAVAFX 4 integrer/gui/AjouterFormationController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/HELPEX-JAVAFX 4 integrer/gui/AjouterFormationController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/HELPEX-JAVAFX 4 integrer/gui/CentreController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/HELPEX-JAVAFX 4 integrer/gui/CentreController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/HELPEX-JAVAFX 4 integrer/gui/CentreFront.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/HELPEX-JAVAFX 4 integrer/gui/CentreFront.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/HELPEX-JAVAFX 4 integrer/gui/CentreFrontController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/HELPEX-JAVAFX 4 integrer/gui/CentreFrontController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/HELPEX-JAVAFX 4 integrer/gui/Dashboard.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/HELPEX-JAVAFX 4 integrer/gui/Dashboard.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/HELPEX-JAVAFX 4 integrer/gui/DashboardController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/HELPEX-JAVAFX 4 integrer/gui/DashboardController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/HELPEX-JAVAFX 4 integrer/gui/FirstWindow.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/HELPEX-JAVAFX 4 integrer/gui/FirstWindow.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/HELPEX-JAVAFX 4 integrer/gui/FrontdonationsController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/HELPEX-JAVAFX 4 integrer/gui/FrontdonationsController.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/HELPEX-JAVAFX 4 integrer/gui/Login.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/HELPEX-JAVAFX 4 integrer/gui/Login.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/HELPEX-JAVAFX 4 integrer/gui/ProUsersFront.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/HELPEX-JAVAFX 4 integrer/gui/ProUsersFront.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/HELPEX-JAVAFX 4 integrer/gui/ProUsersFrontController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/HELPEX-JAVAFX 4 integrer/gui/ProUsersFrontController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/HELPEX-JAVAFX 4 integrer/gui/Profile.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/HELPEX-JAVAFX 4 integrer/gui/Profile.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/HELPEX-JAVAFX 4 integrer/gui/ProfileController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/HELPEX-JAVAFX 4 integrer/gui/ProfileController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/HELPEX-JAVAFX 4 integrer/gui/ProfileUpdate.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/HELPEX-JAVAFX 4 integrer/gui/ProfileUpdate.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/HELPEX-JAVAFX 4 integrer/gui/ProfileUpdateController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/HELPEX-JAVAFX 4 integrer/gui/ProfileUpdateController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/HELPEX-JAVAFX 4 integrer/gui/frontdonations.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/HELPEX-JAVAFX 4 integrer/gui/frontdonations.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/HELPEX-JAVAFX 4 integrer/gui/gui_Tasks/GuiTaskAdmin.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/HELPEX-JAVAFX 4 integrer/gui/gui_Tasks/GuiTaskAdmin.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/HELPEX-JAVAFX 4 integrer/gui/gui_Tasks/Tasks_Controller.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/HELPEX-JAVAFX 4 integrer/gui/gui_Tasks/Tasks_Controller.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/HELPEX-JAVAFX 4 integrer/gui/user_Pro/ItemProUser$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/HELPEX-JAVAFX 4 integrer/gui/user_Pro/ItemProUser$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/HELPEX-JAVAFX 4 integrer/gui/user_Pro/ItemProUser.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/HELPEX-JAVAFX 4 integrer/gui/user_Pro/ItemProUser.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/HELPEX-JAVAFX 4 integrer/services/CrudCategorieProduit.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/HELPEX-JAVAFX 4 integrer/services/CrudCategorieProduit.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/HELPEX-JAVAFX 4 integrer/services/CrudProduits.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/HELPEX-JAVAFX 4 integrer/services/CrudProduits.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/HELPEX-JAVAFX 4 integrer/utils/JavaMail$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/HELPEX-JAVAFX 4 integrer/utils/JavaMail$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/HELPEX-JAVAFX 4 integrer/gui/SignUpCli.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/HELPEX-JAVAFX 4 integrer/gui/SignUpCli.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/HELPEX-JAVAFX 4 integrer/gui/StripeController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/HELPEX-JAVAFX 4 integrer/gui/StripeController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/HELPEX-JAVAFX 4 integrer/services/CRUDPoste.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/HELPEX-JAVAFX 4 integrer/services/CRUDPoste.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/gui/AjoutFFrontController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/AjoutFFrontController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/gui/Login.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/Login.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/gui/user_Pro/ItemProUser.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/user_Pro/ItemProUser.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/utils/JavaMail.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/JavaMail.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/gui/SignUpCli.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/SignUpCli.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/gui/StripeController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/StripeController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/services/CRUDPoste.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/services/CRUDPoste.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
