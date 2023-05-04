@@ -120,13 +120,13 @@ public void sendEmail() {
             new javax.mail.Authenticator() {
                 @Override
                 protected javax.mail.PasswordAuthentication getPasswordAuthentication() {
-                    return new javax.mail.PasswordAuthentication("aidme.io.tn@gmail.com", "pjbrnycqrolmwtyh");
+                    return new javax.mail.PasswordAuthentication("oussema.ayari2001@gmail.com", "osdysqsfjqbwveyn");
                 }
             });
 
     try {
         Message message = new MimeMessage(session);
-        message.setFrom(new InternetAddress("aidme.io.tn@gmail.com"));
+        message.setFrom(new InternetAddress("oussema.ayari2001@gmail.com"));
         message.setRecipients(Message.RecipientType.TO,
                 InternetAddress.parse("naimihedia1@gmail.com"));
         message.setSubject("Task information");

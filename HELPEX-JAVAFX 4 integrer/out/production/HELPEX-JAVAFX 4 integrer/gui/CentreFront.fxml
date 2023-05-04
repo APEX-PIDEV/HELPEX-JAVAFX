@@ -85,11 +85,11 @@
       </Pane>
       <HBox layoutX="227.0" layoutY="91.0" prefHeight="66.0" prefWidth="938.0">
          <children>
-            <Button mnemonicParsing="false" prefHeight="58.0" prefWidth="102.0" style="-fx-background-radius: 50; -fx-background-color: #21cdc0;" text="donations" />
-            <Button layoutX="10.0" layoutY="10.0" mnemonicParsing="false" prefHeight="58.0" prefWidth="102.0" style="-fx-background-radius: 50; -fx-background-color: #435ba1;" text="Accompagnement" />
+            <Button mnemonicParsing="false" onAction="#donations" prefHeight="58.0" prefWidth="102.0" style="-fx-background-radius: 50; -fx-background-color: #21cdc0;" text="donations" />
+            <Button layoutX="10.0" layoutY="10.0" mnemonicParsing="false" onAction="#accompagnement" prefHeight="58.0" prefWidth="102.0" style="-fx-background-radius: 50; -fx-background-color: #435ba1;" text="Accompagnement" />
             <Button layoutX="10.0" layoutY="10.0" mnemonicParsing="false" onAction="#formationNavBar" prefHeight="58.0" prefWidth="102.0" style="-fx-background-radius: 50; -fx-background-color: #21cdc0;" text="formations" />
-            <Button layoutX="10.0" layoutY="10.0" mnemonicParsing="false" prefHeight="58.0" prefWidth="102.0" style="-fx-background-radius: 50; -fx-background-color: #435ba1;" text="blog" />
-            <Button layoutX="10.0" layoutY="10.0" mnemonicParsing="false" prefHeight="58.0" prefWidth="102.0" style="-fx-background-radius: 50; -fx-background-color: #21cdc0;" text="shop" />
+            <Button layoutX="10.0" layoutY="10.0" mnemonicParsing="false" onAction="#blog" prefHeight="58.0" prefWidth="102.0" style="-fx-background-radius: 50; -fx-background-color: #435ba1;" text="blog" />
+            <Button layoutX="10.0" layoutY="10.0" mnemonicParsing="false" onAction="#parashop" prefHeight="58.0" prefWidth="102.0" style="-fx-background-radius: 50; -fx-background-color: #21cdc0;" text="shop" />
             <Button layoutX="10.0" layoutY="10.0" mnemonicParsing="false" onAction="#profileNavBar" prefHeight="58.0" prefWidth="102.0" style="-fx-background-radius: 50; -fx-background-color: #435ba1;" text="Profile" />
             <Button layoutX="10.0" layoutY="10.0" mnemonicParsing="false" onAction="#signout" prefHeight="58.0" prefWidth="102.0" style="-fx-background-radius: 50; -fx-background-color: #21cdc0;" text="SignOut" />
          </children>

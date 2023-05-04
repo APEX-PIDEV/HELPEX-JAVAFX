@@ -100,8 +100,8 @@ tableF.setStyle("-fx-background-color: #f4f4f4;");
               c= tableF.getSelectionModel().getSelectedItem();
                 try {
                 //send email to emailField.getText()
-                    sendSMS(c.getNomFormation(),"test");
-                JavaMail.sendMail("",c);
+                  //  sendSMS(c.getNomFormation(),"test");
+                    JavaMail.sendMail("ahmedbelhajhassen22@gmail.com",c);
             } catch (Exception ex) {
                 Logger.getLogger(ItemCentreController.class.getName()).log(Level.SEVERE, null, ex);
             }

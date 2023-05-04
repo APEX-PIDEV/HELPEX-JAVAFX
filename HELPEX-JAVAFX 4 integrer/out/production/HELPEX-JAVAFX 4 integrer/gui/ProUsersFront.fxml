@@ -15,22 +15,7 @@
 
 <AnchorPane id="AnchorPane" prefHeight="670.0" prefWidth="1203.0" style="-fx-background-color: #435ba1;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.ProUsersFrontController">
       <children>
-      <Pane prefHeight="111.0" prefWidth="1374.0" style="-fx-background-color: #def8f6;">
-         <children>
-            <HBox layoutX="217.0" layoutY="81.0" prefHeight="66.0" prefWidth="938.0">
-               <children>
-                  <Button mnemonicParsing="false" prefHeight="58.0" prefWidth="102.0" style="-fx-background-radius: 50; -fx-background-color: #21cdc0;" text="Home" />
-                  <Button layoutX="10.0" layoutY="10.0" mnemonicParsing="false" onMouseClicked="#accompButton" prefHeight="58.0" prefWidth="102.0" style="-fx-background-radius: 50; -fx-background-color: #435ba1;" text="Accompagnement" />
-                  <Button layoutX="10.0" layoutY="10.0" mnemonicParsing="false" prefHeight="58.0" prefWidth="102.0" style="-fx-background-radius: 50; -fx-background-color: #21cdc0;" text="formations" />
-                  <Button layoutX="10.0" layoutY="10.0" mnemonicParsing="false" prefHeight="58.0" prefWidth="102.0" style="-fx-background-radius: 50; -fx-background-color: #435ba1;" text="blog" />
-                  <Button layoutX="10.0" layoutY="10.0" mnemonicParsing="false" prefHeight="58.0" prefWidth="102.0" style="-fx-background-radius: 50; -fx-background-color: #21cdc0;" text="shop" />
-                  <Button layoutX="10.0" layoutY="10.0" mnemonicParsing="false" onAction="#profile" prefHeight="58.0" prefWidth="102.0" style="-fx-background-radius: 50; -fx-background-color: #435ba1;" text="Profile" />
-                  <Button mnemonicParsing="false" onAction="#pro" prefHeight="58.0" prefWidth="102.0" style="-fx-background-radius: 50; -fx-background-color: #21cdc0;" text="Professionals" />
-                  <Button fx:id="signoutBtn" mnemonicParsing="false" onAction="#signout" prefHeight="58.0" prefWidth="102.0" style="-fx-background-radius: 50; -fx-background-color: #435ba1;" text="SignOut" />
-               </children>
-            </HBox>
-         </children>
-      </Pane>
+      <Pane prefHeight="111.0" prefWidth="1374.0" style="-fx-background-color: #def8f6;" />
       <ImageView fitHeight="167.0" fitWidth="272.0" layoutX="-11.0" layoutY="37.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../images/helpex.png" />
@@ -98,6 +83,17 @@
                      </image>
                   </ImageView>
                   <Label fx:id="label" layoutX="308.0" layoutY="220.0" />
+                  <HBox layoutX="398.0" layoutY="76.0" prefHeight="66.0" prefWidth="938.0">
+                     <children>
+                        <Button mnemonicParsing="false" prefHeight="58.0" prefWidth="102.0" style="-fx-background-radius: 50; -fx-background-color: #21cdc0;" text="donations" />
+                        <Button layoutX="10.0" layoutY="10.0" mnemonicParsing="false" onAction="#accompButton" prefHeight="58.0" prefWidth="102.0" style="-fx-background-radius: 50; -fx-background-color: #435ba1;" text="Accompagnement" />
+                        <Button layoutX="10.0" layoutY="10.0" mnemonicParsing="false" prefHeight="58.0" prefWidth="102.0" style="-fx-background-radius: 50; -fx-background-color: #21cdc0;" text="formations" />
+                        <Button layoutX="10.0" layoutY="10.0" mnemonicParsing="false" prefHeight="58.0" prefWidth="102.0" style="-fx-background-radius: 50; -fx-background-color: #435ba1;" text="blog" />
+                        <Button layoutX="10.0" layoutY="10.0" mnemonicParsing="false" prefHeight="58.0" prefWidth="102.0" style="-fx-background-radius: 50; -fx-background-color: #21cdc0;" text="shop" />
+                        <Button layoutX="10.0" layoutY="10.0" mnemonicParsing="false" onAction="#profileNavBar" prefHeight="58.0" prefWidth="102.0" style="-fx-background-radius: 50; -fx-background-color: #435ba1;" text="Profile" />
+                        <Button layoutX="10.0" layoutY="10.0" mnemonicParsing="false" onAction="#signout" prefHeight="58.0" prefWidth="102.0" style="-fx-background-radius: 50; -fx-background-color: #21cdc0;" text="SignOut" />
+                     </children>
+                  </HBox>
                </children>
             </Pane>
          </children>
