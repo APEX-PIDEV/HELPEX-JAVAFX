@@ -97,13 +97,13 @@ public class ProfileUpdateController implements Initializable {
                     us.updateProfile(Help.loggedUser);
         
       
-            FXMLLoader homeLoader = new FXMLLoader(getClass().getResource("Profile.fxml"));
-      
-        try {
-            Parent homeNode = homeLoader.load();
-        } catch (IOException ex) {
-            Logger.getLogger(ProfileUpdateController.class.getName()).log(Level.SEVERE, null, ex);
-        }
+           try {
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("Profile.fxml"));
+                Parent root = loader.load();
+                this.bio.getScene().setRoot(root);
+            } catch (IOException ex) {
+                Logger.getLogger(LoginController.class.getName()).log(Level.SEVERE, null, ex);
+            }
       
            
       
@@ -122,10 +122,87 @@ public class ProfileUpdateController implements Initializable {
             }
     }
 
-    @FXML
     private void profile(ActionEvent event) {
          try {
                 FXMLLoader loader = new FXMLLoader(getClass().getResource("Profile.fxml"));
+                Parent root = loader.load();
+                this.bio.getScene().setRoot(root);
+            } catch (IOException ex) {
+                Logger.getLogger(LoginController.class.getName()).log(Level.SEVERE, null, ex);
+            }
+    }
+
+    @FXML
+    private void donationsFront(ActionEvent event) {
+         FXMLLoader loader = new FXMLLoader(getClass().getResource("frontdonations.fxml"));
+        try {
+            Parent root = loader.load();
+            bio.getScene().setRoot(root);
+
+        } catch (IOException ex) {
+            System.out.println("Error: " + ex.getMessage());
+        }
+    }
+
+    @FXML
+    private void switchAcc(ActionEvent event) {
+          System.out.println(Help.loggedUser);
+        FXMLLoader loader= null ;
+
+        try {
+            if (Help.loggedUser.getRoles().equals("[\"ROLE_PRO\"]"))
+            {  loader = new FXMLLoader(getClass().getResource("user_Pro/mes_tasks_pro.fxml"));
+
+            }
+            else if (Help.loggedUser.getRoles().equals("[\"ROLE_USER\"]")){
+                loader = new FXMLLoader(getClass().getResource("gui_Tasks/GUI_Tasks.fxml"));
+            }
+
+            Parent root = loader.load();
+            this.bio.getScene().setRoot(root);
+        } catch (IOException ex) {
+            Logger.getLogger(LoginController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+
+    @FXML
+    private void formationNavBar(ActionEvent event) {
+          try {
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("CentreFront.fxml"));
+                Parent root = loader.load();
+                this.bio.getScene().setRoot(root);
+            } catch (IOException ex) {
+                Logger.getLogger(LoginController.class.getName()).log(Level.SEVERE, null, ex);
+            }
+    }
+
+    @FXML
+    private void Blog(ActionEvent event) {
+         try {
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("Socialnetworkfront.fxml"));
+                Parent root = loader.load();
+                this.bio.getScene().setRoot(root);
+            } catch (IOException ex) {
+                Logger.getLogger(Socialnetworkfront.class.getName()).log(Level.SEVERE, null, ex);
+            }
+    }
+
+    @FXML
+    private void parashop(ActionEvent event) {
+         try {
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("ProduitFront.fxml"));
+                Parent root = loader.load();
+                this.bio.getScene().setRoot(root);
+            } catch (IOException ex) {
+                Logger.getLogger(Socialnetworkfront.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        System.out.println("Hello");
+    }
+
+    @FXML
+    private void pro(ActionEvent event) {
+         try {
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("ProUsersFront.fxml"));
                 Parent root = loader.load();
                 this.bio.getScene().setRoot(root);
             } catch (IOException ex) {

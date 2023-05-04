@@ -89,7 +89,7 @@ public class ProUsersFrontController implements Initializable {
       prenomLabel.setText(user.getPrenom());
         adresseLabel.setText(user.getAdresse());
          numLabel.setText(user.getNum_tel());
-                 tarifLabel.setText(String.valueOf(user.getNum_tel()));
+                 tarifLabel.setText(String.valueOf(user.getTarif()));
 
         pnItems.getChildren().add(itemPane);
 

@@ -207,7 +207,7 @@ id_produit.setText(String.valueOf(Produit.getId()));
     private void profile(ActionEvent event) {
         
             try {
-                FXMLLoader loader = new FXMLLoader(getClass().getResource("ProfileUpdate.fxml"));
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("Profile.fxml"));
                 Parent root = loader.load();
                 this.title.getScene().setRoot(root);
             } catch (IOException ex) {
