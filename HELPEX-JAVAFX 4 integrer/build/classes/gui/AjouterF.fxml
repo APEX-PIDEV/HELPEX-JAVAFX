@@ -26,8 +26,8 @@
                   <TextField fx:id="txtnombredeplaceF" layoutX="109.0" layoutY="161.0" />
                   <TextField fx:id="txtdureeF" layoutX="80.0" layoutY="215.0" />
                   <TextField fx:id="txtdescriptionF" layoutX="93.0" layoutY="76.0" />
-                  <TextField fx:id="txt_id_centre" layoutX="80.0" layoutY="268.0" />
-                  <Label layoutX="20.0" layoutY="272.0" text="id_cecntre" textFill="#faf6f6" />
+                  <TextField fx:id="txt_id_centre" layoutX="80.0" layoutY="268.0" opacity="0.0" />
+                  <Label layoutX="20.0" layoutY="272.0" opacity="0.0" text="id_cecntre" textFill="#faf6f6" />
                </children>
             </Pane>
             <Button fx:id="btnAddF" layoutX="49.0" layoutY="426.0" mnemonicParsing="false" onAction="#Add" prefHeight="62.0" prefWidth="85.0" text="Add" />
@@ -43,11 +43,7 @@
                   <TableColumn fx:id="DUREEColumn" prefWidth="151.199951171875" text="DUREE" />
                </columns>
             </TableView>
-            <Button fx:id="btnimprimer" layoutX="571.0" layoutY="468.0" mnemonicParsing="false" onAction="#imprimerF" prefHeight="50.0" prefWidth="111.0" text="imprimer" />
-            <Button fx:id="inscribtn" layoutX="715.0" layoutY="468.0" mnemonicParsing="false" onAction="#inscriptionF" prefHeight="50.0" prefWidth="111.0" text="inscription" />
-            <Button fx:id="btnlocalisation" layoutX="390.0" layoutY="463.0" mnemonicParsing="false" onAction="#localisationF" prefHeight="50.0" prefWidth="111.0" text="localisation" />
             <ImageView fitHeight="112.0" fitWidth="150.0" layoutX="140.0" layoutY="27.0" pickOnBounds="true" preserveRatio="true" />
-            <Button fx:id="genererQRF" layoutX="682.0" layoutY="32.0" mnemonicParsing="false" onAction="#genererQR" prefHeight="50.0" prefWidth="111.0" text="code qr" />
          </children>
       </AnchorPane>
    </children>

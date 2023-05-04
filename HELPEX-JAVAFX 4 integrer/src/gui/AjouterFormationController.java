@@ -112,14 +112,6 @@ public class AjouterFormationController implements Initializable {
     private TextField txt_id_centre;
     
     private Centre F;
-    @FXML
-    private Button btnimprimer;
-    @FXML
-    private Button inscribtn;
-    @FXML
-    private Button btnlocalisation;
-    @FXML
-    private Button genererQRF;
 
     public Centre getF() {
         return F;
@@ -284,7 +276,6 @@ NOMColumnF.setCellValueFactory(f -> new SimpleStringProperty(f.getValue().getNom
               table();
     }
 
-    @FXML
     private void imprimerF(ActionEvent event) {
              CRUDFormation  rcd = new  CRUDFormation();
         Formation c= new Formation();
@@ -335,7 +326,6 @@ public void sendSMS(String nom,String numeroTel) throws IOException {
 
         return sb.toString();
     }
-    @FXML
     private void inscriptionF(ActionEvent event) {
           Formation c= new Formation();
               c= tableF.getSelectionModel().getSelectedItem();
@@ -349,7 +339,6 @@ public void sendSMS(String nom,String numeroTel) throws IOException {
                 
     }
 
-    @FXML
     private void localisationF(ActionEvent event) {
           Formation c= new Formation();
               c= tableF.getSelectionModel().getSelectedItem();
@@ -363,22 +352,6 @@ public void sendSMS(String nom,String numeroTel) throws IOException {
 
     }
 
-    @FXML
-    private void genererQR(ActionEvent event) {
-        /* Formation c = tableF.getSelectionModel().getSelectedItem();
-    String data = c.getNomFormation() + "\n" + c.getDescriptionFormation();
-    ByteArrayOutputStream out = QRCode.from(data).to(ImageType.PNG).stream();
-    InputStream is = new ByteArrayInputStream(out.toByteArray());
-    Image image = new Image(is) ;
-    ImageView imageView = new ImageView(image);
-    imageView.setFitWidth(300);
-    imageView.setFitHeight(300);
-    Dialog<ButtonType> dialog = new Dialog<>();
-    dialog.setTitle("Code QR de la formation " + c.getNomFormation());
-    dialog.getDialogPane().setContent(imageView);
-    dialog.getDialogPane().getButtonTypes().add(ButtonType.OK);
-    dialog.showAndWait();*/
-    }
     
    
     
